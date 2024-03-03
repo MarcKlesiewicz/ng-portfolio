@@ -1,0 +1,23 @@
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+#moon {
+  position: absolute;
+  animation: scaleAnimation 10s infinite alternate ease-in-out;
+}
+
+#brand {
+  position: absolute;
+  animation: fadeInAnimation 2s ease-in-out forwards;
+  opacity: 0;
+}

@@ -1,0 +1,34 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+//Import the fonts
+//Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+//Berkshire Swash
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+//EB Garamond
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+
+// stylelint-disable-next-line selector-max-universal
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+}
+
+:root {
+  --primary-color: #050024;
+  --on-primary-color: #ece4dc;
+  --secondary-color: #7e6300;
+  --on-secondary-color: #ece4dc;
+  --tertiary-color: #600106;
+  --on-tertiary-color: #ece4dc;
+}

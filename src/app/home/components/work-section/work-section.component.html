@@ -1,0 +1,27 @@
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+  <div style="max-width: 700px; width: 100%">
+    <div class="stacked-container">
+      <object data="assets/svgs/wavy.svg" type="image/svg+xml"></object>
+      <div class="text-container">
+        <div class="text-content">
+          <h2>Work</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="work-list">
+    <div *ngFor="let work of workPlaces">
+      <mat-grid-list cols="12" rowHeight="50px">
+        <mat-grid-tile [colspan]="4">
+          <h3 class="period">{{ work.startYear }} - {{ work.endYear }}</h3>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="8">
+          <h2 class="workplace">{{ work.name }} ({{ work.occupation }})</h2>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+  <div style="max-width: 700px; width: 100%">
+    <object data="assets/svgs/wavy.svg" type="image/svg+xml"></object>
+  </div>
+</div>
