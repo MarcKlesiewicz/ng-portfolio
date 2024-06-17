@@ -1,27 +1,25 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
-  <div style="max-width: 700px; width: 100%">
-    <div class="stacked-container">
-      <object data="assets/svgs/wavy.svg" type="image/svg+xml"></object>
-      <div class="text-container">
-        <div class="text-content">
-          <h2>Work</h2>
-        </div>
-      </div>
+<div class="w-full flex gap-6 flex-col items-center justify-center">
+  <div class="max-w-[700px] w-full relative">
+    <object type="image/svg+xml" data="assets\svgs\wavy.svg"></object>
+    <div class="px-5 absolute top-0 left-0 w-full h-full flex items-center justify-center">
+      <p class="text-2xl sm:text-3xl secondary-text bg-primary ff-gara font-bold px-3">Work</p>
     </div>
   </div>
-  <div class="work-list">
+  <div class="max-w-[700px] w-full">
     <div *ngFor="let work of workPlaces">
       <mat-grid-list cols="12" rowHeight="50px">
         <mat-grid-tile [colspan]="4">
-          <h3 class="period">{{ work.startYear }} - {{ work.endYear }}</h3>
+          <p class="text-base sm:text-xl ff-mont secondary-text absolute left-4">
+            {{ work.startYear }} - {{ work.endYear }}
+          </p>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="8">
-          <h2 class="workplace">{{ work.name }} ({{ work.occupation }})</h2>
+          <p class="text-base sm:text-2xl ff-berk secondary-text absolute left-1">
+            {{ work.name }} ({{ work.occupation }})
+          </p>
         </mat-grid-tile>
       </mat-grid-list>
     </div>
   </div>
-  <div style="max-width: 700px; width: 100%">
-    <object data="assets/svgs/wavy.svg" type="image/svg+xml"></object>
-  </div>
+  <object class="max-w-[700px] w-full" type="image/svg+xml" data="assets\svgs\wavy.svg"></object>
 </div>

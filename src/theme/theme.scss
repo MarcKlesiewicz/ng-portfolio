@@ -32,3 +32,31 @@ body {
   --tertiary-color: #600106;
   --on-tertiary-color: #ece4dc;
 }
+
+.ff-mont {
+  font-family: "Montserrat", sans-serif;
+}
+
+.ff-berk {
+  font-family: "Berkshire Swash", cursive;
+}
+
+.ff-gara {
+  font-family: "EB Garamond", serif;
+}
+
+.primary-text {
+  color: var(--primary-color);
+}
+
+.secondary-text {
+  color: var(--secondary-color);
+}
+
+.tertiary-text {
+  color: var(--tertiary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
