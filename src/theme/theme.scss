@@ -60,3 +60,19 @@ body {
 .bg-primary {
   background-color: var(--primary-color);
 }
+
+.primary-filter {
+  filter: invert(10%) sepia(7%) saturate(7494%) hue-rotate(217deg) brightness(88%) contrast(122%);
+}
+
+.secondary-filter {
+  filter: invert(31%) sepia(96%) saturate(875%) hue-rotate(25deg) brightness(80%) contrast(150%);
+}
+
+.tertiary-filter {
+  filter: invert(5%) sepia(71%) saturate(6431%) hue-rotate(351deg) brightness(102%) contrast(104%);
+}
+
+.light-filter {
+  filter: invert(93%) sepia(4%) saturate(1068%) hue-rotate(324deg) brightness(106%) contrast(85%);
+}

@@ -6,12 +6,11 @@ import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, UntilDestroy, untilDestroyed } from '@shared';
 import { I18nService } from '@app/i18n';
+import { Logger } from './shared/services/logger.service';
 
 const log = new Logger('App');
 
-@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -50,8 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
           return route;
         }),
         filter((route) => route.outlet === 'primary'),
-        switchMap((route) => route.data),
-        untilDestroyed(this)
+        switchMap((route) => route.data)
       )
       .subscribe((event) => {
         const title = event['title'];

@@ -1,0 +1,3 @@
+<a (mouseover)="isHovering = true" (mouseout)="isHovering = false" href="{{ link }}">
+  <img [ngClass]="isHovering ? hoverFilter ?? '' : defaultFilter ?? ''" src="{{ iconPath }}" alt="{{ iconAlt }}" />
+</a>
