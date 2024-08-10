@@ -1,0 +1,23 @@
+<div class="flex flex-col w-full items-center justify-center max-w-[700px] gap-2">
+  <p class="text-5xl ff-gara font-semibold">Who is Marc?</p>
+  <p class="text-2xl ff-mont">by</p>
+  <mat-select panelClass="custom-dropdown-panel" [(value)]="selectedOption" style="width: auto">
+    <mat-option *ngFor="let option of descriptionOptions" [value]="option.value">{{ option.viewValue }}</mat-option>
+  </mat-select>
+
+  <div class="flex flex-row gap-5 ff-mont mt-4">
+    <p class="flex-1">
+      Hello! I am a 28-year-old computer scientist-trained app developer who originally comes from Lolland, but has
+      lived the last 3 years in Odense with my girlfriend Mathilde and our dog Cody. My education and profession reflect
+      my interests very well, in the form of own projects and experimentation with unknown (at least for me) software.
+      When I'm not coding, I like to geek out on music or movies. Sometimes I also jump into construction projects -
+      e.g. we have built an allotment garden ourselves. Otherwise, I can be found with my head buried in a boardgame or
+      on one of Odense's many paddle courts. Would describe myself as a very "down-to-earth" and approachable
+      personality.Appreciate genuine communities and go to great lengths to achieve my or shared goals.
+    </p>
+    <div class="flex-1 relative">
+      <img src="assets/images/me.jpg" alt="" class="rounded-xl" />
+      <img src="assets/images/avatar.png" alt="" class="avatar spin-slow rounded-full" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+@keyframes spin-slow {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.avatar {
+  position: absolute;
+  top: -5%; /* Adjust this value to move the avatar slightly outside the top */
+  right: -5%; /* Adjust this value to move the avatar slightly outside the right */
+  max-height: 100px;
+  transform: translate(50%, -50%);
+  border: 5px var(--on-primary-color) solid;
+}
