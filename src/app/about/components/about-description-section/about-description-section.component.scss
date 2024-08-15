@@ -13,9 +13,19 @@
 
 .avatar {
   position: absolute;
-  top: -5%; /* Adjust this value to move the avatar slightly outside the top */
-  right: -5%; /* Adjust this value to move the avatar slightly outside the right */
-  max-height: 100px;
+  top: -15px;
+  right: 30px;
+  max-height: 75px;
   transform: translate(50%, -50%);
   border: 5px var(--on-primary-color) solid;
+}
+
+.main-image {
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.constrained-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
