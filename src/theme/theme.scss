@@ -11,6 +11,8 @@
 //EB Garamond
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
 // stylelint-disable-next-line selector-max-universal
 * {
   box-sizing: border-box;
@@ -49,6 +51,10 @@ body {
   color: var(--primary-color);
 }
 
+.on-primary-text {
+  color: var(--on-primary-color);
+}
+
 .secondary-text {
   color: var(--secondary-color);
 }
@@ -79,4 +85,17 @@ body {
 
 .light-filter {
   filter: invert(93%) sepia(4%) saturate(1068%) hue-rotate(324deg) brightness(106%) contrast(85%);
+}
+
+.bread-text {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.08rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  white-space: pre-line;
+}
+
+.constrained-container {
+  max-width: 768px;
 }
