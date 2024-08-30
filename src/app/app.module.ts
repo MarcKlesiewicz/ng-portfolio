@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 
 import { environment } from '@env/environment';
 import { HomeModule } from './home/home.module';
@@ -23,7 +22,6 @@ import { AppRoutingModule } from './app-routing.module';
     RouterModule,
     TranslateModule.forRoot(),
     BrowserAnimationsModule,
-    MaterialModule,
     HomeModule,
     AboutModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route

@@ -1,15 +1,16 @@
-<div class="flex flex-col items-center justify-center gap-2 px-4 md:px-0">
+<div class="flex flex-col items-center justify-center gap-2 px-4 md:px-0 text-primary">
   <p class="md:text-5xl text-3xl ff-gara font-semibold">Who is Marc?</p>
   <p class="md:text-2xl text-xl ff-mont">by</p>
-  <mat-select
-    class="text-sm ff-mont"
-    panelClass="custom-dropdown-panel"
-    [(value)]="selectedOption"
-    (valueChange)="optionChanged($event)"
-    style="width: auto"
+
+  <select
+    [(ngModel)]="selectedOption"
+    (ngModelChange)="updateDescription($event)"
+    class="select select-ghost w-full max-w-xs text-sm ff-mont"
   >
-    <mat-option *ngFor="let option of descriptionOptions" [value]="option.value">{{ option.viewValue }}</mat-option>
-  </mat-select>
+    <option *ngFor="let option of descriptionOptions" [value]="option.value">
+      {{ option.viewValue }}
+    </option>
+  </select>
 
   <div class="flex md:flex-row flex-col gap-5 mt-4 items-start justify-center bread-text text-xs">
     <p class="m-0 flex-1">

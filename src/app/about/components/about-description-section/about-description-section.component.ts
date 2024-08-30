@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./about-description-section.component.scss'],
 })
 export class AboutDescriptionSectionComponent {
-  birthDate = new Date(1995, 3, 21);
-  age = this.calculateAge(this.birthDate);
   selectedOption = 'myself-long';
   selectedDescription = this.getDescription(this.selectedOption);
+  private birthDate = new Date(1995, 3, 21);
+  private age = this.calculateAge(this.birthDate);
 
   descriptionOptions = [
     {
@@ -26,10 +26,8 @@ export class AboutDescriptionSectionComponent {
     },
   ];
 
-  optionChanged(event: string) {
-    this.selectedOption = event;
-
-    this.selectedDescription = this.getDescription(event);
+  updateDescription(option: string) {
+    this.selectedDescription = this.getDescription(option);
   }
 
   private calculateAge(birthDate: Date): number {

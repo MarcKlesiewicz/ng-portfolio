@@ -2,7 +2,7 @@
 
 <ng-container *ngTemplateOutlet="techStackInfo"></ng-container>
 
-<mat-grid-list cols="7" class="mt-5" gutterSize="12">
+<!-- <mat-grid-list cols="7" class="mt-5" gutterSize="12">
   <mat-grid-tile *ngFor="let tech of techstack" class="tech-tile rounded-md">
     <div class="relative">
       <img class="tech-icon fixed-size" [src]="'assets/svgs/' + tech.icon" alt="{{ tech.icon }}" />
@@ -11,7 +11,7 @@
       </div>
     </div>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->
 
 <ng-template #techStackInfo>
   <div class="flex flex-col w-full items-center mt-4">
@@ -20,7 +20,7 @@
       type="button"
       class="rounded-full text-sm p-2 text-center inline-flex items-center hover:bg-gray-300"
     >
-      <mat-icon class="opacity-50">info_outline</mat-icon>
+      <!-- <mat-icon class="opacity-50">info_outline</mat-icon> -->
     </button>
     <p class="text-xs italic ff-mont" [@slideInOut]="hideTechStackInfo ? 'out' : 'in'">
       Obviously, I don't use all these tools on a daily basis.
