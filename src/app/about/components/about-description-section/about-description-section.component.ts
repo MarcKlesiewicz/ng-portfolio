@@ -53,10 +53,7 @@ export class AboutDescriptionSectionComponent {
       case 'myself-short':
         return `Hi! So, uh, is this your first time doing this too? Wait, the timer's already started?!
 
-        Okay, here goes...
-
         I'm ${this.age}.
-
         No kids, but I do have a dog and a girlfriend (not in that order).
 
         I live near Odense in an old house, which require alot of work.
