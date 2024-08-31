@@ -13,6 +13,8 @@ import { Component } from '@angular/core';
     ]),
   ],
 })
+
+//TODO: add jest, daisyUI
 export class TechstackSectionComponent {
   hideTechStackInfo = true;
 
