@@ -127,7 +127,6 @@
       }
     }
   },
-  "defaultProject": "ng-portfolio",
   "cli": {
     "analytics": false
   }
