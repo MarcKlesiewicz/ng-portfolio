@@ -15,11 +15,9 @@
 
 <ng-template #techStackInfo>
   <div class="flex flex-col w-full items-center mt-4">
-    <button
-      (click)="toogleTechStackInfo()"
-      type="button"
-      class="btn rounded-full text-sm p-2 text-center inline-flex items-center hover:bg-gray-300"
-    ></button>
+    <button (click)="toogleTechStackInfo()" type="button" class="btn btn-circle btn-sm">
+      <span class="material-icons-outlined text-neutral-400">lightbulb</span>
+    </button>
     <p class="text-xs italic ff-mont" [@slideInOut]="hideTechStackInfo ? 'out' : 'in'">
       Obviously, I don't use all these tools on a daily basis.
     </p>

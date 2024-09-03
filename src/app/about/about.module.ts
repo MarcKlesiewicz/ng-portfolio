@@ -7,7 +7,7 @@ import { AboutDescriptionSectionComponent } from './components/about-description
 import { TechstackSectionComponent } from './components/techstack-section/techstack-section.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { AboutPointSectionComponent } from './components/about-point-section/about-point-section.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [AboutRoutingComonent, BrowserAnimationsModule, CommonModule, SharedModule, FormsModule],
