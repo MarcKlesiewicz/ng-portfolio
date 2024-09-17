@@ -19,11 +19,5 @@ import { ResumeTimelineComponent } from './components/resume-timeline/resume-tim
     AboutPointSectionComponent,
     ResumeTimelineComponent,
   ],
-  exports: [
-    AboutDescriptionSectionComponent,
-    TechstackSectionComponent,
-    AboutPointSectionComponent,
-    ResumeTimelineComponent,
-  ],
 })
 export class AboutModule {}

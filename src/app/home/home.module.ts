@@ -10,6 +10,5 @@ import { SharedModule } from '@app/shared/shared.module';
 @NgModule({
   imports: [CommonModule, HomeRoutingModule, SharedModule],
   declarations: [HomeComponent, HeroSectionComponent, WorkSectionComponent],
-  exports: [HeroSectionComponent, WorkSectionComponent],
 })
 export class HomeModule {}
