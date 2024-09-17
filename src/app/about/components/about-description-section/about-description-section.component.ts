@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AboutDescriptionSectionComponent {
   selectedOption = 'myself-long';
-  selectedDescription = this.getDescription(this.selectedOption);
   private birthDate = new Date(1995, 3, 21);
   private age = this.calculateAge(this.birthDate);
+  selectedDescription = this.getDescription(this.selectedOption);
 
   descriptionOptions = [
     {

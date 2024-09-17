@@ -1,0 +1,24 @@
+<app-wavy-header title="Where I've been" [bgColor]="'bg-light'"></app-wavy-header>
+<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mt-4">
+  @for (item of resumeItems; track $index; let l = $last, let f = $first, let e = $even) {
+  <li>
+    <hr *ngIf="!$first" class="mb-2" />
+
+    <div class="timeline-middle">
+      <div class="avatar">
+        <div class="w-16 rounded bg-white">
+          <img [src]="item.logo" />
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="$even ? 'timeline-start' : 'timeline-end'" class="mb-10 whitespace-pre-line flex">
+      <div [ngClass]="$even ? 'md:text-end' : 'md:text-start'" class="bread-text text-xs">
+        <time class="italic">{{ item.startDate }} - {{ item.endDate }}</time>
+        <div class="text-xl font-black">{{ item.name }}</div>
+        {{ item.description }}
+      </div>
+    </div>
+    <hr *ngIf="!$last" />
+  </li>
+  }
+</ul>

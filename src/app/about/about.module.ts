@@ -8,6 +8,7 @@ import { TechstackSectionComponent } from './components/techstack-section/techst
 import { SharedModule } from '@app/shared/shared.module';
 import { AboutPointSectionComponent } from './components/about-point-section/about-point-section.component';
 import { FormsModule } from '@angular/forms';
+import { ResumeTimelineComponent } from './components/resume-timeline/resume-timeline.component';
 
 @NgModule({
   imports: [AboutRoutingComonent, BrowserAnimationsModule, CommonModule, SharedModule, FormsModule],
@@ -16,7 +17,13 @@ import { FormsModule } from '@angular/forms';
     AboutDescriptionSectionComponent,
     TechstackSectionComponent,
     AboutPointSectionComponent,
+    ResumeTimelineComponent,
   ],
-  exports: [AboutDescriptionSectionComponent, TechstackSectionComponent, AboutPointSectionComponent],
+  exports: [
+    AboutDescriptionSectionComponent,
+    TechstackSectionComponent,
+    AboutPointSectionComponent,
+    ResumeTimelineComponent,
+  ],
 })
 export class AboutModule {}
