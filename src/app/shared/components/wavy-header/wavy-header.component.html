@@ -1,6 +1,8 @@
 <div class="relative">
   <object type="image/svg+xml" data="assets\svgs\wavy.svg" class="min-w-3xl"></object>
   <div class="px-5 absolute top-0 left-0 w-full h-full flex items-center justify-center">
-    <p [ngClass]="bgColor" class="text-2xl sm:text-3xl secondary-text ff-gara font-bold px-3">{{ title }}</p>
+    <p [ngClass]="bgColor" class="text-2xl sm:text-3xl secondary-text ff-gara font-bold px-3">
+      <span class="tx-shadow">{{ title }}</span>
+    </p>
   </div>
 </div>
