@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.project-logo {
+  height: 50px;
+  width: 50px;
+}
+
+.card {
+  background-color: var(--primary-color);
+  transition: background-color 300ms ease-in-out;
+}
+
+.card:hover {
+  background-color: #97a3b854;
+}

@@ -11,6 +11,7 @@ import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { ProjectsModule } from './work/projects.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     HomeModule,
     AboutModule,
+    ProjectsModule,
     AppRoutingModule,
     SharedModule,
   ],
