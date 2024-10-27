@@ -1,3 +1,33 @@
 :host {
   display: block;
 }
+
+.frosted-glass {
+  background-color: #6001064d; /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+.animated-div object {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animated-div a {
+  transition: color 0.3s ease;
+}
+
+/* Hover state */
+.animated-div:hover object {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animated-div:hover a {
+  color: var(--on-tertiary-color);
+}
+
+.home-logo:hover {
+  color: var(--on-tertiary-color);
+}
