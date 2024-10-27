@@ -1,0 +1,26 @@
+<div class="flex flex-row justify-between items-center mb-2">
+  <div class="border-solid border-2 border-secondary rounded-full p-1 w-fit join">
+    <a class="join-item btn btn-accent btn-sm rounded-full text-xs">ALL</a>
+    <a class="join-item btn btn-primary btn-sm rounded-full text-xs">
+      <span class="material-icons-outlined text-xs">work</span> WORK</a
+    >
+    <a class="join-item btn btn-primary btn-sm rounded-full text-xs">
+      <span class="material-icons-outlined text-xs"> explore </span> SIDE QUESTS</a
+    >
+  </div>
+
+  <a
+    (click)="toggleFilterList()"
+    class="btn btn-accent border-2 border-solid border-secondary btn-circle text-xs btn-sm"
+  >
+    <span class="material-icons-outlined text-md"> filter_list </span></a
+  >
+</div>
+
+<!-- TODO: setup filter buttons -->
+<div class="font-bold text-xs" [@slideInOut]="isFilterListOpen ? 'out' : 'in'">
+  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Angular</a>
+  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Typescript</a>
+  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Flutter</a>
+  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Dart</a>
+</div>

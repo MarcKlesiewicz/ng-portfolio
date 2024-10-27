@@ -1,0 +1,32 @@
+<div [@slideDown]="isMenuOpen ? 'open' : 'closed'" class="absolute flex w-screen z-10 frosted-glass">
+  <div
+    [@slideDown]="isMenuOpen ? 'open' : 'closed'"
+    class="flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
+  >
+    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/home', label: 'Home' }"></ng-container>
+    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/about', label: 'Who is Marc?' }"></ng-container>
+    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/projects', label: 'Projects' }"></ng-container>
+  </div>
+</div>
+
+<div class="flex flex-row w-screen absolute justify-between m-4 text-secondary z-20">
+  @if (!isMenuOpen) {
+  <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
+  }@else {
+  <div class="btn btn-ghost btn-circle text-2xl icon-hover">
+    <span class="material-icons-outlined text-5xl">language</span>
+  </div>
+  }
+  <a (click)="toggleMenu()" class="mr-8 btn btn-ghost btn-circle icon-hover">
+    <span *ngIf="!isMenuOpen" class="material-icons-outlined text-5xl">drag_handle</span>
+    <span *ngIf="isMenuOpen" class="material-icons-outlined text-5xl">close</span>
+  </a>
+</div>
+
+<!-- MENU-ITEM -->
+<ng-template #menuItem let-routePath let-label="label">
+  <div class="animated-div">
+    <a (click)="toggleMenu()" [routerLink]="routePath">{{ label }}</a>
+    <object type="image/svg+xml" data="assets/svgs/wavy.svg" class="min-w-3xl mt-2"></object>
+  </div>
+</ng-template>
