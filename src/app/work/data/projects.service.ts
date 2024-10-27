@@ -18,6 +18,10 @@ export class ProjectsService {
   private fetchProjects(): void {
     this.projectSubject.next(projects());
   }
+
+  getProjectById(id: string): Project | undefined {
+    return projects().find((project) => project.id === id);
+  }
 }
 
 const projects = () => [

@@ -1,0 +1,36 @@
+<div class="h-full w-screen bg-primary px-4 py-16 flex justify-center">
+  <div class="flex flex-grow flex-col max-w-xl gap-4">
+    <div class="btn btn-outline btn-secondary btn-xs w-fit">
+      <span class="material-icons-outlined text-xs"> west </span>Back to Projects
+    </div>
+    <div
+      class="card card-compact bg-primary w-full shadow-xl text-neutral border-solid border border-slate-400 ff-mont clip"
+    >
+      @if (project) {
+      <figure class="max-h-[200px] bg-neutral">
+        <img src="{{ project.thumbnail }}" />
+      </figure>
+      <div class="card-body">
+        <div class="flex flex-row gap-4">
+          <div class="flex flex-col">
+            <div class="project-logo rounded-xl overflow-clip object-fill mb-10">
+              <img src="{{ project.logo }}" />
+            </div>
+            @for (tech of project.technologies; track $index) {
+            <div class="tech-logo bg-neutral mb-1 p-2 rounded-xl">
+              <img src="{{ 'assets/svgs/' + (tech | lowercase) + '_logo.svg' }}" />
+            </div>
+            <!-- <div class="project-logo"><img src="assets/svgs/flutter_logo.svg" /></div> -->
+            }
+          </div>
+          <div>
+            <h2 class="card-title text-2xl font-bold">{{ project.name }}</h2>
+            <h3 class="text-xs">{{ project.description }}</h3>
+            <h3 class="text-xs">27/10/2024</h3>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
