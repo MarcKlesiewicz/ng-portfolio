@@ -9,4 +9,4 @@ const routes: Routes = [{ path: 'about', component: AboutComponent, title: 'kles
   exports: [RouterModule],
   providers: [],
 })
-export class AboutRoutingComonent {}
+export class AboutRoutingModule {}

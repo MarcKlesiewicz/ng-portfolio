@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "serviceWorker": "/ngsw-config.json",
             "outputPath": {
               "base": "dist"
             },
@@ -52,7 +53,7 @@
                   "maximumError": "10kb"
                 }
               ],
-              "serviceWorker": "true",
+              "serviceWorker": "/ngsw-config.json",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
