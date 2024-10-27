@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { ProjectsModule } from './work/projects.module';
+import { IMAGE_CONFIG } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,9 @@ import { ProjectsModule } from './work/projects.module';
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: IMAGE_CONFIG, useValue: { disableImageSizeWarning: true, disableImageLazyLoadWarning: true } },
+  ],
 })
 export class AppModule {}

@@ -71,7 +71,7 @@ const projects = () => [
   {
     id: '5',
     name: 'Mealbuilder',
-    description: 'Recipe and meal planning application with indebht nutrition information',
+    description: 'Recipe and meal planning application with indebth nutrition information',
     thumbnail: '/assets/images/mealbuilder/mealbuilder_screens.jpg',
     logo: '/assets/images/mealbuilder/mealbuilder_logo.jpg',
     technologies: ['Flutter', 'Dart', 'Postgress', 'GraphQL'],

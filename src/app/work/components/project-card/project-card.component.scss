@@ -9,9 +9,10 @@
 
 .card {
   background-color: var(--primary-color);
-  transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out, transform 100ms ease-in-out;
 }
 
 .card:hover {
   background-color: #97a3b854;
+  transform: scale(0.98);
 }
