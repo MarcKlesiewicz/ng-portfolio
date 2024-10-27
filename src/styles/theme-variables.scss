@@ -1,0 +1,103 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+//Import the fonts
+//Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+//Berkshire Swash
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+//EB Garamond
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+
+//Import the Material Icons
+@import "material-icons/iconfont/material-icons.css";
+
+// stylelint-disable-next-line selector-max-universal
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  --primary-color: #050024;
+  --on-primary-color: #ece4dc;
+  --secondary-color: #7e6300;
+  --on-secondary-color: #ece4dc;
+  --tertiary-color: #600106;
+  --on-tertiary-color: #ece4dc;
+}
+
+.ff-mont {
+  font-family: "Montserrat", sans-serif;
+}
+
+.ff-berk {
+  font-family: "Berkshire Swash", cursive;
+}
+
+.ff-gara {
+  font-family: "EB Garamond", serif;
+}
+
+.primary-text {
+  color: var(--primary-color);
+}
+
+.on-primary-text {
+  color: var(--on-primary-color);
+}
+
+.secondary-text {
+  color: var(--secondary-color);
+}
+
+.tertiary-text {
+  color: var(--tertiary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-light {
+  background-color: var(--on-primary-color);
+}
+
+.primary-filter {
+  filter: invert(10%) sepia(7%) saturate(7494%) hue-rotate(217deg) brightness(88%) contrast(122%);
+}
+
+.secondary-filter {
+  filter: invert(31%) sepia(96%) saturate(875%) hue-rotate(25deg) brightness(80%) contrast(150%);
+}
+
+.tertiary-filter {
+  filter: invert(5%) sepia(71%) saturate(6431%) hue-rotate(351deg) brightness(102%) contrast(104%);
+}
+
+.light-filter {
+  filter: invert(93%) sepia(4%) saturate(1068%) hue-rotate(324deg) brightness(106%) contrast(85%);
+}
+
+.bread-text {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.08rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  white-space: pre-line;
+}
+
+.constrained-container {
+  max-width: 768px;
+}

@@ -1,0 +1,38 @@
+@keyframes spin-slow {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.avatar {
+  position: absolute;
+  top: -15px;
+  right: 30px;
+  max-height: 75px;
+  transform: translate(50%, -50%);
+  border: 5px var(--on-primary-color) solid;
+}
+
+.main-image {
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main {
+  background-image: url("../../../../assets/images/me.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.constrained-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
