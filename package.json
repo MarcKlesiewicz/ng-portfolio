@@ -8,8 +8,9 @@
   },
   "scripts": {
     "ng": "ng",
-    "build": "ng build",
+    "build": "npm run env && ng build",
     "start": "ng serve",
+    "env": "node generate-env.js",
     "serve:sw": "npm run build -s && npx http-server ./dist -p 4200",
     "lint": "ng lint && stylelint \"src/**/*.scss\"",
     "test": "ng test",
