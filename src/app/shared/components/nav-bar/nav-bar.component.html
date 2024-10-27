@@ -13,8 +13,14 @@
 </div>
 
 <div class="flex flex-row w-screen absolute justify-between m-4 text-secondary z-20">
-  <a (click)="toggleMenu()" routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk home-logo">MK</a>
-  <a (click)="toggleMenu()" class="mr-8 btn btn-ghost btn-circle">
+  @if (!isMenuOpen) {
+  <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
+  }@else {
+  <div class="btn btn-ghost btn-circle text-2xl icon-hover">
+    <span class="material-icons-outlined text-5xl">language</span>
+  </div>
+  }
+  <a (click)="toggleMenu()" class="mr-8 btn btn-ghost btn-circle icon-hover">
     <span *ngIf="!isMenuOpen" @iconToggle class="material-icons-outlined text-5xl">drag_handle</span>
     <span *ngIf="isMenuOpen" @iconToggle class="material-icons-outlined text-5xl">close</span>
   </a>

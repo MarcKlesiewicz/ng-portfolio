@@ -12,6 +12,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         style({
           height: '100vh',
           opacity: 1,
+          'z-index': 10,
         })
       ),
       state(
@@ -19,6 +20,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         style({
           height: '0px',
           opacity: 0,
+          'z-index': -1,
         })
       ),
       transition('closed => open', [animate('300ms ease-in')]),
