@@ -51,9 +51,7 @@ export class AboutDescriptionSectionComponent {
 
         I value genuine communities and am driven by a desire to achieve meaningful goals, whether personal or shared.`;
       case 'myself-short':
-        return `Hi! So, uh, is this your first time doing this too? Wait, the timer's already started?!
-
-        I'm ${this.age}.
+        return `I'm ${this.age}.
         No kids, but I do have a dog and a girlfriend (not in that order).
 
         I live near Odense in an old house, which require alot of work.
@@ -66,9 +64,7 @@ export class AboutDescriptionSectionComponent {
 
         *DING*`;
       case 'chat-gbt':
-        return `Prompt: "Hello. Can you give me a brief description of a man who lives near Odense and enjoys developing software. And make it a bit dramatic"
-        
-        In the heart of Odense, Denmark, resides a man whose very existence thrives on the ethereal realm of code and software development. He is an enigma, with piercing eyes that mirror the depths of his intellect and a countenance that exudes a potent combination of passion and determination.
+        return `In the heart of Odense, Denmark, resides a man whose very existence thrives on the ethereal realm of code and software development. He is an enigma, with piercing eyes that mirror the depths of his intellect and a countenance that exudes a potent combination of passion and determination.
         
         His days are consumed by the relentless pursuit of technological excellence. With each keystroke, he weaves intricate algorithms and molds lines of code into functional art. His fingertips dance across the keyboard, an orchestra conducting a symphony of logic and creativity, crafting the digital landscapes of tomorrow.`;
       default:
