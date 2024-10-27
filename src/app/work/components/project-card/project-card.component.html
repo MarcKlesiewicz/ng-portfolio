@@ -11,9 +11,9 @@
         <div>
           <h2 class="card-title text-2xl font-bold">{{ project?.name }}</h2>
           <p>{{ project?.description }}</p>
-          <div class="card-actions justify-start mt-1 text-neutral font-bold">
+          <div class="card-actions justify-start mt-1 font-bold">
             @for (tech of project?.technologies; track $index) {
-            <div class="badge badge-sm badge-accent">{{ tech }}</div>
+            <div class="badge badge-sm border-2 border-secondary p-2 text-primary">{{ tech }}</div>
             }
           </div>
         </div>
