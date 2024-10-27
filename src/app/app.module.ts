@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -19,14 +19,14 @@ import { IMAGE_CONFIG } from '@angular/common';
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     RouterModule,
     BrowserAnimationsModule,
     HomeModule,
     AboutModule,
     ProjectsModule,
-    AppRoutingModule,
     SharedModule,
+    AppRoutingModule,
   ],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
