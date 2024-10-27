@@ -1,50 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouteReuseStrategy, RouterModule } from '@angular/router';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule, isDevMode } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 
 import { environment } from '@env/environment';
-import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
 import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { ProjectsModule } from './work/projects.module';
+import { IMAGE_CONFIG } from '@angular/common';
 
 @NgModule({
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
-    FormsModule,
-    HttpClientModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     RouterModule,
-    TranslateModule.forRoot(),
     BrowserAnimationsModule,
-    MaterialModule,
-    SharedModule,
     HomeModule,
-    AppRoutingModule, // must be imported as the last module as it contains the fallback route
+    AboutModule,
+    ProjectsModule,
+    SharedModule,
+    AppRoutingModule,
   ],
-  declarations: [AppComponent],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiPrefixInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorHandlerInterceptor,
-      multi: true,
-    },
-    {
-      provide: RouteReuseStrategy,
-      useClass: RouteReusableStrategy,
-    },
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: IMAGE_CONFIG, useValue: { disableImageSizeWarning: true, disableImageLazyLoadWarning: true } },
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}

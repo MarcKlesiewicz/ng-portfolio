@@ -1,3 +1,15 @@
 {
-  "i18n-ally.localesPaths": ["src/app/i18n"]
+  "i18n-ally.localesPaths": ["src/app/i18n"],
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-*": {
+      "style": "scss",
+      "externalTemplate": true
+    },
+    "angular-component": {
+      "skipChangeDetectionOnPush": true
+    },
+    "angular-page": {
+      "skipChangeDetectionOnPush": true
+    }
+  }
 }

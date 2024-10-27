@@ -1,0 +1,23 @@
+<a>
+  <div class="card card-compact bg-primary w-full shadow-xl text-neutral border-solid border border-slate-400 ff-mont">
+    <figure class="max-h-[200px] bg-neutral">
+      <img src="{{ project?.thumbnail }}" alt="Shoes" />
+    </figure>
+    <div class="card-body">
+      <div class="flex flex-row gap-4">
+        <div class="project-logo rounded-xl overflow-clip object-fill">
+          <img src="{{ project?.logo }}" />
+        </div>
+        <div>
+          <h2 class="card-title text-2xl font-bold">{{ project?.name }}</h2>
+          <p>{{ project?.description }}</p>
+          <div class="card-actions justify-start mt-1 font-bold">
+            @for (tech of project?.technologies; track $index) {
+            <div class="badge badge-sm border-2 border-secondary p-2 text-primary">{{ tech }}</div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

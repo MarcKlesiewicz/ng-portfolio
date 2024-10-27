@@ -1,0 +1,18 @@
+<div class="flex flex-row w-full max-w-[750px] mt-8 justify-between gap-5">
+  <div *ngFor="let point of points" class="flex-grow">
+    <ng-container
+      *ngTemplateOutlet="
+        pointTemplate;
+        context: { title: point.title, imagePath: point.imagePath, description: point.description }
+      "
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #pointTemplate let-title="title" let-imagePath="imagePath" let-description="description">
+  <div class="relative flex justify-center items-center">
+    <img [src]="imagePath" alt="{{ title }}" class="absolute opacity-10" style="max-width: 50px" />
+    <p class="text-3xl ff-berk">{{ title }}</p>
+  </div>
+  <p class="bread-text mt-3">{{ description }}</p>
+</ng-template>
