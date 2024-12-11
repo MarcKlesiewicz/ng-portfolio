@@ -8,33 +8,34 @@ import { Project, ProjectTags } from '../models/project.model';
 export class ProjectsService {
   constructor() {}
 
-  private readonly projectSubject = new BehaviorSubject<Project[]>([]);
+  private readonly _projectSubject = new BehaviorSubject<Project[]>([]);
 
   projects$(): Observable<Project[]> {
     this.fetchProjects();
-    return this.projectSubject.asObservable();
+    return this._projectSubject.asObservable();
   }
 
   private fetchProjects(): void {
-    this.projectSubject.next(projects());
+    this._projectSubject.next(projects);
   }
 
   getProjectById(id: string): Project | undefined {
-    return projects().find((project) => project.id === id);
+    return projects.find((project) => project.id === id);
   }
 }
 
-const projects = () => [
+const projects: Project[] = [
   {
     id: '1',
     name: 'Monto',
     description: 'Mobile and web based rental platform build in Flutter',
     thumbnail: 'assets/images/monto/monto_phones.png',
     logo: 'assets/images/monto/monto_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL', 'Material'],
     tags: [ProjectTags.WORK],
-    markdownPath: '',
+    contentPath: 'assets/html/monto.html',
     year: 2022,
+    liveUrl: 'https://monto-rent.com',
   },
 
   {
@@ -45,7 +46,7 @@ const projects = () => [
     logo: '/assets/images/und/und_logo.jpg',
     technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
     tags: [ProjectTags.WORK],
-    markdownPath: '',
+    contentPath: '',
     year: 2022,
   },
 
@@ -57,7 +58,7 @@ const projects = () => [
     logo: '/assets/images/myepi/epi_logo.jpg',
     technologies: ['Flutter', 'Dart', 'Firebase'],
     tags: [ProjectTags.WORK],
-    markdownPath: '',
+    contentPath: '',
     year: 2023,
   },
 
@@ -69,7 +70,7 @@ const projects = () => [
     logo: '/assets/images/selvhent/selvhent_logo.jpg',
     technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
     tags: [ProjectTags.WORK],
-    markdownPath: '',
+    contentPath: '',
     year: 2022,
   },
   {
@@ -80,7 +81,7 @@ const projects = () => [
     logo: '/assets/images/mealbuilder/mealbuilder_logo.jpg',
     technologies: ['Flutter', 'Dart', 'Postgress', 'GraphQL'],
     tags: [ProjectTags.WORK],
-    markdownPath: '',
+    contentPath: '',
     year: 2022,
   },
 ];

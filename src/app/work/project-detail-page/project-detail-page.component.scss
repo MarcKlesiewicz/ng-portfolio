@@ -1,9 +1,40 @@
-.project-logo {
+.cube {
   height: 50px;
   width: 50px;
+  border-radius: 0.75rem;
+}
+
+hr {
+  border: 1px solid #94a3b8;
 }
 
 .tech-logo {
-  height: 50px;
-  width: 50px;
+  background: #ece4dc65;
+}
+
+::ng-deep h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+::ng-deep p {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+::ng-deep ul {
+  list-style-type: disc;
+}
+
+::ng-deep li {
+  margin-bottom: 6px;
+}
+
+::ng-deep img {
+  border-radius: 1rem;
+}
+
+::ng-deep a {
+  text-decoration: underline;
 }

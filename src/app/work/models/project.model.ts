@@ -8,8 +8,9 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   tags: ProjectTags[];
-  markdownPath: string;
+  contentPath: string;
   year: number;
+  content?: string;
 }
 
 export enum ProjectTags {
