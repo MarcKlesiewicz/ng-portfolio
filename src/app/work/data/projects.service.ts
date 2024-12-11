@@ -6,8 +6,6 @@ import { Project, ProjectTags } from '../models/project.model';
   providedIn: 'root',
 })
 export class ProjectsService {
-  constructor() {}
-
   private readonly _projectSubject = new BehaviorSubject<Project[]>([]);
 
   projects$(): Observable<Project[]> {
@@ -44,10 +42,11 @@ const projects: Project[] = [
     description: 'Golf exercise application build in Flutter',
     thumbnail: '/assets/images/und/und_phones.png',
     logo: '/assets/images/und/und_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL', 'Material'],
     tags: [ProjectTags.WORK],
-    contentPath: '',
+    contentPath: 'assets/html/und.html',
     year: 2022,
+    liveUrl: 'https://upndown.dk',
   },
 
   {
@@ -56,9 +55,9 @@ const projects: Project[] = [
     description: 'Epileptic seizure detection for Apple Watch',
     thumbnail: '/assets/images/myepi/epi_home.jpg',
     logo: '/assets/images/myepi/epi_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'Firebase'],
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'Firebase', 'Figma'],
     tags: [ProjectTags.WORK],
-    contentPath: '',
+    contentPath: 'assets/html/my-epi.html',
     year: 2023,
   },
 
@@ -68,9 +67,9 @@ const projects: Project[] = [
     description: 'Digital parcel shop management system',
     thumbnail: '/assets/images/selvhent/selvhent_customer.jpg',
     logo: '/assets/images/selvhent/selvhent_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL'],
     tags: [ProjectTags.WORK],
-    contentPath: '',
+    contentPath: 'assets/html/selvhent.html',
     year: 2022,
   },
   {
@@ -79,9 +78,9 @@ const projects: Project[] = [
     description: 'Recipe and meal planning application with indebth nutrition information',
     thumbnail: '/assets/images/mealbuilder/mealbuilder_screens.jpg',
     logo: '/assets/images/mealbuilder/mealbuilder_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'Postgress', 'GraphQL'],
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'Swagger', 'Material'],
     tags: [ProjectTags.WORK],
-    contentPath: '',
-    year: 2022,
+    contentPath: 'assets/html/mealbuilder.html',
+    year: 2023,
   },
 ];

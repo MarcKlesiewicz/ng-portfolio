@@ -13,12 +13,12 @@
       <div class="p-10">
         <div class="flex flex-row gap-10">
           <div class="flex flex-col">
-            <div class="cube overflow-clip object-fill mb-2">
+            <div class="cube overflow-clip object-fill">
               <img src="{{ project.logo }}" />
             </div>
             @if (project.liveUrl) {
             <a [href]="project.liveUrl">
-              <div class="cube btn btn-outline btn-secondary text-sm">
+              <div class="cube btn btn-outline btn-secondary text-sm mt-2">
                 <span class="material-icons-outlined text-2xl"> open_in_new </span>
               </div>
             </a>
