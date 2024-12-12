@@ -7,13 +7,10 @@ export interface Project {
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
-  tags: ProjectTags[];
+  projectType: ProjectType;
   contentPath: string;
   year: number;
   content?: string;
 }
 
-export enum ProjectTags {
-  WORK = 'WORK',
-  SIDE_QUESTS = 'SIDE QUESTS',
-}
+export type ProjectType = 'ALL' | 'WORK' | 'SIDE QUESTS';

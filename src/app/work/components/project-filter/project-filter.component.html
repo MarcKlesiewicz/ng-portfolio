@@ -1,18 +1,18 @@
 <div class="flex flex-row justify-between items-center mb-2">
   <div class="border-solid border-2 border-secondary rounded-full p-1 w-fit join">
-    <a class="join-item btn btn-accent btn-sm rounded-full text-xs">ALL</a>
-    <a class="join-item btn btn-primary btn-sm rounded-full text-xs">
-      <span class="material-icons-outlined text-xs">work</span> WORK</a
+    @for (type of projectTypesFilter; track $index) {
+    <a
+      [class.btn-accent]="selectedProjectType === type.type"
+      class="join-item btn btn-primary btn-sm rounded-full text-sm"
+      (click)="onFilterByProjectTypeSelected(type.type)"
     >
-    <a class="join-item btn btn-primary btn-sm rounded-full text-xs">
-      <span class="material-icons-outlined text-xs"> explore </span> SIDE QUESTS</a
-    >
+      <span *ngIf="type.icon" class="material-icons-outlined text-sm">{{ type.icon }}</span>
+      {{ type.label }}
+    </a>
+    }
   </div>
 
-  <a
-    (click)="toggleFilterList()"
-    class="btn btn-accent border-2 border-solid border-secondary btn-circle text-xs btn-sm"
-  >
+  <a (click)="toggleFilterList()" class="btn btn-accent border-2 border-solid border-secondary btn-circle btn-md">
     <span class="material-icons-outlined text-md"> filter_list </span></a
   >
 </div>
