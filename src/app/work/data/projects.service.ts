@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Project, ProjectType } from '../models/project.model';
+import { Project, ProjectTechnologies, ProjectType } from '../models/project.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,13 +20,19 @@ export class ProjectsService {
     return projects.find((project) => project.id === id);
   }
 
-  filterProjects(projectType: ProjectType): void {
-    if (projectType === 'ALL') {
-      this.fetchProjects();
-      return;
+  filterProjects(projectType: ProjectType, technologies: ProjectTechnologies[] = []): void {
+    let filteredProjects = projects;
+
+    if (projectType !== 'ALL') {
+      filteredProjects = filteredProjects.filter((project) => project.projectType.includes(projectType));
     }
 
-    const filteredProjects = projects.filter((project) => project.projectType.includes(projectType));
+    if (technologies.length > 0) {
+      filteredProjects = filteredProjects.filter((project) =>
+        technologies.every((tech) => project.technologies.includes(tech))
+      );
+    }
+
     this._projectSubject.next(filteredProjects);
   }
 
