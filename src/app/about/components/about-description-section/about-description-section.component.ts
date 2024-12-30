@@ -17,8 +17,8 @@ export class AboutDescriptionSectionComponent {
       viewValue: 'myself (long version)',
     },
     {
-      value: 'myself-short',
-      viewValue: 'myself (speed date)',
+      value: 'employers',
+      viewValue: 'employers',
     },
     {
       value: 'chat-gbt',
@@ -43,30 +43,21 @@ export class AboutDescriptionSectionComponent {
   private getDescription(option: string): string {
     switch (option) {
       case 'myself-long':
-        return `Hello! I'm a ${this.age}-year-old app developer with a computer science background, originally from Lolland, now settled in a small town outside Odense (Denmark) with my girlfriend Mathilde and our dog Cody.
+        return `Hello! I'm a 29-year-old app developer with a computer science background, originally from Lolland, now settled in a small town outside Odense, Denmark, with my girlfriend Mathilde and our dog Cody.
 
-        My work mirrors my passions - diving into software and testing the boundaries of what I can create. I often find myself torn between the hours in a day and my backlog of ideas.
+        I work mainly on developing apps, with a focus on frontend development – yes, it’s actually really cool! When I’m not diving into software, I’m probably exploring music, movies, or tackling DIY and renovation projects for our old house, which requires a lot of work. I also enjoy a good board game or hitting the paddle courts around Odense. My hobbies extend to mechanical keyboards and collecting signed vinyl records, though I don’t own a record player – just an odd obsession I’ve picked up.
 
-        When I'm not lost in code, I'm probably immersed in music, exploring the world of cinema, or tackling DIY/renovation projects for our home. I also enjoy a good boardgame or hitting the paddle courts around Odense.
+        I value genuine communities and strive for meaningful goals, whether they’re personal or shared. My work reflects my passion for creating and pushing the boundaries of what I can achieve. But like many, I often find myself juggling a backlog of ideas with the limited hours in a day.
 
-        I value genuine communities and am driven by a desire to achieve meaningful goals, whether personal or shared.`;
-      case 'myself-short':
-        return `I'm ${this.age}.
-        No kids, but I do have a dog and a girlfriend (not in that order).
-
-        I live near Odense in an old house, which require alot of work.
-
-        And I'm a computer scientist focused on developing apps, mostly frontend, believe it or not, is actually really cool!
-
-        Hobbies? Let’s see… software development (shocking, I know), music, movies, board games, mechanical keyboards, padel… and I’m oddly obsessed with collecting signed vinyl records, even though I don’t own a record player.
-
-        My three biggest strengths are…
-
-        *DING*`;
+        So, that's me – an app developer, music lover, DIY enthusiast, and someone always looking for a new challenge or passion project.`;
       case 'chat-gbt':
         return `In the heart of Odense, Denmark, resides a man whose very existence thrives on the ethereal realm of code and software development. He is an enigma, with piercing eyes that mirror the depths of his intellect and a countenance that exudes a potent combination of passion and determination.
         
         His days are consumed by the relentless pursuit of technological excellence. With each keystroke, he weaves intricate algorithms and molds lines of code into functional art. His fingertips dance across the keyboard, an orchestra conducting a symphony of logic and creativity, crafting the digital landscapes of tomorrow.`;
+      case 'employers':
+        return `Marc is an extremely competent employee who works very independently and excels at coming up with constructive solutions and good ideas. Marc has demonstrated great initiative and has taken significant responsibility for his tasks. He is, in particular, a very cheerful and helpful personality, which we have greatly appreciated in the office.
+        
+        - Steffen Engsig Aagaard, CEO at LittleGiants`;
       default:
         return 'N/A';
     }

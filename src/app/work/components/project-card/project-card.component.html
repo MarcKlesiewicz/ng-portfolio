@@ -5,15 +5,15 @@
     </figure>
     <div class="card-body">
       <div class="flex flex-row gap-4">
-        <div class="project-logo rounded-xl overflow-clip object-fill">
-          <img src="{{ project?.logo }}" />
+        <div class="project-logo object-fill min-w-[50px]">
+          <img class="rounded-xl" src="{{ project?.logo }}" />
         </div>
         <div>
           <h2 class="card-title text-2xl font-bold">{{ project?.name }}</h2>
           <p class="italic">{{ project?.description }}</p>
           <div class="card-actions justify-start mt-1 font-bold">
             @for (tech of project?.technologies; track $index) {
-            <div class="rounded-md border-2 border-neutral px-2 py-1 text-neutral font-semibold text-xs">
+            <div class="rounded-md border border-neutral px-2 py-1 text-neutral font-semibold text-xs">
               {{ tech | uppercase }}
             </div>
             }
