@@ -3,7 +3,7 @@
     [@slideDown]="isMenuOpen ? 'open' : 'closed'"
     class="flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
   >
-    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/home', label: 'Home' }"></ng-container>
+    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/', label: 'Home' }"></ng-container>
     <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/about', label: 'Who is Marc?' }"></ng-container>
     <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/projects', label: 'Projects' }"></ng-container>
   </div>

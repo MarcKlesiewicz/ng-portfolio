@@ -1,36 +1,58 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Project, ProjectTags } from '../models/project.model';
+import { Project, ProjectTechnologies, ProjectType } from '../models/project.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectsService {
-  constructor() {}
+  private readonly _projectSubject = new BehaviorSubject<Project[]>([]);
 
-  private readonly projectSubject = new BehaviorSubject<Project[]>([]);
+  constructor() {
+    this.fetchProjects();
+  }
 
   projects$(): Observable<Project[]> {
-    this.fetchProjects();
-    return this.projectSubject.asObservable();
+    return this._projectSubject.asObservable();
+  }
+
+  getProjectById(id: string): Project | undefined {
+    return projects.find((project) => project.id === id);
+  }
+
+  filterProjects(projectType: ProjectType, technologies: ProjectTechnologies[] = []): void {
+    let filteredProjects = projects;
+
+    if (projectType !== 'ALL') {
+      filteredProjects = filteredProjects.filter((project) => project.projectType.includes(projectType));
+    }
+
+    if (technologies.length > 0) {
+      filteredProjects = filteredProjects.filter((project) =>
+        technologies.every((tech) => project.technologies.includes(tech))
+      );
+    }
+
+    this._projectSubject.next(filteredProjects);
   }
 
   private fetchProjects(): void {
-    this.projectSubject.next(projects());
+    this._projectSubject.next(projects);
   }
 }
 
-const projects = () => [
+const projects: Project[] = [
   {
     id: '1',
     name: 'Monto',
     description: 'Mobile and web based rental platform build in Flutter',
     thumbnail: 'assets/images/monto/monto_phones.png',
     logo: 'assets/images/monto/monto_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
-    tags: [ProjectTags.WORK],
-    markdownPath: '',
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL', 'Material', 'ClickUp'],
+    projectType: 'WORK',
+    contentPath: 'assets/html/monto.html',
     year: 2022,
+    liveUrl: 'https://monto-rent.com',
   },
 
   {
@@ -39,10 +61,11 @@ const projects = () => [
     description: 'Golf exercise application build in Flutter',
     thumbnail: '/assets/images/und/und_phones.png',
     logo: '/assets/images/und/und_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
-    tags: [ProjectTags.WORK],
-    markdownPath: '',
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL', 'Material', 'ClickUp'],
+    projectType: 'WORK',
+    contentPath: 'assets/html/und.html',
     year: 2022,
+    liveUrl: 'https://upndown.dk',
   },
 
   {
@@ -51,10 +74,11 @@ const projects = () => [
     description: 'Epileptic seizure detection for Apple Watch',
     thumbnail: '/assets/images/myepi/epi_home.jpg',
     logo: '/assets/images/myepi/epi_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'Firebase'],
-    tags: [ProjectTags.WORK],
-    markdownPath: '',
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'Firebase', 'Figma', 'ClickUp'],
+    projectType: 'WORK',
+    contentPath: 'assets/html/my-epi.html',
     year: 2023,
+    liveUrl: 'https://www.myepi.dk/',
   },
 
   {
@@ -63,10 +87,11 @@ const projects = () => [
     description: 'Digital parcel shop management system',
     thumbnail: '/assets/images/selvhent/selvhent_customer.jpg',
     logo: '/assets/images/selvhent/selvhent_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'MongoDB', 'GraphQL'],
-    tags: [ProjectTags.WORK],
-    markdownPath: '',
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL', 'ClickUp'],
+    projectType: 'WORK',
+    contentPath: 'assets/html/selvhent.html',
     year: 2022,
+    liveUrl: 'https://selvhent.com/',
   },
   {
     id: '5',
@@ -74,9 +99,9 @@ const projects = () => [
     description: 'Recipe and meal planning application with indebth nutrition information',
     thumbnail: '/assets/images/mealbuilder/mealbuilder_screens.jpg',
     logo: '/assets/images/mealbuilder/mealbuilder_logo.jpg',
-    technologies: ['Flutter', 'Dart', 'Postgress', 'GraphQL'],
-    tags: [ProjectTags.WORK],
-    markdownPath: '',
-    year: 2022,
+    technologies: ['Flutter', 'Dart', 'Riverpod', 'Swagger', 'Material', 'ClickUp'],
+    projectType: 'WORK',
+    contentPath: 'assets/html/mealbuilder.html',
+    year: 2023,
   },
 ];
