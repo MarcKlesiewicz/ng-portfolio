@@ -1,5 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-techstack-section',
@@ -12,6 +14,7 @@ import { Component } from '@angular/core';
       transition('in <=> out', animate('300ms ease-in-out')),
     ]),
   ],
+  imports: [WavyHeaderComponent, NgTemplateOutlet],
 })
 
 //TODO: add jest, daisyUI

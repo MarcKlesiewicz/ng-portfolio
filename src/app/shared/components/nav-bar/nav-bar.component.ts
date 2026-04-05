@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { NgTemplateOutlet } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -27,6 +29,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('open => closed', [animate('300ms ease-out')]),
     ]),
   ],
+  imports: [NgTemplateOutlet, RouterLink],
 })
 export class NavBarComponent {
   isMenuOpen = false;

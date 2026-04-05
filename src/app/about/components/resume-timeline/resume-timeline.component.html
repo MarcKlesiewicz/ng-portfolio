@@ -2,7 +2,9 @@
 <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mt-4">
   @for (item of resumeItems; track $index; let l = $last, let f = $first, let e = $even) {
   <li>
-    <hr *ngIf="!$first" class="mb-2" />
+    @if (!$first) {
+    <hr class="mb-2" />
+    }
 
     <div class="timeline-middle">
       <div class="avatar">
@@ -18,7 +20,9 @@
         {{ item.description }}
       </div>
     </div>
-    <hr *ngIf="!$last" />
+    @if (!$last) {
+    <hr />
+    }
   </li>
   }
 </ul>

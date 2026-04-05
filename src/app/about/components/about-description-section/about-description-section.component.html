@@ -7,9 +7,11 @@
     [(ngModel)]="selectedOption"
     (ngModelChange)="updateDescription($event)"
   >
-    <option *ngFor="let option of descriptionOptions" [value]="option.value">
+    @for (option of descriptionOptions; track option) {
+    <option [value]="option.value">
       {{ option.viewValue }}
     </option>
+    }
   </select>
 
   <div class="flex md:flex-row flex-col gap-5 mt-4 md:items-start items-center justify-center bread-text text-xs">
