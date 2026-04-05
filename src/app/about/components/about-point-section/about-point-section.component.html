@@ -1,5 +1,6 @@
 <div class="flex flex-row w-full max-w-[750px] mt-8 justify-between gap-5">
-  <div *ngFor="let point of points" class="flex-grow">
+  @for (point of points; track point) {
+  <div class="flex-grow">
     <ng-container
       *ngTemplateOutlet="
         pointTemplate;
@@ -7,6 +8,7 @@
       "
     ></ng-container>
   </div>
+  }
 </div>
 
 <ng-template #pointTemplate let-title="title" let-imagePath="imagePath" let-description="description">

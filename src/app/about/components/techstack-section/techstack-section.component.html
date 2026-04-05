@@ -3,7 +3,8 @@
 <ng-container *ngTemplateOutlet="techStackInfo"></ng-container>
 
 <div class="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-10 mt-2 gap-2 w-fit mx-auto">
-  <div *ngFor="let tech of techstack" class="tech-tile rounded-md">
+  @for (tech of techstack; track tech) {
+  <div class="tech-tile rounded-md">
     <div class="relative flex items-center justify-center p-1 tooltip tooltip-accent">
       <img class="tech-icon fixed-size" [src]="'assets/svgs/' + tech.icon" alt="{{ tech.icon }}" />
       <div class="tech-banner">
@@ -11,6 +12,7 @@
       </div>
     </div>
   </div>
+  }
 </div>
 
 <ng-template #techStackInfo>

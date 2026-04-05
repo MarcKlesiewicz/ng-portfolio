@@ -6,7 +6,8 @@
     </div>
   </div>
   <div class="max-w-[700px] w-full">
-    <div *ngFor="let work of workPlaces">
+    @for (work of workPlaces; track work) {
+    <div>
       <!-- <mat-grid-list cols="12" rowHeight="50px">
         <mat-grid-tile [colspan]="4">
           <p class="text-base sm:text-xl ff-mont secondary-text absolute left-4">
@@ -20,6 +21,7 @@
         </mat-grid-tile>
       </mat-grid-list> -->
     </div>
+    }
   </div>
   <object class="max-w-[700px] w-full" type="image/svg+xml" data="assets\svgs\wavy.svg"></object>
 </div>
