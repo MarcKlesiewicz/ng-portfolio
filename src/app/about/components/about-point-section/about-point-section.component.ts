@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-about-point-section',
   templateUrl: './about-point-section.component.html',
   styleUrls: ['./about-point-section.component.scss'],
-  standalone: false,
+  imports: [NgTemplateOutlet],
 })
 export class AboutPointSectionComponent {
   points = [

@@ -8,7 +8,6 @@ import { WorkSectionComponent } from './components/work-section/work-section.com
 import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, HomeRoutingModule, SharedModule],
-  declarations: [HomeComponent, HeroSectionComponent, WorkSectionComponent],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, HomeComponent, HeroSectionComponent, WorkSectionComponent],
 })
 export class HomeModule {}

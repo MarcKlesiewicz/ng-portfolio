@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-work-section',
   templateUrl: './work-section.component.html',
   styleUrls: ['./work-section.component.scss'],
-  standalone: false,
 })
 export class WorkSectionComponent {
   workPlaces = [

@@ -8,7 +8,7 @@ describe('WorkSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WorkSectionComponent],
+      imports: [WorkSectionComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WorkSectionComponent);

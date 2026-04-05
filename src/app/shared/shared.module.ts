@@ -7,8 +7,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
-  declarations: [SocialsComponent, HovableIconComponent, WavyHeaderComponent, NavBarComponent],
+  imports: [CommonModule, RouterModule, SocialsComponent, HovableIconComponent, WavyHeaderComponent, NavBarComponent],
   exports: [SocialsComponent, HovableIconComponent, WavyHeaderComponent, NavBarComponent],
 })
 export class SharedModule {}

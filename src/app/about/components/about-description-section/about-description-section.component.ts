@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-about-description-section',
   templateUrl: './about-description-section.component.html',
   styleUrls: ['./about-description-section.component.scss'],
-  standalone: false,
+  imports: [FormsModule],
 })
 export class AboutDescriptionSectionComponent {
   selectedOption = 'myself-long';

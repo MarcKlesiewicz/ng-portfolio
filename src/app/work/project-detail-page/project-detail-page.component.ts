@@ -2,15 +2,16 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { ProjectsService } from '../data/projects.service';
 import { Project } from '../models/project.model';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EMPTY, switchMap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-project-detail-page',
   templateUrl: './project-detail-page.component.html',
   styleUrl: './project-detail-page.component.scss',
-  standalone: false,
+  imports: [RouterLink, LowerCasePipe],
 })
 export class ProjectDetailPageComponent implements OnInit {
   project: Project | undefined;

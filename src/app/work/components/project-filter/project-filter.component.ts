@@ -14,7 +14,6 @@ import { PROJECT_TECHNOLOGIES, ProjectTechnologies, ProjectType } from '@app/wor
       transition('in <=> out', animate('300ms ease-in-out')),
     ]),
   ],
-  standalone: false,
 })
 export class ProjectFilterComponent {
   projectTypesFilter = [

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-resume-timeline',
   templateUrl: './resume-timeline.component.html',
   styleUrl: './resume-timeline.component.scss',
-  standalone: false,
+  imports: [WavyHeaderComponent, NgClass],
 })
 export class ResumeTimelineComponent {
   resumeItems = [

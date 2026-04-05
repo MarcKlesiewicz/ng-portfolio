@@ -7,7 +7,13 @@ import { ProjectFilterComponent } from './components/project-filter/project-filt
 import { ProjectDetailPageComponent } from './project-detail-page/project-detail-page.component';
 
 @NgModule({
-  declarations: [ProjectPageComponent, ProjectCardComponent, ProjectFilterComponent, ProjectDetailPageComponent],
-  imports: [CommonModule, ProjectsRoutingModule],
+  imports: [
+    CommonModule,
+    ProjectsRoutingModule,
+    ProjectPageComponent,
+    ProjectCardComponent,
+    ProjectFilterComponent,
+    ProjectDetailPageComponent,
+  ],
 })
 export class ProjectsModule {}

@@ -11,8 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { ResumeTimelineComponent } from './components/resume-timeline/resume-timeline.component';
 
 @NgModule({
-  imports: [AboutRoutingModule, BrowserAnimationsModule, CommonModule, SharedModule, FormsModule],
-  declarations: [
+  imports: [
+    AboutRoutingModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    SharedModule,
+    FormsModule,
     AboutComponent,
     AboutDescriptionSectionComponent,
     TechstackSectionComponent,
