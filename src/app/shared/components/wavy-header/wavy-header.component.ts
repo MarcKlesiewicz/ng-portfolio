@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-wavy-header',
   templateUrl: './wavy-header.component.html',
   styleUrls: ['./wavy-header.component.scss'],
+  standalone: false,
 })
 export class WavyHeaderComponent {
   @Input() title: string = '';

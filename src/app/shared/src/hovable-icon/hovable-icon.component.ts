@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-hovable-icon',
   templateUrl: './hovable-icon.component.html',
   styleUrls: ['./hovable-icon.component.scss'],
+  standalone: false,
 })
 export class HovableIconComponent {
   @Input() iconPath: string = '';

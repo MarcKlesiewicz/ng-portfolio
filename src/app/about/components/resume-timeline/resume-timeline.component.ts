@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-resume-timeline',
   templateUrl: './resume-timeline.component.html',
   styleUrl: './resume-timeline.component.scss',
+  standalone: false,
 })
 export class ResumeTimelineComponent {
   resumeItems = [

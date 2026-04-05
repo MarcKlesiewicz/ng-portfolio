@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-point-section',
-
   templateUrl: './about-point-section.component.html',
   styleUrls: ['./about-point-section.component.scss'],
+  standalone: false,
 })
 export class AboutPointSectionComponent {
   points = [

@@ -5,6 +5,7 @@ import { ProjectsService } from '../data/projects.service';
   selector: 'app-project-page',
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.scss',
+  standalone: false,
 })
 export class ProjectPageComponent {
   readonly projectsService = inject(ProjectsService);

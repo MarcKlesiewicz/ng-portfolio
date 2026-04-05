@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
       transition('in <=> out', animate('300ms ease-in-out')),
     ]),
   ],
+  standalone: false,
 })
 
 //TODO: add jest, daisyUI

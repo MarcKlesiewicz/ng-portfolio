@@ -10,6 +10,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'app-project-detail-page',
   templateUrl: './project-detail-page.component.html',
   styleUrl: './project-detail-page.component.scss',
+  standalone: false,
 })
 export class ProjectDetailPageComponent implements OnInit {
   project: Project | undefined;

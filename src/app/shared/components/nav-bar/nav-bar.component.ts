@@ -27,6 +27,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('open => closed', [animate('300ms ease-out')]),
     ]),
   ],
+  standalone: false,
 })
 export class NavBarComponent {
   isMenuOpen = false;
