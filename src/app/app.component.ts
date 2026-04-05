@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RouterOutlet } from '@angular/router';
 import { environment } from '@env/environment';
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { Logger } from './shared/services/logger.service';
 
 const log = new Logger('App');
@@ -9,7 +11,7 @@ const log = new Logger('App');
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: false,
+  imports: [RouterOutlet, NavBarComponent],
 })
 export class AppComponent implements OnInit {
   ngOnInit() {
