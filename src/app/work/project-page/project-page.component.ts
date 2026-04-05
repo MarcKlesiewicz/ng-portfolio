@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { ProjectsService } from '../data/projects.service';
-import { ProjectFilterComponent } from '../components/project-filter/project-filter.component';
-import { ProjectCardComponent } from '../components/project-card/project-card.component';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { ProjectCardComponent } from '../components/project-card/project-card.component';
+import { ProjectFilterComponent } from '../components/project-filter/project-filter.component';
+import { ProjectsService } from '../data/projects.service';
 
 @Component({
   selector: 'app-project-page',

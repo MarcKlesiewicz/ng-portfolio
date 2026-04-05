@@ -4,21 +4,17 @@
  * For app-specific initialization, use `app/app.component.ts`.
  */
 
-import { enableProdMode, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 
-import { environment } from '@env/environment';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { IMAGE_CONFIG } from '@angular/common';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeModule } from './app/home/home.module';
-import { AboutModule } from './app/about/about.module';
-import { ProjectsModule } from './app/work/projects.module';
-import { AppRoutingModule } from './app/app-routing.module';
+import { provideRouter } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '@env/environment';
 import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
 if (environment.production) {
   enableProdMode();
@@ -29,13 +25,9 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       BrowserModule,
       ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-      RouterModule,
-      BrowserAnimationsModule,
-      HomeModule,
-      AboutModule,
-      ProjectsModule,
-      AppRoutingModule
+      BrowserAnimationsModule
     ),
+    provideRouter(routes),
     provideZoneChangeDetection(),
     provideHttpClient(withInterceptorsFromDi()),
     { provide: IMAGE_CONFIG, useValue: { disableImageSizeWarning: true, disableImageLazyLoadWarning: true } },

@@ -1,11 +1,11 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
-import { ProjectsService } from '../data/projects.service';
-import { Project } from '../models/project.model';
+import { LowerCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EMPTY, switchMap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { LowerCasePipe } from '@angular/common';
+import { ProjectsService } from '../data/projects.service';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-project-detail-page',
