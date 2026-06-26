@@ -17,6 +17,7 @@
     "strict": true,
     "target": "ES2022",
     "typeRoots": ["node_modules/@types"],
+    "ignoreDeprecations": "6.0",
     "baseUrl": "./",
     "paths": {
       "@app/*": ["src/app/*"],
