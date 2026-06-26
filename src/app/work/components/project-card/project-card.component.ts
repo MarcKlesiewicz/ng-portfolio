@@ -10,5 +10,5 @@ import { UpperCasePipe } from '@angular/common';
   imports: [RouterLink, UpperCasePipe],
 })
 export class ProjectCardComponent {
-  @Input() project?: Project;
+  @Input({ required: true }) project!: Project;
 }

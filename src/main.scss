@@ -4,9 +4,9 @@
  */
 
 // Theme variables, must be included before the libraries to allow overriding defaults
-@import "styles/theme-variables";
+@use "styles/theme-variables";
 
 //Keyframes
-@import "styles/keyframes.scss";
+@use "styles/keyframes";
 
-@import "styles/tailwind.scss";
+@use "styles/tailwind";

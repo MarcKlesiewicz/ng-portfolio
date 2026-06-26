@@ -1,5 +1,5 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { slideInOut } from '@app/shared/animations/slide.animations';
 import { ProjectsService } from '@app/work/data/projects.service';
 import { PROJECT_TECHNOLOGIES, ProjectTechnologies, ProjectType } from '@app/work/models/project.model';
 
@@ -7,21 +7,15 @@ import { PROJECT_TECHNOLOGIES, ProjectTechnologies, ProjectType } from '@app/wor
   selector: 'app-project-filter',
   templateUrl: './project-filter.component.html',
   styleUrl: './project-filter.component.scss',
-  animations: [
-    trigger('slideInOut', [
-      state('out', style({ height: '*', opacity: 1 })),
-      state('in', style({ height: '0px', opacity: 0 })),
-      transition('in <=> out', animate('300ms ease-in-out')),
-    ]),
-  ],
+  animations: [slideInOut],
 })
 export class ProjectFilterComponent {
-  projectTypesFilter = [
+  readonly projectTypesFilter = [
     { type: 'ALL' as ProjectType, icon: '', label: 'ALL' },
     { type: 'WORK' as ProjectType, icon: 'work', label: 'WORK' },
     { type: 'SIDE QUESTS' as ProjectType, icon: 'explore', label: 'SIDE QUESTS' },
   ];
-  technologies = PROJECT_TECHNOLOGIES;
+  readonly technologies = PROJECT_TECHNOLOGIES;
 
   selectedProjectType: ProjectType = 'ALL';
   selectedTechnologies: ProjectTechnologies[] = [];
@@ -29,26 +23,26 @@ export class ProjectFilterComponent {
 
   private readonly projectService: ProjectsService = inject(ProjectsService);
 
-  toggleFilterList() {
+  toggleFilterList(): void {
     this.isFilterListOpen = !this.isFilterListOpen;
   }
 
-  onFilterByProjectTypeSelected(projectType: ProjectType) {
+  onFilterByProjectTypeSelected(projectType: ProjectType): void {
     this.selectedProjectType = projectType;
     this.filterProjects();
   }
 
-  onTechnologySelected(technology: string) {
-    const index = this.selectedTechnologies.indexOf(technology as ProjectTechnologies);
+  onTechnologySelected(technology: ProjectTechnologies): void {
+    const index = this.selectedTechnologies.indexOf(technology);
     if (index === -1) {
-      this.selectedTechnologies.push(technology as ProjectTechnologies);
+      this.selectedTechnologies.push(technology);
     } else {
       this.selectedTechnologies.splice(index, 1);
     }
     this.filterProjects();
   }
 
-  private filterProjects() {
+  private filterProjects(): void {
     this.projectService.filterProjects(this.selectedProjectType, this.selectedTechnologies);
   }
 }

@@ -1,7 +1,7 @@
-<div class="h-full w-screen bg-primary px-4 py-16 flex justify-center">
-  <div class="flex flex-grow flex-col max-w-2xl gap-6 mt-8">
+<div class="page-shell page-shell-primary">
+  <div class="content-column content-column-md gap-6 mt-8">
     <app-project-filter></app-project-filter>
-    @for (project of projectsService.projects$() | async; track $index) {
+    @for (project of projects$ | async; track project.id) {
     <app-project-card [project]="project"></app-project-card>
     } @empty {
     <h1>Sorry, no projects matched your filters</h1>

@@ -1,27 +1,19 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
-import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
 import { NgTemplateOutlet } from '@angular/common';
+import { slideInOut } from '@app/shared/animations/slide.animations';
+import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
 
 @Component({
   selector: 'app-techstack-section',
   templateUrl: './techstack-section.component.html',
   styleUrls: ['./techstack-section.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      state('in', style({ height: '*', opacity: 1 })),
-      state('out', style({ height: '0px', opacity: 0 })),
-      transition('in <=> out', animate('300ms ease-in-out')),
-    ]),
-  ],
+  animations: [slideInOut],
   imports: [WavyHeaderComponent, NgTemplateOutlet],
 })
-
-//TODO: add jest, daisyUI
 export class TechstackSectionComponent {
   hideTechStackInfo = true;
 
-  techstack = [
+  readonly techstack = [
     // Frontend Frameworks and Libraries
     { name: 'Angular', icon: 'angular_logo.svg' },
     { name: 'RxJS', icon: 'rxjs_logo.svg' },
@@ -80,7 +72,7 @@ export class TechstackSectionComponent {
     { name: 'Karma', icon: 'karma_logo.svg' },
   ];
 
-  toogleTechStackInfo() {
+  toogleTechStackInfo(): void {
     this.hideTechStackInfo = !this.hideTechStackInfo;
   }
 }

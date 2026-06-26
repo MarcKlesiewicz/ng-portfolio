@@ -1,18 +1,20 @@
-<a [routerLink]="['/projects', project?.id]">
+<a [routerLink]="['/projects', project.id]">
   <div class="card card-compact bg-primary w-full shadow-xl text-neutral border-solid border border-slate-400 ff-mont">
     <figure class="max-h-[200px] bg-neutral">
-      <img src="{{ project?.thumbnail }}" />
+      <img [src]="project.thumbnail" [alt]="project.name" />
     </figure>
     <div class="card-body">
       <div class="flex flex-row gap-4">
+        @if (project.logo) {
         <div class="project-logo object-fill min-w-[50px]">
-          <img class="rounded-xl" src="{{ project?.logo }}" />
+          <img class="rounded-xl" [src]="project.logo" [alt]="project.name + ' logo'" />
         </div>
+        }
         <div>
-          <h2 class="card-title text-2xl font-bold">{{ project?.name }}</h2>
-          <p class="italic">{{ project?.description }}</p>
+          <h2 class="card-title text-2xl font-bold">{{ project.name }}</h2>
+          <p class="italic">{{ project.description }}</p>
           <div class="card-actions justify-start mt-1 font-bold">
-            @for (tech of project?.technologies; track $index) {
+            @for (tech of project.technologies; track tech) {
             <div class="rounded-md border border-neutral px-2 py-1 text-neutral font-semibold text-xs">
               {{ tech | uppercase }}
             </div>

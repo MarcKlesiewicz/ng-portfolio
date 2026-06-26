@@ -7,13 +7,13 @@ export interface Project {
   technologies: ProjectTechnologies[];
   liveUrl?: string;
   githubUrl?: string;
-  projectType: ProjectType;
+  projectType: ProjectCategory;
   contentPath: string;
   year: number;
-  content?: string;
 }
 
 export type ProjectType = 'ALL' | 'WORK' | 'SIDE QUESTS';
+export type ProjectCategory = Exclude<ProjectType, 'ALL'>;
 
 export type ProjectTechnologies =
   | 'Flutter'

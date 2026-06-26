@@ -11,5 +11,5 @@ import { ProjectsService } from '../data/projects.service';
   imports: [ProjectFilterComponent, ProjectCardComponent, AsyncPipe],
 })
 export class ProjectPageComponent {
-  readonly projectsService = inject(ProjectsService);
+  readonly projects$ = inject(ProjectsService).projects$;
 }

@@ -19,7 +19,7 @@
   >
 </div>
 
-<div class="font-bold text-xs" [@slideInOut]="isFilterListOpen ? 'out' : 'in'">
+<div class="font-bold text-xs" [@slideInOut]="isFilterListOpen ? 'in' : 'out'">
   @for (tech of technologies; track tech) {
   <a
     (click)="onTechnologySelected(tech)"
