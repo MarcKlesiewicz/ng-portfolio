@@ -40,6 +40,18 @@ export class ProjectsService {
     this.projectSubject.next(filteredProjects);
   }
 
+  filterSummaries(
+    projects: readonly ProjectSummary[],
+    projectType: ProjectType,
+    technologies: readonly string[] = []
+  ): readonly ProjectSummary[] {
+    return projects.filter(
+      (project) =>
+        (projectType === 'ALL' || project.projectType === projectType) &&
+        technologies.every((technology) => project.technologies.includes(technology))
+    );
+  }
+
   private normalizeTechnology(technology: string): string {
     return technology
       .toLowerCase()

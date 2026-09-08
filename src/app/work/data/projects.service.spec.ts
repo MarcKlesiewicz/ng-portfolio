@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { firstValueFrom } from 'rxjs';
 import { providePortfolioContent } from '../../content/portfolio-content.providers';
+import { PORTFOLIO_CONTENT_DATA } from '../../content/local/portfolio-content.data';
 import { ProjectsService } from './projects.service';
 
 describe('ProjectsService', () => {
@@ -30,5 +31,10 @@ describe('ProjectsService', () => {
 
     const projects = await firstValueFrom(service.projects$);
     expect(projects.length).toBe(5);
+  });
+
+  it('filters content summaries with category and technology AND semantics', () => {
+    const filtered = service.filterSummaries(PORTFOLIO_CONTENT_DATA.projects, 'WORK', ['firebase', 'figma']);
+    expect(filtered.map((project) => project.slug)).toEqual(['myepi']);
   });
 });

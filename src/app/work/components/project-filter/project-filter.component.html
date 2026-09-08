@@ -1,32 +1,33 @@
-<div class="flex flex-row justify-between items-center mb-2">
-  <div class="border-solid border-2 border-secondary rounded-full p-1 w-fit join">
-    @for (type of projectTypesFilter; track $index) {
-    <div
-      [class.btn-accent]="selectedProjectType === type.type"
-      class="join-item btn btn-primary btn-sm rounded-full text-sm"
-      (click)="onFilterByProjectTypeSelected(type.type)"
-    >
-      @if (type.icon) {
-      <span class="material-icons-outlined text-sm">{{ type.icon }}</span>
+<div class="filters">
+  <fieldset>
+    <legend>Project type</legend>
+    <div class="filter-row">
+      @for (type of projectTypes; track type.value) {
+      <button
+        type="button"
+        [attr.aria-pressed]="projectType === type.value"
+        (click)="projectTypeChange.emit(type.value)"
+      >
+        {{ type.label }}
+      </button>
       }
-      {{ type.label }}
     </div>
-    }
-  </div>
-
-  <a (click)="toggleFilterList()" class="btn btn-accent border-2 border-solid border-secondary btn-circle btn-md">
-    <span class="material-icons-outlined text-md"> filter_list </span></a
-  >
-</div>
-
-<div class="font-bold text-xs" [@slideInOut]="isFilterListOpen ? 'in' : 'out'">
-  @for (tech of technologies; track tech) {
-  <a
-    (click)="onTechnologySelected(tech)"
-    [class.bg-secondary]="selectedTechnologies.includes(tech)"
-    class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral m-1"
-  >
-    {{ tech }}
-  </a>
+  </fieldset>
+  <fieldset>
+    <legend>Technology <span>match every selected technology</span></legend>
+    <div class="filter-row filter-row--technologies">
+      @for (technology of technologies; track technology.id) {
+      <button
+        type="button"
+        [attr.aria-pressed]="isSelected(technology.id)"
+        (click)="technologyToggle.emit(technology.id)"
+      >
+        {{ technology.label }}
+      </button>
+      }
+    </div>
+  </fieldset>
+  @if (projectType !== 'ALL' || selectedTechnologies.length) {
+  <button type="button" class="clear-button" (click)="clearFilters.emit()">Clear all filters</button>
   }
 </div>

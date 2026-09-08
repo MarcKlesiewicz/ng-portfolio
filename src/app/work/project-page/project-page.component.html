@@ -1,10 +1,35 @@
-<div class="page-shell page-shell-primary">
-  <div class="content-column content-column-md gap-6 mt-8">
-    <app-project-filter></app-project-filter>
-    @for (project of projects$ | async; track project.id) {
-    <app-project-card [project]="project"></app-project-card>
+<section class="gallery" aria-labelledby="projects-heading">
+  <header class="gallery__header">
+    <p class="editorial-kicker">Work archive</p>
+    <h1 id="projects-heading">Projects with a point of view.</h1>
+    <p>A mix of product work and side quests—filtered by what you want to inspect.</p>
+  </header>
+
+  <app-project-filter
+    [projectType]="selectedProjectType()"
+    [selectedTechnologies]="selectedTechnologies()"
+    [technologies]="technologies()"
+    (projectTypeChange)="setProjectType($event)"
+    (technologyToggle)="toggleTechnology($event)"
+    (clearFilters)="clearFilters()"
+  ></app-project-filter>
+
+  <div class="gallery__results-heading">
+    <h2 id="project-results">
+      Showing {{ visibleProjects().length }} project{{ visibleProjects().length === 1 ? '' : 's' }}
+    </h2>
+    <p aria-live="polite" class="visually-hidden">{{ announcement() }}</p>
+  </div>
+
+  <div class="project-grid" aria-labelledby="project-results">
+    @for (project of visibleProjects(); track project.slug) {
+    <app-project-card [project]="project" [technologies]="technologies()"></app-project-card>
     } @empty {
-    <h1>Sorry, no projects matched your filters</h1>
+    <div class="empty-state">
+      <p class="editorial-kicker">No exact match</p>
+      <h2>That combination is a little too specific.</h2>
+      <button type="button" (click)="clearFilters()">Clear filters and see everything</button>
+    </div>
     }
   </div>
-</div>
+</section>

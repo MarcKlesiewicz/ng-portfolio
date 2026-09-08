@@ -1,0 +1,77 @@
+.filters {
+  display: grid;
+  gap: var(--space-3);
+}
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 var(--space-3);
+  border: 0;
+  border-bottom: 1px solid rgb(225 195 107 / 28%);
+}
+legend {
+  margin-bottom: 0.85rem;
+  color: var(--color-paper);
+  font-family: var(--font-interface);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+legend span {
+  margin-left: 0.5rem;
+  color: var(--color-mist);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+button {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  color: var(--color-paper-muted);
+  background: transparent;
+  border: 1px solid rgb(217 206 194 / 35%);
+  border-radius: 999px;
+  font-family: var(--font-interface);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color var(--motion-fast), background var(--motion-fast), border-color var(--motion-fast);
+}
+button:hover,
+button:focus-visible,
+button[aria-pressed="true"] {
+  color: var(--color-ink);
+  background: var(--color-gold-bright);
+  border-color: var(--color-gold-bright);
+}
+.filter-row--technologies button {
+  min-height: 2.35rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.7rem;
+}
+.clear-button {
+  width: fit-content;
+  color: var(--color-gold-bright);
+  border: 0;
+  border-radius: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+.clear-button:hover,
+.clear-button:focus-visible {
+  color: var(--color-gold-bright);
+  background: transparent;
+}
+@media (max-width: 32rem) {
+  legend span {
+    display: block;
+    margin: 0.35rem 0 0;
+  }
+}
