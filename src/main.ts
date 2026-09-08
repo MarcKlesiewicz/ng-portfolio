@@ -6,10 +6,8 @@
 
 import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 
-import { IMAGE_CONFIG } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@env/environment';
@@ -25,13 +23,11 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(
       BrowserModule,
-      ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-      BrowserAnimationsModule
+      ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
     ),
     provideRouter(routes),
     provideZoneChangeDetection(),
     provideHttpClient(withInterceptorsFromDi()),
     providePortfolioContent(),
-    { provide: IMAGE_CONFIG, useValue: { disableImageSizeWarning: true, disableImageLazyLoadWarning: true } },
   ],
 }).catch((err) => console.error(err));

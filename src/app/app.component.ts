@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { RouterOutlet } from '@angular/router';
 import { environment } from '@env/environment';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { Logger } from './shared/services/logger.service';
+import { PortfolioMetaService } from './shared/services/portfolio-meta.service';
 
 const log = new Logger('App');
 
@@ -14,6 +15,8 @@ const log = new Logger('App');
   imports: [RouterOutlet, NavBarComponent],
 })
 export class AppComponent implements OnInit {
+  private readonly portfolioMeta = inject(PortfolioMetaService);
+
   ngOnInit() {
     // Setup logger
     if (environment.production) {
@@ -21,5 +24,6 @@ export class AppComponent implements OnInit {
     }
 
     log.debug('init');
+    this.portfolioMeta.start();
   }
 }

@@ -7,7 +7,10 @@ export const WORK_ROUTES: Routes = [
   {
     path: '',
     component: ProjectPageComponent,
-    title: 'klesiewicz.dev | projects',
+    title: 'Projects — Marc Klesiewicz',
+    data: {
+      description: 'An archive of product work and side projects by frontend and app developer Marc Klesiewicz.',
+    },
   },
 
   {

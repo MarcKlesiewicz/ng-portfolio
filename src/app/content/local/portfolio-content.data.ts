@@ -38,10 +38,10 @@ export const PORTFOLIO_CONTENT_DATA: PortfolioContentSnapshot = {
       name: 'Monto',
       description: 'A mobile and web rental platform built with Flutter.',
       thumbnail: {
-        src: 'assets/images/monto/monto_phones.png',
+        src: 'assets/images/monto/monto_phones.webp',
         alt: 'Monto mobile application screens',
-        width: 2885,
-        height: 1241,
+        width: 1600,
+        height: 688,
       },
       logo: { src: 'assets/images/monto/monto_logo.jpg', alt: 'Monto logo', width: 240, height: 240 },
       technologies: ['flutter', 'dart', 'riverpod', 'mongodb', 'graphql', 'material', 'clickup'],
@@ -100,10 +100,10 @@ export const PORTFOLIO_CONTENT_DATA: PortfolioContentSnapshot = {
       name: "Up N' Down",
       description: 'A Flutter golf exercise and training application.',
       thumbnail: {
-        src: 'assets/images/und/und_phones.png',
+        src: 'assets/images/und/und_phones.webp',
         alt: "Up N' Down application screens",
-        width: 1184,
-        height: 1748,
+        width: 1084,
+        height: 1600,
       },
       logo: { src: 'assets/images/und/und_logo.jpg', alt: "Up N' Down logo", width: 240, height: 240 },
       technologies: ['flutter', 'dart', 'riverpod', 'mongodb', 'graphql', 'material', 'clickup'],
@@ -186,10 +186,10 @@ export const PORTFOLIO_CONTENT_DATA: PortfolioContentSnapshot = {
         {
           kind: 'media',
           media: {
-            src: 'assets/images/myepi/epi_screens.jpg',
+            src: 'assets/images/myepi/epi_screens.webp',
             alt: 'MyEpi application screen collection',
-            width: 2885,
-            height: 1215,
+            width: 1600,
+            height: 674,
           },
         },
         {
@@ -257,10 +257,10 @@ export const PORTFOLIO_CONTENT_DATA: PortfolioContentSnapshot = {
       name: 'Mealbuilder',
       description: 'Recipe planning with detailed nutrition information.',
       thumbnail: {
-        src: 'assets/images/mealbuilder/mealbuilder_screens.jpg',
+        src: 'assets/images/mealbuilder/mealbuilder_screens.webp',
         alt: 'Mealbuilder application screens',
-        width: 2885,
-        height: 1215,
+        width: 1600,
+        height: 674,
       },
       logo: { src: 'assets/images/mealbuilder/mealbuilder_logo.jpg', alt: 'Mealbuilder logo', width: 240, height: 240 },
       technologies: ['flutter', 'dart', 'riverpod', 'swagger', 'material', 'clickup'],
@@ -297,8 +297,8 @@ export const PORTFOLIO_CONTENT_DATA: PortfolioContentSnapshot = {
       'I focus on frontend and cross-platform applications. Away from software I gravitate toward music, film, board games, padel, mechanical keyboards, and the ongoing renovation of an old house.',
       'I value genuine communities and meaningful goals. My best work combines reliable engineering with an interface that feels considered and intuitive.',
     ],
-    portrait: { src: 'assets/images/me.jpg', alt: 'Portrait of Marc Klesiewicz', width: 1354, height: 2048 },
-    avatar: { src: 'assets/images/avatar.png', alt: '', width: 870, height: 851 },
+    portrait: { src: 'assets/images/me.webp', alt: 'Portrait of Marc Klesiewicz', width: 1058, height: 1600 },
+    avatar: { src: 'assets/images/avatar.webp', alt: '', width: 870, height: 851 },
     endorsement: {
       quote:
         'Marc is an extremely competent employee who works independently, finds constructive solutions, and takes significant responsibility. He is also a cheerful and helpful colleague.',

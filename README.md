@@ -1,43 +1,37 @@
-# ng-portfolio
+# Marc Klesiewicz portfolio
 
-Building my portfolio website using Angular - https://www.klesiewicz.dev/home
+An editorial Angular portfolio for selected product work, experience, and personal context.
 
-# Getting started
+## Local development
 
-1. Go to project folder and install dependencies:
+The project expects Node 22.22.3 or newer and npm 10.7 or newer.
 
 ```sh
 npm install
-```
-
-2. Launch development server, and open `localhost:4200` in your browser:
-
-```sh
 npm start
 ```
 
-# Project structure
+Open `http://localhost:4200`. Run the checks with:
 
+```sh
+npm test -- --configuration=ci
+npm run lint
+npm run build
 ```
-dist/                        web app production build
-docs/                        project docs and coding guides
-src/                         project source code
-|- app/                      app components
-|  |- core/                  core module (singleton services and single-use components)
-|  |- shared/                shared module  (common components, directives and pipes)
-|  |- app.component.*        app root component (shell)
-|  |- app.module.ts          app root module definition
-|  |- app-routing.module.ts  app routes
-|  +- ...                    additional modules and components
-|- assets/                   app assets (images, fonts, sounds...)
-|- environments/             values for various build environments
-|- theme/                    app global scss variables and theme
-|- translations/             translations files
-|- index.html                html entry point
-|- main.scss                 global style entry point
-|- main.ts                   app entry point
-|- polyfills.ts              polyfills needed by Angular
-+- test.ts                   unit tests entry point
-reports/                     test and coverage reports
-proxy.conf.js                backend proxy configuration
-```
+
+## Architecture
+
+The app uses standalone Angular components and lazy route groups. Visitor-facing content is kept behind the `PortfolioContentSource` injection token:
+
+- `src/app/content/models/portfolio-content.model.ts` defines the portable schema.
+- `src/app/content/local/portfolio-content.data.ts` is the current local content store.
+- `src/app/content/local/local-portfolio-content.source.ts` adapts that store to observable queries.
+- `src/app/content/portfolio-content.providers.ts` is the replacement seam for a future API, headless CMS, or generated JSON adapter.
+
+Pages consume the source rather than importing content records directly. Project stories are typed blocks rendered by Angular templates; arbitrary HTML is not injected. Gallery filters are encoded in the URL, and canonical project addresses use stable slugs while old numeric links redirect.
+
+See [Content authoring](docs/content-authoring.md) for the editing workflow and schema rules.
+
+## Deployment
+
+`npm run build` produces the deployable app in `dist/`. The existing Vercel configuration serves the Angular SPA and falls back to `index.html` for deep links.
