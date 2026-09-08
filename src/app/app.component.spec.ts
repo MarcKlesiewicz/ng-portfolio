@@ -1,14 +1,14 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateModule } from '@ngx-translate/core';
+import { provideRouter } from '@angular/router';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, TranslateModule.forRoot(), AppComponent],
-      providers: [],
+      imports: [AppComponent],
+      providers: [provideRouter([]), provideNoopAnimations()],
     }).compileComponents();
   }));
 
