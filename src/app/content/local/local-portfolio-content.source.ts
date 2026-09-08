@@ -7,9 +7,10 @@ import { PORTFOLIO_CONTENT_DATA } from './portfolio-content.data';
 
 @Injectable()
 export class LocalPortfolioContentSource implements PortfolioContentSource {
-  readonly projectSummaries$ = of(this.toSummaries(PORTFOLIO_CONTENT_DATA.projects));
+  private readonly summaries = this.toSummaries(PORTFOLIO_CONTENT_DATA.projects);
+  readonly projectSummaries$ = of(this.summaries);
   readonly featuredProjects$ = of(
-    this.toSummaries(PORTFOLIO_CONTENT_DATA.projects)
+    this.summaries
       .filter((project) => project.featuredOrder !== undefined)
       .sort((a, b) => (a.featuredOrder ?? 0) - (b.featuredOrder ?? 0))
   );

@@ -50,6 +50,11 @@ export interface ProjectStory extends ProjectSummary {
   readonly blocks: readonly ProjectStoryBlock[];
 }
 
+export type ProjectResolution =
+  | { readonly status: 'ready'; readonly project: ProjectStory }
+  | { readonly status: 'not-found' }
+  | { readonly status: 'error' };
+
 export interface ExperienceItem {
   readonly organization: string;
   readonly role: string;

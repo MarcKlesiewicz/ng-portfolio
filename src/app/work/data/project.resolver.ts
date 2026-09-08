@@ -1,13 +1,8 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateFn, ResolveFn, Router } from '@angular/router';
 import { catchError, map, of } from 'rxjs';
-import { ProjectStory } from '../../content/models/portfolio-content.model';
+import { ProjectResolution } from '../../content/models/portfolio-content.model';
 import { PORTFOLIO_CONTENT } from '../../content/portfolio-content.source';
-
-export type ProjectResolution =
-  | { readonly status: 'ready'; readonly project: ProjectStory }
-  | { readonly status: 'not-found' }
-  | { readonly status: 'error' };
 
 export const projectResolver: ResolveFn<ProjectResolution> = (route) =>
   inject(PORTFOLIO_CONTENT)

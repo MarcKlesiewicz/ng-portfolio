@@ -1,6 +1,6 @@
-@if (profile$ | async; as profile) {
+@if (profile(); as profile) {
 <app-hero-section [profile]="profile"></app-hero-section>
-} @if (featuredProjects$ | async; as projects) {
+} @if (featuredProjects(); as projects) {
 <app-editorial-section eyebrow="Selected work" title="A few useful things, made thoughtfully." layout="wide">
   <div class="featured-grid">
     @for (project of projects.slice(0, 3); track project.slug; let index = $index) {
@@ -28,7 +28,7 @@
   </div>
   <a class="all-projects-link" routerLink="/projects">See all projects <span aria-hidden="true">→</span></a>
 </app-editorial-section>
-} @if (profile$ | async; as profile) {
+} @if (profile(); as profile) {
 <section class="home-closing" aria-labelledby="closing-heading">
   <p class="editorial-kicker">One more thing</p>
   <h2 id="closing-heading">Good work starts with a good conversation.</h2>

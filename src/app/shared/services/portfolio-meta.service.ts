@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, TitleStrategy } from '@angular/router';
-import { ProjectResolution } from '../../work/data/project.resolver';
+import { ProjectResolution } from '../../content/models/portfolio-content.model';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioMetaService extends TitleStrategy {

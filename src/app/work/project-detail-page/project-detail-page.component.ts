@@ -2,8 +2,8 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
+import { ProjectResolution } from '../../content/models/portfolio-content.model';
 import { ProjectStoryComponent } from '../components/project-story/project-story.component';
-import { ProjectResolution } from '../data/project.resolver';
 
 @Component({
   selector: 'app-project-detail-page',
