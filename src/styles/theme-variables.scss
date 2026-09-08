@@ -4,12 +4,12 @@
  */
 
 //Import the fonts
-//Montserrat
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+//Manrope
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
 //Berkshire Swash
 @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
-//EB Garamond
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+//Newsreader
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap");
 
 //Import the Material Icons
 @import "material-icons/iconfont/material-icons.css";
@@ -50,24 +50,50 @@ app-about {
 }
 
 :root {
-  --primary-color: #050024;
-  --on-primary-color: #ece4dc;
-  --secondary-color: #7e6300;
-  --on-secondary-color: #ece4dc;
-  --tertiary-color: #600106;
-  --on-tertiary-color: #ece4dc;
+  --color-ink: #08051c;
+  --color-ink-raised: #120d2d;
+  --color-paper: #f2ebe3;
+  --color-paper-muted: #d9cec2;
+  --color-gold: #b99a42;
+  --color-gold-bright: #e1c36b;
+  --color-wine: #7d1f2d;
+  --color-mist: #b8b0c7;
+  --color-focus: #f5d876;
+  --primary-color: var(--color-ink);
+  --on-primary-color: var(--color-paper);
+  --secondary-color: var(--color-gold-bright);
+  --on-secondary-color: var(--color-ink);
+  --tertiary-color: var(--color-wine);
+  --on-tertiary-color: var(--color-paper);
+  --font-display: "Berkshire Swash", cursive;
+  --font-editorial: "Newsreader", Georgia, serif;
+  --font-interface: "Manrope", system-ui, sans-serif;
+  --space-1: 0.375rem;
+  --space-2: 0.75rem;
+  --space-3: 1.25rem;
+  --space-4: 2rem;
+  --space-5: 3.5rem;
+  --space-6: 6rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --shadow-soft: 0 24px 80px rgb(0 0 0 / 24%);
+  --motion-fast: 160ms;
+  --motion-base: 280ms;
+  --motion-slow: 560ms;
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ff-mont {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-interface);
 }
 
 .ff-berk {
-  font-family: "Berkshire Swash", cursive;
+  font-family: var(--font-display);
 }
 
 .ff-gara {
-  font-family: "EB Garamond", serif;
+  font-family: var(--font-editorial);
 }
 
 .primary-text {
@@ -111,12 +137,45 @@ app-about {
 }
 
 .bread-text {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-interface);
   letter-spacing: 0.08rem;
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.25rem;
   white-space: pre-line;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: var(--color-gold-bright);
+}
+
+.editorial-kicker {
+  color: var(--color-gold-bright);
+  font-family: var(--font-interface);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.editorial-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.5rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.editorial-copy {
+  font-family: var(--font-interface);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.75;
 }
 
 .constrained-container {
@@ -183,4 +242,15 @@ app-about {
 
 .project-content a {
   text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }
