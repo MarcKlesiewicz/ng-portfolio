@@ -1,35 +1,36 @@
-<div [@slideDown]="isMenuOpen ? 'open' : 'closed'" class="absolute flex w-screen z-10 frosted-glass">
-  <div
-    [@slideDown]="isMenuOpen ? 'open' : 'closed'"
-    class="flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
+<header class="site-header">
+  <a routerLink="/" class="brand" aria-label="Marc Klesiewicz — home">MK</a>
+  <button
+    #menuTrigger
+    type="button"
+    class="menu-trigger"
+    aria-controls="site-menu"
+    [attr.aria-expanded]="isMenuOpen()"
+    (click)="toggleMenu()"
   >
-    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/', label: 'Home' }"></ng-container>
-    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/about', label: 'Who is Marc?' }"></ng-container>
-    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/projects', label: 'Projects' }"></ng-container>
-  </div>
-</div>
+    <span class="menu-trigger__label">Menu</span>
+    <span aria-hidden="true" class="material-icons-outlined">{{ isMenuOpen() ? 'close' : 'drag_handle' }}</span>
+  </button>
+</header>
 
-<div class="flex flex-row w-screen absolute justify-between m-4 text-secondary z-20">
-  @if (!isMenuOpen) {
-  <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
-  }@else {
-  <div class="btn btn-ghost btn-circle text-2xl icon-hover">
-    <span class="material-icons-outlined text-5xl">language</span>
+<dialog #menuDialog id="site-menu" class="menu-dialog" aria-labelledby="menu-title" (cancel)="onDialogCancel($event)">
+  <div class="menu-dialog__topline">
+    <p id="menu-title" class="editorial-kicker">Where to?</p>
+    <button type="button" class="menu-close" aria-label="Close menu" (click)="closeMenu()">
+      <span aria-hidden="true" class="material-icons-outlined">close</span>
+    </button>
   </div>
-  }
-  <a (click)="toggleMenu()" class="mr-8 btn btn-ghost btn-circle icon-hover">
-    @if (!isMenuOpen) {
-    <span class="material-icons-outlined text-5xl">drag_handle</span>
-    } @if (isMenuOpen) {
-    <span class="material-icons-outlined text-5xl">close</span>
-    }
-  </a>
-</div>
-
-<!-- MENU-ITEM -->
-<ng-template #menuItem let-routePath let-label="label">
-  <div class="animated-div">
-    <a (click)="toggleMenu()" [routerLink]="routePath">{{ label }}</a>
-    <object type="image/svg+xml" data="assets/svgs/wavy.svg" class="min-w-3xl mt-2"></object>
-  </div>
-</ng-template>
+  <nav aria-label="Primary navigation" class="menu-links">
+    <a
+      routerLink="/"
+      routerLinkActive="is-current"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeMenu(false)"
+    >
+      <span>01</span>Home
+    </a>
+    <a routerLink="/projects" routerLinkActive="is-current" (click)="closeMenu(false)"><span>02</span>Projects</a>
+    <a routerLink="/about" routerLinkActive="is-current" (click)="closeMenu(false)"><span>03</span>About Marc</a>
+  </nav>
+  <p class="menu-note">Frontend craft, app development, and a few thoughtful detours.</p>
+</dialog>
