@@ -58,6 +58,12 @@
   text-transform: uppercase;
 }
 
+.menu-trigger__icon {
+  font-family: var(--font-interface);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
 .menu-dialog {
   width: 100%;
   max-width: none;
@@ -116,7 +122,7 @@
 
 .menu-links a:hover,
 .menu-links a:focus-visible,
-.menu-links a.is-current {
+.menu-links .is-current {
   color: var(--color-gold-bright);
   transform: translateX(0.4rem);
 }

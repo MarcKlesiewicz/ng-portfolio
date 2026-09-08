@@ -29,7 +29,7 @@ Do not add HTML strings or use `innerHTML`. If a new editorial structure is genu
 
 ## Profile and contacts
 
-The same data file owns the introduction, experience, capability groups, endorsement, portrait, and contact links. Capability groups reference technology IDs. Contact actions disappear cleanly when `contacts` is empty, so do not add placeholder addresses.
+The same data file owns the homepage `heroStatement`, introduction, experience, capability groups, endorsement, portrait, and contact links. Keep `heroStatement` concise and usable on its own; the longer `introduction` paragraphs belong to the About narrative. Capability groups reference technology IDs. Contact actions disappear cleanly when `contacts` is empty, so do not add placeholder addresses.
 
 ## Validation and future persistence
 

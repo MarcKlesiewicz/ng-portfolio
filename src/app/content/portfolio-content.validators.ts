@@ -27,6 +27,11 @@ export function validatePortfolioContent(content: PortfolioContentSnapshot): voi
 
   validateMedia(content.profile.portrait, 'Profile portrait');
   if (content.profile.avatar) validateMedia(content.profile.avatar, 'Profile avatar');
+  assert(content.profile.heroStatement.trim().length > 0, 'Profile requires a hero statement.');
+  assert(content.profile.introduction.length > 0, 'Profile requires at least one introduction paragraph.');
+  content.profile.introduction.forEach((paragraph, index) =>
+    assert(paragraph.trim().length > 0, `Profile introduction paragraph ${index + 1} cannot be empty.`)
+  );
   content.profile.contacts.forEach((link) => validateUrl(link.url, `Contact ${link.label}`));
   content.profile.capabilityGroups
     .flatMap((group) => group.technologyIds)

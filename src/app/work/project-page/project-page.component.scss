@@ -4,17 +4,20 @@
   color: var(--color-paper);
   background: var(--color-ink);
 }
+
 .gallery {
   width: min(100%, 90rem);
   margin-inline: auto;
   padding: clamp(8rem, 14vw, 12rem) clamp(1rem, 5vw, 5rem) var(--space-6);
 }
+
 .gallery__header {
   display: grid;
   gap: var(--space-2);
   max-width: 68rem;
   margin-bottom: var(--space-5);
 }
+
 .gallery__header h1 {
   max-width: 11ch;
   margin: 0;
@@ -24,6 +27,7 @@
   letter-spacing: -0.04em;
   line-height: 0.82;
 }
+
 .gallery__header > p:last-child {
   max-width: 40rem;
   margin: 0;
@@ -32,6 +36,7 @@
   font-size: 1.05rem;
   line-height: 1.7;
 }
+
 .gallery__results-heading {
   display: flex;
   align-items: baseline;
@@ -39,6 +44,7 @@
   margin: var(--space-5) 0 var(--space-3);
   border-bottom: 1px solid rgb(225 195 107 / 28%);
 }
+
 .gallery__results-heading h2 {
   margin: 0 0 0.8rem;
   font-family: var(--font-interface);
@@ -46,6 +52,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -53,20 +60,25 @@
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: clamp(1rem, 3vw, 2rem);
 }
+
 app-project-card {
   grid-column: span 5;
 }
+
 app-project-card:nth-child(3n + 1) {
   grid-column: span 7;
 }
+
 app-project-card:nth-child(4n) {
   margin-top: var(--space-4);
 }
+
 .empty-state {
   grid-column: 1 / -1;
   padding: clamp(2rem, 6vw, 5rem);
@@ -74,6 +86,7 @@ app-project-card:nth-child(4n) {
   background: var(--color-paper);
   border-radius: var(--radius-lg);
 }
+
 .empty-state h2 {
   max-width: 16ch;
   margin: 0.6rem 0 1.5rem;
@@ -82,6 +95,7 @@ app-project-card:nth-child(4n) {
   font-weight: 500;
   line-height: 0.95;
 }
+
 .empty-state button {
   padding: 0.8rem 1rem;
   color: var(--color-paper);
@@ -97,6 +111,7 @@ app-project-card:nth-child(4n) {
   app-project-card:nth-child(3n + 1) {
     grid-column: 1 / -1;
   }
+
   app-project-card:nth-child(4n) {
     margin-top: 0;
   }

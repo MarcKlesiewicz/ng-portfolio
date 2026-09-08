@@ -6,20 +6,20 @@ Verified on 2026-09-08 in the Codex in-app Chromium browser against the local An
 
 | Gate                         | Result                                                           |
 | ---------------------------- | ---------------------------------------------------------------- |
-| Angular unit and route tests | Pass — 39 tests                                                  |
-| Angular ESLint               | Pass                                                             |
-| Production build             | Pass — 358.76 kB raw initial bundle, 94.95 kB estimated transfer |
+| Angular unit and route tests | Pass — 40 tests                                                  |
+| Angular ESLint and Stylelint | Pass                                                             |
+| Production build             | Pass — 356.10 kB raw initial bundle, 94.66 kB estimated transfer |
 | Component style budgets      | Pass                                                             |
 
 ## Browser route matrix
 
 | Route/state                                   | 320 px | 768 px | 1280 px | Result and evidence                                                                                                                                               |
-| --------------------------------------------- | ------ | ------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| --------------------------------------------- | ------ | ------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/`                                           | Pass   | Pass   | Pass    | Semantic H1, project/About actions, no horizontal overflow, images loaded. Explicit grid placement fixed an artwork/headline overlap found during the first pass. |
 | `/projects`                                   | Pass   | Pass   | Pass    | Five cards in default state; semantic filters and results heading rendered.                                                                                       |
 | `/projects?category=work&tech=firebase,figma` | Pass   | —      | Pass    | URL state restored as pressed controls and reduced the result to MyEpi. Clear filters returned to five cards, rewrote the URL, and announced “5 projects shown.”  |
 | `/projects/monto`                             | —      | Pass   | Pass    | Typed story rendered without HTML injection, external link shown, no horizontal overflow, and all visible media loaded.                                           |
-| `/projects/1?tech=flutter`                    | —      | —      | Pass    | Redirected to `/projects/monto?tech=flutter`; title became `Monto — Project                                                                                       | Marc Klesiewicz`. |
+| `/projects/1?tech=flutter`                    | —      | —      | Pass    | Redirected to `/projects/monto?tech=flutter`; title became `Monto — Project \| Marc Klesiewicz`.                                                                  |
 | `/projects/does-not-exist`                    | —      | —      | Pass    | Distinct not-found message and gallery recovery action rendered.                                                                                                  |
 | `/about`                                      | Pass   | Pass   | Pass    | Narrative, capability groups, five experience chapters, endorsement, and project action rendered without horizontal overflow.                                     |
 

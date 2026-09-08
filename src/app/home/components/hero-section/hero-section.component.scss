@@ -1,6 +1,7 @@
 :host {
   display: block;
 }
+
 .hero {
   position: relative;
   display: grid;
@@ -13,6 +14,7 @@
   color: var(--color-paper);
   background: radial-gradient(circle at 80% 35%, rgb(125 31 45 / 22%), transparent 28rem), var(--color-ink);
 }
+
 .hero::after {
   position: absolute;
   right: 5%;
@@ -22,12 +24,14 @@
   background: linear-gradient(90deg, transparent, rgb(225 195 107 / 55%), transparent);
   content: "";
 }
+
 .hero__copy {
   position: relative;
   z-index: 2;
   grid-column: 1;
   max-width: 54rem;
 }
+
 h1 {
   max-width: 12ch;
   margin: var(--space-3) 0;
@@ -38,23 +42,27 @@ h1 {
   line-height: 0.82;
   text-wrap: balance;
 }
+
 h1 span {
   color: var(--color-gold-bright);
   font-family: var(--font-display);
   font-weight: 400;
   letter-spacing: -0.02em;
 }
+
 .hero__role,
 .hero__introduction,
 .hero__actions,
 .hero__aside {
   font-family: var(--font-interface);
 }
+
 .hero__role {
   margin: 0 0 var(--space-2);
   color: var(--color-paper);
   font-weight: 700;
 }
+
 .hero__introduction {
   max-width: 42rem;
   margin: 0;
@@ -62,6 +70,7 @@ h1 span {
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   line-height: 1.7;
 }
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -69,12 +78,14 @@ h1 span {
   gap: 1rem 1.5rem;
   margin-top: var(--space-4);
 }
+
 .hero__primary-action,
 .hero__text-action {
   color: var(--color-paper);
   font-weight: 700;
   text-decoration: none;
 }
+
 .hero__primary-action {
   display: inline-flex;
   align-items: center;
@@ -84,9 +95,11 @@ h1 span {
   background: var(--color-gold-bright);
   border-radius: 999px;
 }
+
 .hero__text-action {
   border-bottom: 1px solid var(--color-gold);
 }
+
 .hero__art {
   position: relative;
   display: grid;
@@ -96,6 +109,7 @@ h1 span {
   place-items: center;
   justify-self: center;
 }
+
 .hero__moon {
   z-index: 2;
   width: 58%;
@@ -103,19 +117,23 @@ h1 span {
   filter: drop-shadow(0 2rem 4rem rgb(0 0 0 / 45%));
   animation: editorial-drift 8s ease-in-out infinite alternate;
 }
+
 .hero__orbit {
   position: absolute;
   border: 1px solid rgb(225 195 107 / 30%);
   border-radius: 50%;
   transition: transform var(--motion-slow) var(--ease-editorial);
 }
+
 .hero__orbit--outer {
   inset: 0;
 }
+
 .hero__orbit--inner {
   inset: 18%;
   border-style: dashed;
 }
+
 .hero__satellite {
   position: absolute;
   top: 3%;
@@ -131,6 +149,7 @@ h1 span {
   transform-origin: 50% calc(50% + min(19vw, 15.5rem));
   animation: orbit 24s linear infinite;
 }
+
 .hero__aside {
   position: absolute;
   right: clamp(1rem, 3vw, 3rem);
@@ -152,6 +171,7 @@ h1 span {
   .hero__art:hover .hero__orbit--outer {
     transform: rotate(8deg) scale(1.04);
   }
+
   .hero__art:hover .hero__orbit--inner {
     transform: rotate(-12deg) scale(0.94);
   }
@@ -160,6 +180,7 @@ h1 span {
   .hero {
     grid-template-columns: 1fr;
   }
+
   .hero__art {
     position: absolute;
     grid-column: auto;
@@ -168,6 +189,7 @@ h1 span {
     width: 20rem;
     opacity: 0.28;
   }
+
   .hero__copy {
     margin-top: 7rem;
   }
@@ -176,6 +198,7 @@ h1 span {
   h1 {
     font-size: clamp(3.4rem, 18vw, 5rem);
   }
+
   .hero__aside {
     display: none;
   }

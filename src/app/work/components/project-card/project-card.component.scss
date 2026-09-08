@@ -1,9 +1,11 @@
 :host {
   display: block;
 }
+
 .project-card {
   height: 100%;
 }
+
 a {
   display: grid;
   height: 100%;
@@ -16,11 +18,13 @@ a {
   text-decoration: none;
   transition: transform var(--motion-base) var(--ease-editorial), border-color var(--motion-fast);
 }
+
 figure {
   position: relative;
   margin: 0;
   overflow: hidden;
 }
+
 img {
   display: block;
   width: 100%;
@@ -28,6 +32,7 @@ img {
   object-fit: cover;
   transition: transform var(--motion-slow) var(--ease-editorial);
 }
+
 figcaption {
   position: absolute;
   top: 0.8rem;
@@ -42,12 +47,14 @@ figcaption {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
 .project-card__copy {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   padding: clamp(1.1rem, 3vw, 2rem);
 }
+
 h2 {
   margin: 0;
   font-family: var(--font-editorial);
@@ -55,16 +62,19 @@ h2 {
   font-weight: 500;
   line-height: 0.95;
 }
+
 p,
 li,
 .project-card__action {
   font-family: var(--font-interface);
 }
+
 p {
   margin: 0;
   color: var(--color-mist);
   line-height: 1.65;
 }
+
 ul {
   display: flex;
   flex-wrap: wrap;
@@ -73,6 +83,7 @@ ul {
   padding: 1rem 0 0;
   list-style: none;
 }
+
 li {
   padding: 0.3rem 0.5rem;
   color: var(--color-paper-muted);
@@ -80,17 +91,20 @@ li {
   border-radius: 999px;
   font-size: 0.62rem;
 }
+
 .project-card__action {
   margin-top: 0.4rem;
   color: var(--color-gold-bright);
   font-size: 0.75rem;
   font-weight: 700;
 }
+
 a:hover,
 a:focus-visible {
   border-color: rgb(225 195 107 / 70%);
   transform: translateY(-0.35rem);
 }
+
 a:hover img,
 a:focus-visible img {
   transform: scale(1.025);

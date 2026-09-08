@@ -2,6 +2,7 @@
   display: grid;
   gap: var(--space-3);
 }
+
 fieldset {
   min-width: 0;
   margin: 0;
@@ -9,6 +10,7 @@ fieldset {
   border: 0;
   border-bottom: 1px solid rgb(225 195 107 / 28%);
 }
+
 legend {
   margin-bottom: 0.85rem;
   color: var(--color-paper);
@@ -18,6 +20,7 @@ legend {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
 legend span {
   margin-left: 0.5rem;
   color: var(--color-mist);
@@ -26,11 +29,13 @@ legend span {
   letter-spacing: 0.05em;
   text-transform: none;
 }
+
 .filter-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
 }
+
 button {
   min-height: 2.75rem;
   padding: 0.65rem 1rem;
@@ -44,18 +49,21 @@ button {
   cursor: pointer;
   transition: color var(--motion-fast), background var(--motion-fast), border-color var(--motion-fast);
 }
+
 button:hover,
 button:focus-visible,
-button[aria-pressed="true"] {
+[aria-pressed="true"] {
   color: var(--color-ink);
   background: var(--color-gold-bright);
   border-color: var(--color-gold-bright);
 }
+
 .filter-row--technologies button {
   min-height: 2.35rem;
   padding: 0.45rem 0.75rem;
   font-size: 0.7rem;
 }
+
 .clear-button {
   width: fit-content;
   color: var(--color-gold-bright);
@@ -64,6 +72,7 @@ button[aria-pressed="true"] {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
 }
+
 .clear-button:hover,
 .clear-button:focus-visible {
   color: var(--color-gold-bright);

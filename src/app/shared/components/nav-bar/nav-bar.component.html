@@ -9,7 +9,7 @@
     (click)="toggleMenu()"
   >
     <span class="menu-trigger__label">Menu</span>
-    <span aria-hidden="true" class="material-icons-outlined">{{ isMenuOpen() ? 'close' : 'drag_handle' }}</span>
+    <span aria-hidden="true" class="menu-trigger__icon">{{ isMenuOpen() ? '×' : '—' }}</span>
   </button>
 </header>
 
@@ -17,7 +17,7 @@
   <div class="menu-dialog__topline">
     <p id="menu-title" class="editorial-kicker">Where to?</p>
     <button type="button" class="menu-close" aria-label="Close menu" (click)="closeMenu()">
-      <span aria-hidden="true" class="material-icons-outlined">close</span>
+      <span aria-hidden="true" class="menu-trigger__icon">×</span>
     </button>
   </div>
   <nav aria-label="Primary navigation" class="menu-links">

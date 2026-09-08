@@ -68,6 +68,7 @@ export interface PortfolioProfile {
   readonly name: string;
   readonly role: string;
   readonly location: string;
+  readonly heroStatement: string;
   readonly introduction: readonly string[];
   readonly portrait: MediaAsset;
   readonly avatar?: MediaAsset;

@@ -292,6 +292,8 @@ export const PORTFOLIO_CONTENT_DATA: PortfolioContentSnapshot = {
     name: 'Marc Klesiewicz',
     role: 'Frontend and app developer',
     location: 'Near Odense, Denmark',
+    heroStatement:
+      'I value genuine communities and meaningful goals. My best work combines reliable engineering with an interface that feels considered and intuitive.',
     introduction: [
       "I'm an app developer with a computer science background, originally from Lolland and now settled near Odense with my girlfriend Mathilde and our dog Cody.",
       'I focus on frontend and cross-platform applications. Away from software I gravitate toward music, film, board games, padel, mechanical keyboards, and the ongoing renovation of an old house.',

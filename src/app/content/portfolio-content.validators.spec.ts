@@ -46,4 +46,13 @@ describe('validatePortfolioContent', () => {
 
     expect(() => validatePortfolioContent(invalid)).toThrowError(/intrinsic dimensions/);
   });
+
+  it('requires an explicit homepage hero statement', () => {
+    const invalid: PortfolioContentSnapshot = {
+      ...PORTFOLIO_CONTENT_DATA,
+      profile: { ...PORTFOLIO_CONTENT_DATA.profile, heroStatement: '   ' },
+    };
+
+    expect(() => validatePortfolioContent(invalid)).toThrowError('Profile requires a hero statement.');
+  });
 });
