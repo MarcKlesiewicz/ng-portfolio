@@ -1,6 +1,19 @@
-<div class="h-screen w-screen bg-primary flex place-content-center px-4">
-  <div class="stack container-sm items-center">
-    <img id="brand_en" src="assets/svgs/brand_en.svg" />
-    <img id="moon" class="max-h-72" src="assets/svgs/moon.svg" />
+<section class="hero" aria-labelledby="home-heading">
+  <div class="hero__copy">
+    <p class="editorial-kicker">{{ profile.location }} · Portfolio</p>
+    <h1 id="home-heading">I build digital things that feel <span>considered.</span></h1>
+    <p class="hero__role">{{ profile.name }} — {{ profile.role }}</p>
+    <p class="hero__introduction">{{ profile.introduction[2] }}</p>
+    <div class="hero__actions" aria-label="Explore the portfolio">
+      <a class="hero__primary-action" routerLink="/projects">Explore selected work <span aria-hidden="true">↗</span></a>
+      <a class="hero__text-action" routerLink="/about">A little more about me</a>
+    </div>
   </div>
-</div>
+  <div class="hero__art" aria-hidden="true">
+    <span class="hero__orbit hero__orbit--outer"></span>
+    <span class="hero__orbit hero__orbit--inner"></span>
+    <img class="hero__moon" src="assets/svgs/moon.svg" alt="" width="288" height="288" />
+    <span class="hero__satellite">MK</span>
+  </div>
+  <p class="hero__aside">Frontend craft<br />with room for play</p>
+</section>

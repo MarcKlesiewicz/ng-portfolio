@@ -1,1 +1,43 @@
-<app-hero-section></app-hero-section>
+@if (profile$ | async; as profile) {
+<app-hero-section [profile]="profile"></app-hero-section>
+} @if (featuredProjects$ | async; as projects) {
+<app-editorial-section eyebrow="Selected work" title="A few useful things, made thoughtfully." layout="wide">
+  <div class="featured-grid">
+    @for (project of projects.slice(0, 3); track project.slug; let index = $index) {
+    <article class="featured-card" [class.featured-card--lead]="index === 0">
+      <a [routerLink]="['/projects', project.slug]" [attr.aria-label]="'Read the ' + project.name + ' project story'">
+        <figure>
+          <img
+            [src]="project.thumbnail.src"
+            [alt]="project.thumbnail.alt"
+            [width]="project.thumbnail.width"
+            [height]="project.thumbnail.height"
+            loading="lazy"
+          />
+          <figcaption>{{ project.projectType }} · {{ project.year }}</figcaption>
+        </figure>
+        <div class="featured-card__copy">
+          <p class="featured-card__index">0{{ index + 1 }}</p>
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+          <span class="featured-card__link">View project <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+    }
+  </div>
+  <a class="all-projects-link" routerLink="/projects">See all projects <span aria-hidden="true">→</span></a>
+</app-editorial-section>
+} @if (profile$ | async; as profile) {
+<section class="home-closing" aria-labelledby="closing-heading">
+  <p class="editorial-kicker">One more thing</p>
+  <h2 id="closing-heading">Good work starts with a good conversation.</h2>
+  <p>Read the longer story, see how I work, and find the best way to start a conversation.</p>
+  <div class="home-closing__actions">
+    <a routerLink="/about">Meet {{ profile.name.split(' ')[0] }} <span aria-hidden="true">→</span></a>
+    @for (contact of profile.contacts; track contact.url) {
+    <a [href]="contact.url">{{ contact.label }} <span aria-hidden="true">↗</span></a>
+    }
+  </div>
+</section>
+}

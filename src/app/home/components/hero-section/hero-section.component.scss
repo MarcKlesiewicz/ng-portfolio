@@ -1,8 +1,179 @@
-#moon {
-  animation: fadeInAnimation 2s ease-in-out forwards, scaleAnimation 20s infinite alternate ease-in-out;
+:host {
+  display: block;
 }
-
-#brand {
-  animation: fadeInAnimation 3s ease-in-out forwards;
-  opacity: 0;
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 7rem);
+  overflow: hidden;
+  padding: clamp(8rem, 13vw, 11rem) clamp(1.25rem, 6vw, 6rem) clamp(4rem, 8vw, 7rem);
+  color: var(--color-paper);
+  background: radial-gradient(circle at 80% 35%, rgb(125 31 45 / 22%), transparent 28rem), var(--color-ink);
+}
+.hero::after {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  left: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(225 195 107 / 55%), transparent);
+  content: "";
+}
+.hero__copy {
+  position: relative;
+  z-index: 2;
+  max-width: 54rem;
+}
+h1 {
+  max-width: 12ch;
+  margin: var(--space-3) 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(3.8rem, 8.5vw, 9rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.82;
+  text-wrap: balance;
+}
+h1 span {
+  color: var(--color-gold-bright);
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.hero__role,
+.hero__introduction,
+.hero__actions,
+.hero__aside {
+  font-family: var(--font-interface);
+}
+.hero__role {
+  margin: 0 0 var(--space-2);
+  color: var(--color-paper);
+  font-weight: 700;
+}
+.hero__introduction {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--color-mist);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: var(--space-4);
+}
+.hero__primary-action,
+.hero__text-action {
+  color: var(--color-paper);
+  font-weight: 700;
+  text-decoration: none;
+}
+.hero__primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.9rem 1.1rem;
+  color: var(--color-ink);
+  background: var(--color-gold-bright);
+  border-radius: 999px;
+}
+.hero__text-action {
+  border-bottom: 1px solid var(--color-gold);
+}
+.hero__art {
+  position: relative;
+  display: grid;
+  width: min(38vw, 31rem);
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+}
+.hero__moon {
+  z-index: 2;
+  width: 58%;
+  height: auto;
+  filter: drop-shadow(0 2rem 4rem rgb(0 0 0 / 45%));
+  animation: editorial-drift 8s ease-in-out infinite alternate;
+}
+.hero__orbit {
+  position: absolute;
+  border: 1px solid rgb(225 195 107 / 30%);
+  border-radius: 50%;
+  transition: transform var(--motion-slow) var(--ease-editorial);
+}
+.hero__orbit--outer {
+  inset: 0;
+}
+.hero__orbit--inner {
+  inset: 18%;
+  border-style: dashed;
+}
+.hero__satellite {
+  position: absolute;
+  top: 3%;
+  left: 43%;
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  color: var(--color-gold-bright);
+  background: var(--color-wine);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  transform-origin: 50% calc(50% + min(19vw, 15.5rem));
+  animation: orbit 24s linear infinite;
+}
+.hero__aside {
+  position: absolute;
+  right: clamp(1rem, 3vw, 3rem);
+  bottom: 2rem;
+  margin: 0;
+  color: var(--color-mist);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+  text-align: right;
+  text-transform: uppercase;
+}
+@keyframes orbit {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero__art:hover .hero__orbit--outer {
+    transform: rotate(8deg) scale(1.04);
+  }
+  .hero__art:hover .hero__orbit--inner {
+    transform: rotate(-12deg) scale(0.94);
+  }
+}
+@media (max-width: 52rem) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero__art {
+    position: absolute;
+    top: 7rem;
+    right: -6rem;
+    width: 20rem;
+    opacity: 0.28;
+  }
+  .hero__copy {
+    margin-top: 7rem;
+  }
+}
+@media (max-width: 32rem) {
+  h1 {
+    font-size: clamp(3.4rem, 18vw, 5rem);
+  }
+  .hero__aside {
+    display: none;
+  }
 }
