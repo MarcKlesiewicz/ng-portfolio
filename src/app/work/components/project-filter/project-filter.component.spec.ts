@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 import { ProjectsService } from '../../data/projects.service';
+import { providePortfolioContent } from '../../../content/portfolio-content.providers';
 import { ProjectFilterComponent } from './project-filter.component';
 
 describe('ProjectFilterComponent', () => {
@@ -12,7 +13,7 @@ describe('ProjectFilterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProjectFilterComponent],
-      providers: [provideNoopAnimations()],
+      providers: [provideNoopAnimations(), providePortfolioContent()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProjectFilterComponent);

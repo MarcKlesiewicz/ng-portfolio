@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 import { ProjectPageComponent } from './project-page.component';
+import { providePortfolioContent } from '../../content/portfolio-content.providers';
 
 describe('ProjectPageComponent', () => {
   let component: ProjectPageComponent;
@@ -11,7 +12,7 @@ describe('ProjectPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProjectPageComponent],
-      providers: [provideRouter([]), provideNoopAnimations()],
+      providers: [provideRouter([]), provideNoopAnimations(), providePortfolioContent()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProjectPageComponent);

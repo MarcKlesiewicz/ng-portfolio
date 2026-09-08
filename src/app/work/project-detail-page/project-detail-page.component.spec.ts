@@ -5,6 +5,7 @@ import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/route
 import { of } from 'rxjs';
 
 import { ProjectDetailPageComponent } from './project-detail-page.component';
+import { providePortfolioContent } from '../../content/portfolio-content.providers';
 
 describe('ProjectDetailPageComponent', () => {
   let component: ProjectDetailPageComponent;
@@ -18,6 +19,7 @@ describe('ProjectDetailPageComponent', () => {
         provideHttpClient(),
         provideHttpClientTesting(),
         provideRouter([]),
+        providePortfolioContent(),
         {
           provide: ActivatedRoute,
           useValue: { paramMap: of(convertToParamMap({ id: '1' })) },

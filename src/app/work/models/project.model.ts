@@ -1,5 +1,6 @@
 export interface Project {
   id: string;
+  slug: string;
   name: string;
   description: string;
   thumbnail: string;
@@ -15,42 +16,7 @@ export interface Project {
 export type ProjectType = 'ALL' | 'WORK' | 'SIDE QUESTS';
 export type ProjectCategory = Exclude<ProjectType, 'ALL'>;
 
-export type ProjectTechnologies =
-  | 'Flutter'
-  | 'Dart'
-  | 'Riverpod'
-  | 'MongoDB'
-  | 'GraphQL'
-  | 'Material'
-  | 'ClickUp'
-  | 'Angular'
-  | 'RxJS'
-  | 'NX'
-  | 'TypeScript'
-  | 'HTML5, CSS & Javascript'
-  | 'Bootstrap'
-  | 'Material Design'
-  | 'Tailwind'
-  | 'Firebase'
-  | 'Pocketbase'
-  | 'Node.js'
-  | 'Jenkins'
-  | 'Github'
-  | 'Bitbucket'
-  | 'Swagger'
-  | 'Postman'
-  | 'Thunder Client'
-  | 'VSCode'
-  | 'Visual Studio'
-  | 'IntelliJ'
-  | 'Jira'
-  | 'Trello'
-  | 'Figma'
-  | 'Adobe XD'
-  | 'PlantUML'
-  | 'Visio'
-  | 'Jasmine'
-  | 'Karma';
+export type ProjectTechnologies = string;
 
 export const PROJECT_TECHNOLOGIES: ProjectTechnologies[] = [
   'Angular',

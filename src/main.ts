@@ -15,6 +15,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@env/environment';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
+import { providePortfolioContent } from './app/content/portfolio-content.providers';
 
 if (environment.production) {
   enableProdMode();
@@ -30,6 +31,7 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes),
     provideZoneChangeDetection(),
     provideHttpClient(withInterceptorsFromDi()),
+    providePortfolioContent(),
     { provide: IMAGE_CONFIG, useValue: { disableImageSizeWarning: true, disableImageLazyLoadWarning: true } },
   ],
 }).catch((err) => console.error(err));
