@@ -1,7 +1,97 @@
-<div class="page-shell page-shell-light">
-  <div class="max-w-3xl flex flex-col gap-8 md:mx-0 mx-4">
-    <app-about-description-section></app-about-description-section>
-    <app-techstack-section></app-techstack-section>
-    <app-resume-timeline></app-resume-timeline>
-  </div>
-</div>
+@if (profile(); as profile) {
+<article class="about">
+  <header class="about-hero">
+    <div class="about-hero__copy">
+      <p class="editorial-kicker">About Marc</p>
+      <h1>A developer, a tinkerer, and a believer in useful details.</h1>
+      <p class="about-hero__role">{{ profile.role }} · {{ profile.location }}</p>
+    </div>
+    <figure>
+      <img
+        [src]="profile.portrait.src"
+        [alt]="profile.portrait.alt"
+        [width]="profile.portrait.width"
+        [height]="profile.portrait.height"
+      />
+      @if (profile.avatar) {
+      <img
+        class="about-hero__avatar"
+        [src]="profile.avatar.src"
+        alt=""
+        [width]="profile.avatar.width"
+        [height]="profile.avatar.height"
+        aria-hidden="true"
+      />
+      }
+    </figure>
+  </header>
+
+  <section class="about-narrative" aria-labelledby="about-story-heading">
+    <p class="editorial-kicker">The longer version</p>
+    <h2 id="about-story-heading">Software should make sense—and still have a little soul.</h2>
+    <div class="about-narrative__copy">
+      @for (paragraph of profile.introduction; track paragraph) {
+      <p>{{ paragraph }}</p>
+      }
+    </div>
+  </section>
+
+  <section class="capabilities" aria-labelledby="capabilities-heading">
+    <p class="editorial-kicker">How I contribute</p>
+    <h2 id="capabilities-heading">A focused toolkit, grouped by the work it enables.</h2>
+    <div class="capabilities__grid">
+      @for (group of profile.capabilityGroups; track group.title; let index = $index) {
+      <section>
+        <p class="capabilities__index">0{{ index + 1 }}</p>
+        <h3>{{ group.title }}</h3>
+        <ul>
+          @for (technologyId of group.technologyIds; track technologyId) {
+          <li>{{ technologyLabel(technologyId) }}</li>
+          }
+        </ul>
+      </section>
+      }
+    </div>
+  </section>
+
+  <section class="experience" aria-labelledby="experience-heading">
+    <p class="editorial-kicker">Where I have been</p>
+    <h2 id="experience-heading">Experience, in chapters.</h2>
+    <ol>
+      @for (item of profile.experience; track item.organization) {
+      <li>
+        <div class="experience__period">
+          <span>{{ item.start }}</span
+          ><span aria-hidden="true">—</span><span>{{ item.end }}</span>
+        </div>
+        <div>
+          <p class="experience__role">{{ item.role }}</p>
+          <h3>{{ item.organization }}</h3>
+          @for (paragraph of item.description; track paragraph) {
+          <p>{{ paragraph }}</p>
+          }
+        </div>
+      </li>
+      }
+    </ol>
+  </section>
+
+  @if (profile.endorsement) {
+  <figure class="endorsement">
+    <blockquote>“{{ profile.endorsement.quote }}”</blockquote>
+    <figcaption>{{ profile.endorsement.attribution }}</figcaption>
+  </figure>
+  }
+
+  <section class="about-closing" aria-labelledby="about-closing-heading">
+    <p class="editorial-kicker">Next chapter</p>
+    <h2 id="about-closing-heading">Curious about the work?</h2>
+    <p>The projects show the product decisions, technical contribution, and details behind the finished screens.</p>
+    <div>
+      <a routerLink="/projects">Explore the project archive <span aria-hidden="true">→</span></a
+      >@for (contact of profile.contacts; track contact.url) {
+      <a [href]="contact.url">{{ contact.label }} <span aria-hidden="true">↗</span></a> }
+    </div>
+  </section>
+</article>
+}
