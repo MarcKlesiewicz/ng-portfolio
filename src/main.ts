@@ -8,12 +8,13 @@ import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from 
 
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { provideRouter, TitleStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@env/environment';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { providePortfolioContent } from './app/content/portfolio-content.providers';
+import { PortfolioMetaService } from './app/shared/services/portfolio-meta.service';
 
 if (environment.production) {
   enableProdMode();
@@ -29,5 +30,6 @@ bootstrapApplication(AppComponent, {
     provideZoneChangeDetection(),
     provideHttpClient(withInterceptorsFromDi()),
     providePortfolioContent(),
+    { provide: TitleStrategy, useExisting: PortfolioMetaService },
   ],
 }).catch((err) => console.error(err));

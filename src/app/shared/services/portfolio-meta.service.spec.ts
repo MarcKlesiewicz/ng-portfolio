@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Meta, Title } from '@angular/platform-browser';
-import { provideRouter, Router, RouterOutlet } from '@angular/router';
+import { provideRouter, Router, RouterOutlet, TitleStrategy } from '@angular/router';
 import { PortfolioMetaService } from './portfolio-meta.service';
 
 @Component({ template: '<router-outlet />', imports: [RouterOutlet] })
@@ -14,6 +14,7 @@ describe('PortfolioMetaService', () => {
     TestBed.configureTestingModule({
       imports: [TestShell],
       providers: [
+        { provide: TitleStrategy, useExisting: PortfolioMetaService },
         provideRouter([
           {
             path: 'about',
@@ -25,7 +26,6 @@ describe('PortfolioMetaService', () => {
       ],
     });
     const fixture = TestBed.createComponent(TestShell);
-    TestBed.inject(PortfolioMetaService).start();
     await TestBed.inject(Router).navigateByUrl('/about');
     fixture.detectChanges();
     expect(TestBed.inject(Title).getTitle()).toBe('About | Marc Klesiewicz');

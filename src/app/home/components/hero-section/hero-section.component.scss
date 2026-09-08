@@ -25,6 +25,7 @@
 .hero__copy {
   position: relative;
   z-index: 2;
+  grid-column: 1;
   max-width: 54rem;
 }
 h1 {
@@ -89,6 +90,7 @@ h1 span {
 .hero__art {
   position: relative;
   display: grid;
+  grid-column: 2;
   width: min(38vw, 31rem);
   aspect-ratio: 1;
   place-items: center;
@@ -160,6 +162,7 @@ h1 span {
   }
   .hero__art {
     position: absolute;
+    grid-column: auto;
     top: 7rem;
     right: -6rem;
     width: 20rem;
