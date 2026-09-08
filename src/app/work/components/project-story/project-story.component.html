@@ -1,0 +1,46 @@
+<div class="story">
+  @for (block of blocks; track $index) { @switch (block.kind) { @case ('heading') { @if (block.level === 2) {
+  <h2>{{ block.text }}</h2>
+  } @else {
+  <h3>{{ block.text }}</h3>
+  } } @case ('paragraph') {
+  <p>{{ block.text }}</p>
+  } @case ('list') { @if (block.style === 'ordered') {
+  <ol>
+    @for (item of block.items; track item) {
+    <li>{{ item }}</li>
+    }
+  </ol>
+  } @else {
+  <ul>
+    @for (item of block.items; track item) {
+    <li>{{ item }}</li>
+    }
+  </ul>
+  } } @case ('media') {
+  <figure>
+    <img
+      [src]="block.media.src"
+      [alt]="block.media.alt"
+      [width]="block.media.width"
+      [height]="block.media.height"
+      loading="lazy"
+    />@if (block.media.caption) {
+    <figcaption>{{ block.media.caption }}</figcaption>
+    }
+  </figure>
+  } @case ('callout') {
+  <aside>
+    <strong>{{ block.title }}</strong>
+    <p>{{ block.text }}</p>
+  </aside>
+  } @case ('links') {
+  <div class="story__links">
+    @for (link of block.links; track link.url) {
+    <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+      >{{ link.label }} <span aria-hidden="true">↗</span></a
+    >
+    }
+  </div>
+  } } }
+</div>

@@ -1,49 +1,63 @@
-<div class="page-shell page-shell-primary">
-  <div class="content-column content-column-lg gap-4">
-    <div class="btn btn-outline btn-secondary btn-sm w-fit text-sm" routerLink="/projects">
-      <span class="material-icons-outlined text-sm"> west </span>Back to Projects
+@if (resolution$ | async; as resolution) { @if (resolution.status === 'ready') {
+<article class="project-detail">
+  <a class="back-link" routerLink="/projects" queryParamsHandling="preserve"
+    ><span aria-hidden="true">←</span> Back to projects</a
+  >
+  <header class="project-detail__header">
+    <div>
+      <p class="editorial-kicker">{{ resolution.project.projectType }} · {{ resolution.project.year }}</p>
+      <h1>{{ resolution.project.name }}</h1>
+      <p class="project-detail__description">{{ resolution.project.description }}</p>
     </div>
-    <div
-      class="card card-compact bg-primary w-full shadow-xl text-neutral border-solid border border-slate-400 ff-mont clip rounded-2xl"
+    <img
+      [src]="resolution.project.thumbnail.src"
+      [alt]="resolution.project.thumbnail.alt"
+      [width]="resolution.project.thumbnail.width"
+      [height]="resolution.project.thumbnail.height"
+    />
+  </header>
+  <dl class="project-facts">
+    @if (resolution.project.contribution) {
+    <div>
+      <dt>Contribution</dt>
+      <dd>{{ resolution.project.contribution }}</dd>
+    </div>
+    } @if (resolution.project.outcome) {
+    <div>
+      <dt>Outcome</dt>
+      <dd>{{ resolution.project.outcome }}</dd>
+    </div>
+    }
+  </dl>
+  <div class="project-detail__story"><app-project-story [blocks]="resolution.project.blocks"></app-project-story></div>
+  <footer class="project-detail__footer">
+    @if (resolution.project.liveUrl) {
+    <a [href]="resolution.project.liveUrl" target="_blank" rel="noopener noreferrer"
+      >Visit project <span aria-hidden="true">↗</span></a
     >
-      @if (vm$ | async; as vm) {
-      @if (vm.project; as project) {
-      <figure class="max-h-[400px]">
-        <img [src]="project.thumbnail" [alt]="project.name" class="rounded-none" />
-      </figure>
-      <div class="p-10">
-        <div class="flex flex-row gap-10">
-          <div class="flex flex-col">
-            @if (project.logo) {
-            <div class="cube overflow-clip object-fill">
-              <img [src]="project.logo" [alt]="project.name + ' logo'" />
-            </div>
-            }
-            @if (project.liveUrl) {
-            <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">
-              <div class="cube btn btn-outline btn-secondary text-sm mt-2">
-                <span class="material-icons-outlined text-2xl"> open_in_new </span>
-              </div>
-            </a>
-            }
-            <hr class="my-5 line" />
-            @for (tech of project.technologies; track tech) {
-            <div class="cube tech-logo bg-neutral mb-2 p-2">
-              <img class="rounded-none" [src]="'assets/svgs/' + (tech | lowercase) + '_logo.svg'" [alt]="tech" />
-            </div>
-            }
-          </div>
-          <div>
-            <h2 class="card-title text-4xl font-bold">{{ project.name }}</h2>
-            <h3 class="text-md italic">{{ project.description }}</h3>
-            <h3 class="text-md mb-2">{{ project.year }}</h3>
-            <div class="project-content" [innerHTML]="vm.content"></div>
-            <hr class="mt-6" />
-          </div>
-        </div>
-      </div>
-      }
-      }
-    </div>
-  </div>
-</div>
+    } @if (resolution.project.githubUrl) {
+    <a [href]="resolution.project.githubUrl" target="_blank" rel="noopener noreferrer"
+      >View source <span aria-hidden="true">↗</span></a
+    >
+    }
+    <a routerLink="/projects" queryParamsHandling="preserve">Return to all work <span aria-hidden="true">→</span></a>
+  </footer>
+</article>
+} @else {
+<section class="project-state" aria-labelledby="project-state-heading">
+  <p class="editorial-kicker">{{ resolution.status === 'error' ? 'Content unavailable' : 'Project not found' }}</p>
+  <h1 id="project-state-heading">
+    {{ resolution.status === 'error' ? 'The story could not be loaded.' : 'That project has wandered off.' }}
+  </h1>
+  <p>
+    {{
+      resolution.status === 'error'
+        ? 'The project archive is still available while this story recovers.'
+        : 'The link may be old, or the project may have a different address now.'
+    }}
+  </p>
+  <a routerLink="/projects" queryParamsHandling="preserve"
+    >Return to the project gallery <span aria-hidden="true">→</span></a
+  >
+</section>
+} }
