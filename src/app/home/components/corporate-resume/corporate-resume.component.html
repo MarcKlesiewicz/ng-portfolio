@@ -30,21 +30,23 @@
         <p>{{ paragraph }}</p>
         }
       </div>
-      <dl class="mock-metrics" data-satirical-metrics>
-        <div>
-          <dt>Synergy throughput</dt>
-          <dd>Unquantifiably adequate</dd>
-        </div>
-        <div>
-          <dt>Enterprise readiness</dt>
-          <dd>Suspiciously high</dd>
-        </div>
-        <div>
-          <dt>Methodology</dt>
-          <dd>Ask sensible questions</dd>
-        </div>
+      <aside class="mock-metrics" data-satirical-metrics aria-label="Satirical performance metrics">
+        <dl>
+          <div>
+            <dt>Synergy throughput</dt>
+            <dd>Unquantifiably adequate</dd>
+          </div>
+          <div>
+            <dt>Enterprise readiness</dt>
+            <dd>Suspiciously high</dd>
+          </div>
+          <div>
+            <dt>Methodology</dt>
+            <dd>Ask sensible questions</dd>
+          </div>
+        </dl>
         <p>Not independently verified because they are jokes.</p>
-      </dl>
+      </aside>
     </div>
   </section>
 
@@ -111,7 +113,7 @@
             />
             <figcaption>{{ project.projectType }} · {{ project.year }}</figcaption>
           </figure>
-          <div>
+          <div class="deployments__copy">
             <h3>{{ project.name }}</h3>
             <p>{{ project.description }}</p>
             <ul aria-label="Technologies">

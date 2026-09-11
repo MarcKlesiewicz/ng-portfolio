@@ -1,39 +1,51 @@
 :host {
   display: block;
+  min-width: 0;
   color: var(--color-ink);
   background: var(--color-paper);
+}
+
+.corporate-resume {
+  overflow-wrap: anywhere;
+  font-family: var(--font-interface);
+  line-height: 1.75;
+}
+
+.product-hero__copy,
+.executive-summary__copy,
+.experience li > div,
+.deployments article {
+  min-width: 0;
 }
 
 .corporate-kicker {
   margin: 0 0 var(--space-2);
   color: var(--color-wine);
-  font-family: var(--font-interface);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.15em;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 
 .product-hero {
   display: grid;
   min-height: 100svh;
-  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
   align-items: end;
-  gap: clamp(2rem, 7vw, 7rem);
+  gap: clamp(var(--space-4), 7vw, 7rem);
   padding: clamp(8rem, 13vw, 11rem) clamp(1rem, 6vw, 6rem) var(--space-5);
   color: var(--color-paper);
   background: var(--color-ink);
 }
 
-.product-hero h1,
-.executive-summary h2,
-.capabilities > h2,
-.experience > h2,
-.deployments > h2,
-.contact h2 {
+.corporate-resume :is(h1, h2, h3) {
   margin: 0;
   font-family: var(--font-editorial);
   font-weight: 500;
+}
+
+.corporate-resume :is(h1, h2) {
   letter-spacing: -0.035em;
   line-height: 0.92;
   text-wrap: balance;
@@ -41,7 +53,7 @@
 
 .product-hero h1 {
   max-width: 10ch;
-  font-size: clamp(4rem, 10vw, 9rem);
+  font-size: clamp(3.15rem, 10vw, 9rem);
   line-height: 0.82;
 }
 
@@ -50,14 +62,8 @@
   margin: var(--space-3) 0;
   color: var(--color-paper-muted);
   font-family: var(--font-editorial);
-  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
   line-height: 1.25;
-}
-
-.product-hero__identity,
-.parody-disclosure {
-  font-family: var(--font-interface);
-  line-height: 1.6;
 }
 
 .parody-disclosure {
@@ -76,57 +82,36 @@
   max-height: 68vh;
   object-fit: cover;
   object-position: center 25%;
-  border-radius: var(--radius-sm);
-  filter: saturate(0.65) contrast(1.06);
 }
 
-.executive-summary,
-.capabilities,
-.experience,
-.deployments {
+.corporate-resume > section {
   width: min(calc(100% - 2rem), 78rem);
   margin-inline: auto;
-  padding: var(--space-6) 0;
+  padding-block: var(--space-6);
 }
 
-.executive-summary h2,
-.capabilities > h2,
-.experience > h2,
-.deployments > h2,
-.contact h2 {
+.corporate-resume h2 {
   max-width: 15ch;
-  font-size: clamp(2.7rem, 6vw, 6rem);
+  font-size: clamp(2.6rem, 6vw, 6rem);
 }
 
 .executive-summary__layout {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.75fr);
-  gap: clamp(2rem, 7vw, 7rem);
+  gap: clamp(var(--space-4), 7vw, 7rem);
   margin-top: var(--space-4);
 }
 
-.executive-summary__copy p,
-.experience li p:not(.experience__period, .experience__role),
-.deployments p,
-.contact > p:not(.corporate-kicker) {
-  font-family: var(--font-interface);
-  line-height: 1.75;
-}
-
 .mock-metrics {
-  margin: 0;
   padding: var(--space-3);
   color: var(--color-paper);
   background: var(--color-ink-raised);
-  border-radius: var(--radius-md);
 }
 
 .mock-metrics dt,
 .mock-metrics p {
   color: var(--color-mist);
-  font-family: var(--font-interface);
   font-size: 0.68rem;
-  line-height: 1.5;
 }
 
 .mock-metrics dd {
@@ -143,16 +128,21 @@
   clip-path: inset(0 -100vmax);
 }
 
-.capabilities .corporate-kicker {
+.capabilities .corporate-kicker,
+.contact .corporate-kicker {
   color: var(--color-gold-bright);
 }
 
-.capabilities__grid {
+.capabilities__grid,
+.deployments__grid {
   display: grid;
+  margin-top: var(--space-4);
+}
+
+.capabilities__grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
-  margin-top: var(--space-4);
-  background: rgb(242 235 227 / 35%);
+  background: var(--color-paper-muted);
 }
 
 .capabilities__grid section {
@@ -163,19 +153,20 @@
 
 .experience__period,
 .experience__role {
-  font-family: var(--font-interface);
+  margin: 0;
+  color: var(--color-wine);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.capabilities h3,
-.experience h3,
-.deployments h3 {
-  overflow-wrap: anywhere;
-  font-family: var(--font-editorial);
-  font-weight: 500;
+.capabilities__index {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.corporate-resume h3 {
   line-height: 1;
 }
 
@@ -196,12 +187,9 @@
 
 .capabilities li,
 .deployments li {
-  max-width: 100%;
-  overflow-wrap: anywhere;
   padding: 0.4rem 0.6rem;
   border: 1px solid currentcolor;
   border-radius: 999px;
-  font-family: var(--font-interface);
   font-size: 0.7rem;
 }
 
@@ -216,13 +204,7 @@
   grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1.65fr);
   gap: clamp(1rem, 6vw, 6rem);
   padding: var(--space-3) 0;
-  border-top: 1px solid #cbbdaf;
-}
-
-.experience__period,
-.experience__role {
-  margin: 0;
-  color: var(--color-wine);
+  border-top: 1px solid var(--color-paper-muted);
 }
 
 .experience h3 {
@@ -230,12 +212,16 @@
   font-size: clamp(2rem, 5vw, 4.5rem);
 }
 
-.endorsement {
+.endorsement,
+.contact {
   display: grid;
   gap: var(--space-3);
+  color: var(--color-paper);
+}
+
+.endorsement {
   margin: 0;
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 12vw, 12rem);
-  color: var(--color-paper);
   background: var(--color-ink);
 }
 
@@ -243,30 +229,22 @@
   max-width: 24ch;
   margin: 0;
   font-family: var(--font-editorial);
-  font-size: clamp(2.3rem, 5vw, 5rem);
+  font-size: clamp(2.2rem, 5vw, 5rem);
   line-height: 0.98;
 }
 
 .endorsement figcaption {
   color: var(--color-gold-bright);
-  font-family: var(--font-interface);
-  font-size: 0.75rem;
-  font-weight: 700;
 }
 
 .deployments__grid {
-  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
-  margin-top: var(--space-4);
 }
 
 .deployments__grid article {
-  min-width: 0;
-  background: white;
-  border: 1px solid #cbbdaf;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-soft);
+  background: var(--color-paper);
+  border: 1px solid var(--color-paper-muted);
 }
 
 .deployments a {
@@ -289,7 +267,6 @@
 
 .deployments figcaption,
 .deployments__action {
-  font-family: var(--font-interface);
   font-size: 0.7rem;
   font-weight: 700;
 }
@@ -300,7 +277,7 @@
   background: var(--color-wine);
 }
 
-.deployments article a > div {
+.deployments__copy {
   padding: var(--space-3);
 }
 
@@ -316,19 +293,10 @@
 }
 
 .contact {
-  display: grid;
-  gap: var(--space-3);
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 7vw, 7rem);
-  color: var(--color-paper);
   background: var(--color-wine);
-}
-
-.contact .corporate-kicker {
-  color: var(--color-gold-bright);
-}
-
-.contact > p:not(.corporate-kicker) {
-  max-width: 42rem;
+  box-shadow: 0 0 0 100vmax var(--color-wine);
+  clip-path: inset(0 -100vmax);
 }
 
 .contact__labels {
@@ -342,26 +310,36 @@
   color: var(--color-paper-muted);
   border: 1px dashed currentcolor;
   border-radius: 999px;
-  font-family: var(--font-interface);
   font-weight: 700;
 }
 
 @media (max-width: 55rem) {
-  .product-hero,
-  .executive-summary__layout {
-    grid-template-columns: 1fr;
+  .product-hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
+    gap: var(--space-4);
   }
 
-  .product-hero__portrait {
-    width: min(80%, 28rem);
-  }
-
+  .executive-summary__layout,
   .deployments__grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 42rem) {
+  .product-hero {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding: 7rem 1rem var(--space-4);
+  }
+
+  .product-hero__portrait {
+    width: min(62%, 18rem);
+  }
+
+  .corporate-resume > section {
+    padding-block: var(--space-5);
+  }
+
   .capabilities__grid,
   .experience li {
     grid-template-columns: 1fr;

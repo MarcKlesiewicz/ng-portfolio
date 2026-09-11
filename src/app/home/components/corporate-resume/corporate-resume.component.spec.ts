@@ -37,6 +37,21 @@ describe('CorporateResumeComponent', () => {
     expect(hero.textContent).toContain('This is a corporate parody');
     expect(portrait.getAttribute('src')).toBe(profile.portrait.src);
     expect(portrait.getAttribute('alt')).toBe(profile.portrait.alt);
+    expect(portrait.getAttribute('width')).toBe(String(profile.portrait.width));
+    expect(portrait.getAttribute('height')).toBe(String(profile.portrait.height));
+  });
+
+  it('uses one page heading and a sequential section heading hierarchy', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const headings = Array.from(element.querySelectorAll('h1, h2, h3')) as HTMLHeadingElement[];
+
+    expect(element.querySelectorAll('h1').length).toBe(1);
+    expect(headings[0].tagName).toBe('H1');
+    headings.forEach((heading, index) => {
+      if (heading.tagName === 'H3') {
+        expect(headings.slice(0, index).some((candidate) => candidate.tagName === 'H2')).toBeTrue();
+      }
+    });
   });
 
   it('renders every authored introduction, capability, technology label, and experience in source order', () => {
@@ -90,8 +105,18 @@ describe('CorporateResumeComponent', () => {
     expect(links.length).toBe(3);
     links.forEach((link, index) => {
       expect(link.getAttribute('href')).toBe(`/projects/${projects[index].slug}`);
+      expect(link.getAttribute('href')?.startsWith('/')).toBeTrue();
       expect(link.getAttribute('href')).not.toContain('corporate');
     });
+  });
+
+  it('uses semantic quotation markup with a visible attribution', () => {
+    const endorsement = fixture.nativeElement.querySelector('[data-corporate-region="endorsement"]') as HTMLElement;
+    const quotation = endorsement.querySelector('blockquote');
+    const attribution = endorsement.querySelector('figcaption');
+
+    expect(quotation?.textContent).toContain(profile.endorsement?.quote);
+    expect(attribution?.textContent).toContain(profile.endorsement?.attribution);
   });
 
   it('shows pending contact labels as honest, non-focusable non-actions', () => {
@@ -149,5 +174,29 @@ describe('CorporateResumeComponent', () => {
 
     expect(metrics.textContent).toContain('Not independently verified because they are jokes');
     expect(metrics.textContent).not.toMatch(/\d/);
+  });
+
+  it('groups every metric as a valid definition-list entry', () => {
+    const metrics = fixture.nativeElement.querySelector('[data-satirical-metrics]') as HTMLElement;
+    const list = metrics.matches('dl') ? metrics : metrics.querySelector('dl');
+    const groups = Array.from(list?.children ?? []) as HTMLElement[];
+
+    expect(list).not.toBeNull();
+    expect(groups.length).toBeGreaterThan(0);
+    groups.forEach((group) => {
+      expect(group.tagName).toBe('DIV');
+      expect(group.querySelector(':scope > dt')).not.toBeNull();
+      expect(group.querySelector(':scope > dd')).not.toBeNull();
+    });
+  });
+
+  it('keeps decorative marks out of the accessibility tree and avoids scripted presentation', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const decorativeMarks = Array.from(element.querySelectorAll('.deployments__action span')) as HTMLElement[];
+
+    expect(decorativeMarks.length).toBeGreaterThan(0);
+    decorativeMarks.forEach((mark) => expect(mark.getAttribute('aria-hidden')).toBe('true'));
+    expect(element.querySelector('[style]')).toBeNull();
+    expect(element.querySelector('script')).toBeNull();
   });
 });
