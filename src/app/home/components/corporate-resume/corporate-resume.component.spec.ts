@@ -56,15 +56,23 @@ describe('CorporateResumeComponent', () => {
 
   it('renders every authored introduction, capability, technology label, and experience in source order', () => {
     const element = fixture.nativeElement as HTMLElement;
-    const text = element.textContent ?? '';
+    const introduction = Array.from(element.querySelectorAll('.executive-summary__copy > p')).map((paragraph) =>
+      paragraph.textContent?.trim()
+    );
+    const capabilityGroups = Array.from(element.querySelectorAll('.capabilities__grid > section'));
 
-    profile.introduction.forEach((paragraph) => expect(text).toContain(paragraph));
-    profile.capabilityGroups.forEach((group) => {
-      expect(text).toContain(group.title);
-      group.technologyIds.forEach((id) => {
-        const label = technologies.find((technology) => technology.id === id)?.label ?? id;
-        expect(text).toContain(label);
-      });
+    expect(introduction).toEqual(profile.introduction);
+    expect(capabilityGroups.length).toBe(profile.capabilityGroups.length);
+    profile.capabilityGroups.forEach((group, index) => {
+      const expectedLabels = group.technologyIds.map(
+        (id) => technologies.find((technology) => technology.id === id)?.label ?? id
+      );
+      const renderedLabels = Array.from(capabilityGroups[index].querySelectorAll('li')).map((label) =>
+        label.textContent?.trim()
+      );
+
+      expect(capabilityGroups[index].querySelector('h3')?.textContent?.trim()).toBe(group.title);
+      expect(renderedLabels).toEqual(expectedLabels);
     });
 
     const experienceItems = Array.from(element.querySelectorAll('[data-experience-item]'));
