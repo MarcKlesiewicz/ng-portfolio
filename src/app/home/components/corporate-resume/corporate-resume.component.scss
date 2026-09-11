@@ -121,11 +121,15 @@
   font-size: 1.35rem;
 }
 
+.capabilities,
+.contact {
+  box-shadow: 0 0 0 100vmax var(--color-wine);
+  clip-path: inset(0 -100vmax);
+}
+
 .capabilities {
   color: var(--color-paper);
   background: var(--color-wine);
-  box-shadow: 0 0 0 100vmax var(--color-wine);
-  clip-path: inset(0 -100vmax);
 }
 
 .capabilities .corporate-kicker,
@@ -295,8 +299,6 @@
 .contact {
   padding: clamp(4rem, 10vw, 9rem) clamp(1rem, 7vw, 7rem);
   background: var(--color-wine);
-  box-shadow: 0 0 0 100vmax var(--color-wine);
-  clip-path: inset(0 -100vmax);
 }
 
 .contact__labels {
