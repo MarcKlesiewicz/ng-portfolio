@@ -53,7 +53,8 @@
 
 .product-hero h1 {
   max-width: 10ch;
-  font-size: clamp(3.15rem, 10vw, 9rem);
+  overflow-wrap: normal;
+  font-size: clamp(3.15rem, 8.5vw, 8.5rem);
   line-height: 0.82;
 }
 
@@ -316,6 +317,10 @@
 }
 
 @media (max-width: 55rem) {
+  .product-hero h1 {
+    font-size: clamp(3.15rem, 7vw, 4.25rem);
+  }
+
   .product-hero {
     grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
     gap: var(--space-4);
