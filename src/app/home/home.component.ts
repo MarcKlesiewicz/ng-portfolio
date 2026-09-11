@@ -2,11 +2,13 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { PORTFOLIO_CONTENT } from '../content/portfolio-content.source';
+import { CorporateResumeComponent } from './components/corporate-resume/corporate-resume.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  imports: [CorporateResumeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {

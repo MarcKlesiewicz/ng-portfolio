@@ -1,0 +1,143 @@
+<article class="corporate-resume" data-home-variant="corporate">
+  <header class="product-hero" data-corporate-region="hero">
+    <div class="product-hero__copy">
+      <p class="corporate-kicker">Human capital, now in a convenient frontend format</p>
+      <h1>{{ profile.name }}™</h1>
+      <p class="product-hero__pitch">
+        Meet the enterprise-grade developer product for organizations that require interfaces, apps, and a suspiciously
+        well-considered amount of polish.
+      </p>
+      <p class="product-hero__identity">{{ profile.name }} · {{ profile.role }} · {{ profile.location }}</p>
+      <p class="parody-disclosure">This is a corporate parody. The person and professional history are real.</p>
+    </div>
+    <figure class="product-hero__portrait">
+      <img
+        [src]="profile.portrait.src"
+        [alt]="profile.portrait.alt"
+        [width]="profile.portrait.width"
+        [height]="profile.portrait.height"
+      />
+      <figcaption>Product shown in its natural stakeholder environment.</figcaption>
+    </figure>
+  </header>
+
+  <section class="executive-summary" aria-labelledby="executive-summary-heading">
+    <p class="corporate-kicker">Executive summary</p>
+    <h2 id="executive-summary-heading">A real person, optimized for being useful.</h2>
+    <div class="executive-summary__layout">
+      <div class="executive-summary__copy">
+        @for (paragraph of profile.introduction; track paragraph) {
+        <p>{{ paragraph }}</p>
+        }
+      </div>
+      <dl class="mock-metrics" data-satirical-metrics>
+        <div>
+          <dt>Synergy throughput</dt>
+          <dd>Unquantifiably adequate</dd>
+        </div>
+        <div>
+          <dt>Enterprise readiness</dt>
+          <dd>Suspiciously high</dd>
+        </div>
+        <div>
+          <dt>Methodology</dt>
+          <dd>Ask sensible questions</dd>
+        </div>
+        <p>Not independently verified because they are jokes.</p>
+      </dl>
+    </div>
+  </section>
+
+  <section class="capabilities" aria-labelledby="corporate-capabilities-heading">
+    <p class="corporate-kicker">Solution portfolio</p>
+    <h2 id="corporate-capabilities-heading">Capabilities your procurement team can pronounce.</h2>
+    <div class="capabilities__grid">
+      @for (group of profile.capabilityGroups; track group.title; let index = $index) {
+      <section>
+        <p class="capabilities__index">Capability {{ index + 1 }}</p>
+        <h3>{{ group.title }}</h3>
+        <ul aria-label="Technologies">
+          @for (technologyId of group.technologyIds; track technologyId) {
+          <li>{{ technologyLabel(technologyId) }}</li>
+          }
+        </ul>
+      </section>
+      }
+    </div>
+  </section>
+
+  <section class="experience" aria-labelledby="corporate-experience-heading">
+    <p class="corporate-kicker">Version history</p>
+    <h2 id="corporate-experience-heading">Professionally deployed since people still said “web two point oh.”</h2>
+    <ol>
+      @for (item of profile.experience; track item.organization) {
+      <li data-experience-item>
+        <p class="experience__period">{{ item.start }}—{{ item.end }}</p>
+        <div>
+          <p class="experience__role">{{ item.role }}</p>
+          <h3>{{ item.organization }}</h3>
+          @for (paragraph of item.description; track paragraph) {
+          <p>{{ paragraph }}</p>
+          }
+        </div>
+      </li>
+      }
+    </ol>
+  </section>
+
+  @if (profile.endorsement) {
+  <figure class="endorsement" data-corporate-region="endorsement">
+    <p class="corporate-kicker">Independent analyst coverage</p>
+    <blockquote>“{{ profile.endorsement.quote }}”</blockquote>
+    <figcaption>{{ profile.endorsement.attribution }}</figcaption>
+  </figure>
+  }
+
+  <section class="deployments" aria-labelledby="corporate-projects-heading">
+    <p class="corporate-kicker">Selected deployments</p>
+    <h2 id="corporate-projects-heading">Evidence that the product has left the slide deck.</h2>
+    @if (visibleProjects.length) {
+    <div class="deployments__grid">
+      @for (project of visibleProjects; track project.slug) {
+      <article data-featured-project>
+        <a [routerLink]="['/projects', project.slug]" [attr.aria-label]="'Read the ' + project.name + ' project story'">
+          <figure>
+            <img
+              [src]="project.thumbnail.src"
+              [alt]="project.thumbnail.alt"
+              [width]="project.thumbnail.width"
+              [height]="project.thumbnail.height"
+              loading="lazy"
+            />
+            <figcaption>{{ project.projectType }} · {{ project.year }}</figcaption>
+          </figure>
+          <div>
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            <ul aria-label="Technologies">
+              @for (technologyId of project.technologies; track technologyId) {
+              <li>{{ technologyLabel(technologyId) }}</li>
+              }
+            </ul>
+            <span class="deployments__action">Review deployment <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </article>
+      }
+    </div>
+    } @else {
+    <p class="deployments__empty">The deployment register is currently being alphabetized by synergy.</p>
+    }
+  </section>
+
+  <section class="contact" data-corporate-region="contact" aria-labelledby="corporate-contact-heading">
+    <p class="corporate-kicker">Stakeholder engagement</p>
+    <h2 id="corporate-contact-heading">Initiate a low-friction human conversation.</h2>
+    <p>Contact links are pending final legal review, procurement approval, and the actual URLs.</p>
+    <div class="contact__labels" aria-label="Contact options pending">
+      <span data-pending-contact>LinkedIn</span>
+      <span data-pending-contact>GitHub</span>
+      <span data-pending-contact>Email</span>
+    </div>
+  </section>
+</article>

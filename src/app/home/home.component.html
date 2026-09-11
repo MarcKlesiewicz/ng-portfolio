@@ -1,5 +1,5 @@
-@if (corporateMode()) {
-<div data-home-variant="corporate"></div>
-} @else {
+@if (corporateMode()) { @if (profile(); as profile) {
+<app-corporate-resume [profile]="profile" [technologies]="technologies()" [featuredProjects]="featuredProjects()" />
+} } @else {
 <h1 class="home-holding">Hero in progress</h1>
 }
