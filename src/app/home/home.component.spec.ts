@@ -27,17 +27,21 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('renders a semantic introduction and featured work from the content source', () => {
-    expect(fixture.nativeElement.querySelector('h1')).toBeTruthy();
-    expect(fixture.nativeElement.querySelectorAll('.featured-card').length).toBe(3);
-    expect(fixture.nativeElement.textContent).toContain(PORTFOLIO_CONTENT_DATA.projects[0].name);
+  it('renders only the holding heading in the default routed content', () => {
+    const element = fixture.nativeElement as HTMLElement;
+    const headings = element.querySelectorAll('h1');
+
+    expect(headings.length).toBe(1);
+    expect(headings[0].textContent).toContain('Hero in progress');
+    expect(element.querySelector('[data-home-variant="corporate"]')).toBeNull();
+    expect(element.querySelector('app-hero-section')).toBeNull();
+    expect(element.querySelector('.featured-card')).toBeNull();
+    expect(element.querySelector('.home-closing')).toBeNull();
   });
 
-  it('keeps project and about actions available without configured contacts', () => {
-    const links = Array.from(fixture.nativeElement.querySelectorAll('a')).map(
-      (link) => (link as HTMLAnchorElement).textContent
-    );
-    expect(links.some((label) => label?.includes('Explore selected work'))).toBeTrue();
-    expect(links.some((label) => label?.includes('Meet Marc'))).toBeTrue();
+  it('keeps portfolio data ready for the corporate presentation branch', () => {
+    expect(fixture.componentInstance.profile()).toEqual(PORTFOLIO_CONTENT_DATA.profile);
+    expect(fixture.componentInstance.technologies()).toEqual(PORTFOLIO_CONTENT_DATA.technologies);
+    expect(fixture.componentInstance.featuredProjects()).toEqual(PORTFOLIO_CONTENT_DATA.projects.slice(0, 3));
   });
 });
