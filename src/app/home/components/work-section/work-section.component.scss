@@ -20,7 +20,7 @@
 }
 
 .text-content h2 {
-  font-family: "EB Garamond";
+  font-family: var(--font-editorial);
   color: var(--secondary-color);
   font-weight: 500;
 }
@@ -31,7 +31,7 @@
 }
 
 .period {
-  font-family: "Montserrat";
+  font-family: var(--font-label);
   color: var(--secondary-color);
   font-weight: 500;
   position: absolute;
@@ -39,7 +39,7 @@
 }
 
 .workplace {
-  font-family: "Berkshire Swash";
+  font-family: var(--font-display);
   color: var(--secondary-color);
   font-weight: 500;
   position: absolute;
