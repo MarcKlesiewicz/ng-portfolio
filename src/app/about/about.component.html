@@ -1,7 +1,22 @@
-<div class="bg-light py-16 flex justify-center items-center w-screen">
-  <div class="max-w-3xl flex flex-col gap-8 md:mx-0 mx-4">
+<main class="about-page">
+  <span class="about-backdrop" aria-hidden="true"></span>
+
+  <header class="about-masthead">
+    <a class="folio-mark" routerLink="/home" aria-label="Back to home">I</a>
+    <h1>About</h1>
+    <span class="masthead-wave" aria-hidden="true"></span>
+  </header>
+
+  <div class="about-content">
     <app-about-description-section></app-about-description-section>
-    <app-techstack-section></app-techstack-section>
+
+    <app-testimonial-carousel></app-testimonial-carousel>
+
     <app-resume-timeline></app-resume-timeline>
   </div>
-</div>
+
+  <footer class="about-footer">
+    <app-orbit-mark></app-orbit-mark>
+    <app-portfolio-index current="about"></app-portfolio-index>
+  </footer>
+</main>

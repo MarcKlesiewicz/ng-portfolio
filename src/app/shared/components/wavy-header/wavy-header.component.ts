@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -8,5 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class WavyHeaderComponent {
   @Input() title: string = '';
-  @Input() bgColor: string = '';
 }

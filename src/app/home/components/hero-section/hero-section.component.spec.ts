@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { PortfolioIndexComponent } from '@app/shared/components/portfolio-index/portfolio-index.component';
+import { OrbitMarkComponent } from '@app/shared/components/orbit-mark/orbit-mark.component';
 
 import { HeroSectionComponent } from './hero-section.component';
 
@@ -9,7 +11,7 @@ describe('HeroSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroSectionComponent],
+      declarations: [HeroSectionComponent, PortfolioIndexComponent, OrbitMarkComponent],
       imports: [RouterTestingModule],
     }).compileComponents();
 

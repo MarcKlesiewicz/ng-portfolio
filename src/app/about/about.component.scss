@@ -1,3 +1,140 @@
-.noise {
-  background-image: url(../../assets/images/noise-light.png);
+:host {
+  display: block;
+  width: 100%;
+}
+
+.about-page {
+  position: relative;
+  width: min(100%, 64rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(4rem, 9vh, 6.5rem) clamp(2rem, 7vw, 5rem) clamp(3.5rem, 8vw, 6rem);
+  color: var(--secondary-color);
+  background: transparent;
+}
+
+.about-backdrop {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background: var(--primary-color) url("/assets/images/bg.png") center / cover no-repeat;
+  pointer-events: none;
+}
+
+.about-page::before,
+.about-page::after {
+  position: absolute;
+  z-index: -1;
+  width: min(38vw, 34rem);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--tertiary-color) 65%, transparent);
+  border-radius: 48% 52% 58% 42%;
+  content: "";
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.about-page::before {
+  top: 18rem;
+  left: max(-20rem, -18vw);
+  transform: rotate(24deg);
+}
+
+.about-page::after {
+  right: max(-22rem, -20vw);
+  bottom: 24rem;
+  transform: rotate(-18deg);
+}
+
+.about-masthead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.folio-mark {
+  color: inherit;
+  font-family: var(--font-editorial);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.folio-mark:hover,
+.folio-mark:focus-visible {
+  transform: scale(1.16);
+}
+
+.about-masthead h1 {
+  margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 12vw, 8.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-shadow: -0.035em 0.08em var(--tertiary-color);
+}
+
+.masthead-wave {
+  width: min(100%, 39rem);
+  height: 0.85rem;
+  margin-top: clamp(2rem, 5vw, 3rem);
+  background: url("/assets/svgs/masthead-wave-seamless.svg") left center / 7rem 0.85rem repeat-x;
+  opacity: 0.78;
+  animation: masthead-wave-drift 3.3s linear infinite;
+}
+
+.about-content {
+  display: flex;
+  width: min(100%, 39rem);
+  flex-direction: column;
+  gap: clamp(5rem, 10vw, 8rem);
+  margin: clamp(4.5rem, 9vw, 7rem) auto 0;
+}
+
+@keyframes masthead-wave-drift {
+  to {
+    background-position-x: -7rem;
+  }
+}
+
+.about-footer {
+  display: flex;
+  width: min(100%, 39rem);
+  flex-direction: column;
+  align-items: center;
+  margin: clamp(6rem, 12vw, 10rem) auto 0;
+}
+
+app-portfolio-index {
+  display: block;
+  width: 100%;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+@media (max-width: 640px) {
+  .about-page {
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+  }
+
+  .about-masthead h1 {
+    font-size: clamp(4rem, 22vw, 6rem);
+  }
+
+  .about-content {
+    gap: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folio-mark,
+  .masthead-wave {
+    transition: none;
+    animation: none;
+  }
 }

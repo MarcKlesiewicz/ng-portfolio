@@ -14,34 +14,10 @@
       <p>Frontend &amp; app developer</p>
     </header>
 
-    <nav class="portfolio-index" aria-label="Primary">
-      <a class="index-link" routerLink="/about">
-        <span class="index-label">About</span>
-        <span class="index-leader" aria-hidden="true"></span>
-        <span class="index-number" aria-hidden="true">I</span>
-      </a>
-
-      <a class="index-link" routerLink="/projects">
-        <span class="index-label">Projects</span>
-        <span class="index-leader" aria-hidden="true"></span>
-        <span class="index-number" aria-hidden="true">II</span>
-      </a>
-
-      <a
-        class="index-link"
-        href="https://github.com/MarcKlesiewicz"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub (opens in a new tab)"
-      >
-        <span class="index-label">GitHub</span>
-        <span class="index-leader" aria-hidden="true"></span>
-        <span class="index-number" aria-hidden="true">III</span>
-      </a>
-    </nav>
+    <app-portfolio-index></app-portfolio-index>
 
     <footer class="landing-footer">
-      <span class="orbit-mark" aria-hidden="true"><span class="orbit-dot"></span></span>
+      <app-orbit-mark></app-orbit-mark>
     </footer>
   </section>
 </main>

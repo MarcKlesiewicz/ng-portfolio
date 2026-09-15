@@ -5,6 +5,7 @@ import { environment } from '@env/environment';
 import { Logger } from './shared/services/logger.service';
 
 const log = new Logger('App');
+const EDITORIAL_ROUTES = new Set(['/', '/home', '/about']);
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
 
   get showNavbar(): boolean {
     const currentPath = this.router.url.split(/[?#]/, 1)[0];
-    return currentPath !== '/' && currentPath !== '/home';
+    return !EDITORIAL_ROUTES.has(currentPath);
   }
 
   ngOnInit() {

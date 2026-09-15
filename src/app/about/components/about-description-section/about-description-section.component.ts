@@ -9,7 +9,10 @@ export class AboutDescriptionSectionComponent {
   selectedOption = 'myself-long';
   private birthDate = new Date(1995, 3, 21);
   private age = this.calculateAge(this.birthDate);
-  selectedDescription = this.getDescription(this.selectedOption);
+
+  get selectedDescription(): string {
+    return this.getDescription(this.selectedOption);
+  }
 
   descriptionOptions = [
     {
@@ -26,10 +29,6 @@ export class AboutDescriptionSectionComponent {
     },
   ];
 
-  updateDescription(option: string) {
-    this.selectedDescription = this.getDescription(option);
-  }
-
   private calculateAge(birthDate: Date): number {
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
@@ -43,13 +42,14 @@ export class AboutDescriptionSectionComponent {
   private getDescription(option: string): string {
     switch (option) {
       case 'myself-long':
-        return `Hello! I'm a ${this.age}-year-old app developer with a computer science background, originally from Lolland, now settled in a small town outside Odense (Denmark) with my girlfriend Mathilde and our dog Cody.
+        return `Hello, and thanks for stopping by!
+        My name is Marc. I build web and mobile applications for a living, and other cool shit for fun. I’m based in an old house on Funen, Denmark, where I live with my wife Mathilde and our dog Cody.
 
-        My work mirrors my passions - diving into software and testing the boundaries of what I can create. I often find myself torn between the hours in a day and my backlog of ideas.
+        I’m a frontend developer by trade, but I’ve always been more interested in building things than sticking neatly to one box. Sometimes that means obsessing over the details of an interface, sometimes it means 3D printing something I probably could have bought for less, and sometimes it means starting yet another side project because apparently the existing ones weren’t enough.
 
-        When I'm not lost in code, I'm probably immersed in music, exploring the world of cinema, or tackling DIY/renovation projects for our home. I also enjoy a good boardgame or hitting the paddle courts around Odense.
+        Outside of software, I tend to rotate through hobbies at a fairly unhealthy pace. Electronics, DIY projects, board games, padel, music production and whatever else happens to catch my attention. My current obsession is learning to play the piano — with mixed results so far.
 
-        I value genuine communities and am driven by a desire to achieve meaningful goals, whether personal or shared.`;
+        If we ever play Trivial Pursuit, sports is the category you want me to land on. Music and movies, however, are a different story. For some reason, my brain has decided that obscure songs, actors and movie trivia are more important to retain than most actually useful information.`;
       case 'myself-short':
         return `I'm ${this.age}.
         No kids, but I do have a dog and a girlfriend (not in that order).
