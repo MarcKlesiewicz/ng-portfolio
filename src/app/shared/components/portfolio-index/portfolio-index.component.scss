@@ -100,11 +100,13 @@
 }
 
 .index-leader {
-  height: 1em;
+  height: 0.55rem;
   flex: 1;
-  border-bottom: 2px dotted currentcolor;
-  opacity: 0.6;
-  transform: translateY(-0.2em);
+  background-image: radial-gradient(circle, currentcolor 0 0.13rem, transparent 0.14rem);
+  background-position: left center;
+  background-size: 0.72rem 0.55rem;
+  opacity: 0.78;
+  transform: translateY(0.08rem);
 }
 
 .index-number {
