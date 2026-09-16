@@ -60,7 +60,9 @@
   font-family: var(--font-editorial);
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
+  opacity: 0;
   text-decoration: none;
+  animation: reveal 0.8s ease-out forwards;
   transition: transform 0.18s ease;
 }
 
@@ -76,16 +78,21 @@
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 0.9;
+  opacity: 0;
   text-shadow: -0.035em 0.08em var(--tertiary-color);
+  transform: translateY(0.35em);
+  animation: title-in 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .masthead-wave {
+  --reveal-opacity: 0.78;
+
   width: min(100%, 39rem);
   height: 0.85rem;
   margin-top: clamp(2rem, 5vw, 3rem);
   background: url("/assets/svgs/masthead-wave-seamless.svg") left center / 7rem 0.85rem repeat-x;
-  opacity: 0.78;
-  animation: masthead-wave-drift 3.3s linear infinite;
+  opacity: 0;
+  animation: reveal 0.8s 0.38s ease-out forwards, masthead-wave-drift 3.3s linear infinite;
 }
 
 .about-content {
@@ -94,6 +101,21 @@
   flex-direction: column;
   gap: clamp(5rem, 10vw, 8rem);
   margin: clamp(4.5rem, 9vw, 7rem) auto 0;
+  opacity: 0;
+  animation: reveal 0.8s 0.52s ease-out forwards;
+}
+
+@keyframes title-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: var(--reveal-opacity, 1);
+  }
 }
 
 @keyframes masthead-wave-drift {
@@ -108,6 +130,8 @@
   flex-direction: column;
   align-items: center;
   margin: clamp(6rem, 12vw, 10rem) auto 0;
+  opacity: 0;
+  animation: reveal 0.8s 0.7s ease-out forwards;
 }
 
 app-portfolio-index {
@@ -133,7 +157,12 @@ app-portfolio-index {
 
 @media (prefers-reduced-motion: reduce) {
   .folio-mark,
-  .masthead-wave {
+  .about-masthead h1,
+  .masthead-wave,
+  .about-content,
+  .about-footer {
+    opacity: var(--reveal-opacity, 1);
+    transform: none;
     transition: none;
     animation: none;
   }
