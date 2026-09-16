@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class PortfolioIndexComponent {
   @Input() includeHome = false;
   @Input() current: 'about' | '' = '';
+  @Input() showContact = false;
 }

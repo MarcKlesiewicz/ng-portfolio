@@ -2,6 +2,63 @@
   display: block;
 }
 
+.contact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.65rem;
+  border-block: 1px solid color-mix(in srgb, currentcolor 72%, transparent);
+  margin-bottom: 1.25rem;
+}
+
+.contact-label {
+  display: inline-block;
+  color: inherit;
+  font-family: var(--font-editorial);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.contact-label:hover,
+.contact-label:focus-visible {
+  transform: scale(1.08);
+}
+
+.contact-label:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.3rem;
+}
+
+.contact-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.contact-socials a {
+  display: grid;
+  color: inherit;
+  place-items: center;
+  transition: transform 0.18s ease;
+}
+
+.contact-socials a:hover,
+.contact-socials a:focus-visible {
+  transform: scale(1.14);
+}
+
+.contact-socials a:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.3rem;
+}
+
+.contact-socials img {
+  width: clamp(1.75rem, 4vw, 2.15rem);
+  height: auto;
+}
+
 .portfolio-index {
   display: flex;
   width: 100%;
@@ -59,6 +116,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .contact-label,
+  .contact-socials a,
   .index-link {
     transition: none;
   }
