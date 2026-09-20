@@ -18,14 +18,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
             "serviceWorker": "/ngsw-config.json",
             "outputPath": {
               "base": "dist"
             },
             "index": "src/index.html",
-            "polyfills": ["src/polyfills.ts", "@angular/localize/init"],
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -94,21 +94,13 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "scripts": [],
-            "styles": ["src/main.scss"],
-            "assets": [
-              "src/favicon.ico",
-              "src/apple-touch-icon.png",
-              "src/robots.txt",
-              "src/manifest.webmanifest",
-              "src/assets"
-            ]
+            "coverageReporters": ["html", "text-summary"],
+            "buildTarget": "ng-portfolio:build:development",
+            "runner": "vitest",
+            "runnerConfig": "vitest-base.config.ts"
           },
           "configurations": {
             "ci": {

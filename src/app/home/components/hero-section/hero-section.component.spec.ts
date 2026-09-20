@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PortfolioIndexComponent } from '@app/shared/components/portfolio-index/portfolio-index.component';
@@ -30,9 +31,9 @@ describe('HeroSectionComponent', () => {
     expect(element.querySelector('h1')?.textContent).toContain('Marc');
     expect(element.querySelector('h1')?.textContent).toContain('Klesiewicz');
     expect(links.map((link) => link.textContent?.replace(/\s+/g, ' ').trim())).toEqual([
-      jasmine.stringMatching(/About.*I/),
-      jasmine.stringMatching(/Projects.*II/),
-      jasmine.stringMatching(/GitHub.*III/),
+      expect.stringMatching(/About.*I/),
+      expect.stringMatching(/Projects.*II/),
+      expect.stringMatching(/GitHub.*III/),
     ]);
     expect(links[0].getAttribute('href')).toBe('/about');
     expect(links[1].getAttribute('href')).toBe('/projects');
@@ -41,7 +42,7 @@ describe('HeroSectionComponent', () => {
 
   it('moves the title and trailing shadow in response to the pointer', () => {
     const surface = document.createElement('main');
-    spyOn(surface, 'getBoundingClientRect').and.returnValue({
+    vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({
       left: 0,
       top: 0,
       width: 100,

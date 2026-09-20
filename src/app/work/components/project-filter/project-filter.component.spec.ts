@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
@@ -23,12 +24,12 @@ describe('ProjectFilterComponent', () => {
   });
 
   it('returns to its initial state after two toggles', () => {
-    expect(component.isFilterListOpen()).toBeFalse();
+    expect(component.isFilterListOpen()).toBe(false);
 
     component.toggleFilterList();
-    expect(component.isFilterListOpen()).toBeTrue();
+    expect(component.isFilterListOpen()).toBe(true);
 
     component.toggleFilterList();
-    expect(component.isFilterListOpen()).toBeFalse();
+    expect(component.isFilterListOpen()).toBe(false);
   });
 });

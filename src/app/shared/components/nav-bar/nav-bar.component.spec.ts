@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
@@ -12,10 +13,10 @@ describe('NavBarComponent', () => {
     }).compileComponents();
     const component = TestBed.createComponent(NavBarComponent).componentInstance;
 
-    expect(component.isMenuOpen()).toBeFalse();
+    expect(component.isMenuOpen()).toBe(false);
     component.toggleMenu();
-    expect(component.isMenuOpen()).toBeTrue();
+    expect(component.isMenuOpen()).toBe(true);
     component.toggleMenu();
-    expect(component.isMenuOpen()).toBeFalse();
+    expect(component.isMenuOpen()).toBe(false);
   });
 });
