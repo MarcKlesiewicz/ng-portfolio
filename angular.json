@@ -20,12 +20,11 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "serviceWorker": "/ngsw-config.json",
+            "serviceWorker": "ngsw-config.json",
             "outputPath": {
               "base": "dist"
             },
             "index": "src/index.html",
-            "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -33,6 +32,11 @@
               "src/apple-touch-icon.png",
               "src/robots.txt",
               "src/manifest.webmanifest",
+              {
+                "glob": "**/*",
+                "input": "public/icons",
+                "output": "icons"
+              },
               "src/assets"
             ],
             "styles": ["src/main.scss"],
@@ -53,7 +57,7 @@
                   "maximumError": "10kb"
                 }
               ],
-              "serviceWorker": "/ngsw-config.json",
+              "serviceWorker": "ngsw-config.json",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
