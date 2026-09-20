@@ -45,7 +45,7 @@ export enum LogLevel {
 /**
  * Log output handler function.
  */
-export type LogOutput = (source: string | undefined, level: LogLevel, ...objects: any[]) => void;
+export type LogOutput = (source: string | undefined, level: LogLevel, ...objects: unknown[]) => void;
 
 export class Logger {
   /**
@@ -73,7 +73,7 @@ export class Logger {
    * Logs messages or objects  with the debug level.
    * Works the same as console.log().
    */
-  debug(...objects: any[]) {
+  debug(...objects: unknown[]) {
     this.log(console.log, LogLevel.Debug, objects);
   }
 
@@ -81,7 +81,7 @@ export class Logger {
    * Logs messages or objects  with the info level.
    * Works the same as console.log().
    */
-  info(...objects: any[]) {
+  info(...objects: unknown[]) {
     this.log(console.info, LogLevel.Info, objects);
   }
 
@@ -89,7 +89,7 @@ export class Logger {
    * Logs messages or objects  with the warning level.
    * Works the same as console.log().
    */
-  warn(...objects: any[]) {
+  warn(...objects: unknown[]) {
     this.log(console.warn, LogLevel.Warning, objects);
   }
 
@@ -97,15 +97,15 @@ export class Logger {
    * Logs messages or objects  with the error level.
    * Works the same as console.log().
    */
-  error(...objects: any[]) {
+  error(...objects: unknown[]) {
     this.log(console.error, LogLevel.Error, objects);
   }
 
-  private log(func: (...args: any[]) => void, level: LogLevel, objects: any[]) {
+  private log(func: (...args: unknown[]) => void, level: LogLevel, objects: unknown[]) {
     if (level <= Logger.level) {
-      const log = this.source ? ['[' + this.source + ']'].concat(objects) : objects;
-      func.apply(console, log);
-      Logger.outputs.forEach((output) => output.apply(output, [this.source, level, ...objects]));
+      const log = this.source ? [`[${this.source}]`, ...objects] : objects;
+      func(...log);
+      Logger.outputs.forEach((output) => output(this.source, level, ...objects));
     }
   }
 }

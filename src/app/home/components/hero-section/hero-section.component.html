@@ -1,6 +1,23 @@
-<div class="h-screen w-screen bg-primary flex place-content-center px-4">
-  <div class="stack container-sm items-center">
-    <img id="brand_en" src="assets/svgs/brand_en.svg" />
-    <img id="moon" class="max-h-72" src="assets/svgs/moon.svg" />
-  </div>
-</div>
+<main class="landing-page" (pointermove)="updateTitleParallax($event)" (pointerleave)="resetTitleParallax($event)">
+  <section class="landing-content" aria-labelledby="portfolio-title">
+    <header class="hero-heading">
+      <h1 id="portfolio-title">
+        <span class="title-line">
+          <span class="title-shadow" aria-hidden="true">Marc</span>
+          <span class="title-text">Marc</span>
+        </span>
+        <span class="title-line">
+          <span class="title-shadow" aria-hidden="true">Klesiewicz</span>
+          <span class="title-text">Klesiewicz</span>
+        </span>
+      </h1>
+      <p>Frontend &amp; app developer</p>
+    </header>
+
+    <app-portfolio-index></app-portfolio-index>
+
+    <footer class="landing-footer">
+      <app-orbit-mark></app-orbit-mark>
+    </footer>
+  </section>
+</main>

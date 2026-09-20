@@ -1,38 +1,82 @@
-.tech-tile {
-  border-color: var(--primary-color);
-  border: 1px solid;
-  box-shadow: 2px 2px var(--primary-color);
-  transition: box-shadow 0.3s ease;
-  width: 70px;
-  height: 70px;
-}
-
-.tech-tile:hover {
-  box-shadow: 4px 4px var(--primary-color);
-}
-
-.fixed-size {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.tech-banner {
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #0500248f;
-  backdrop-filter: blur(5px);
-  color: var(--on-primary-color);
-  padding: 2px 5px;
-  border-radius: 3px;
-  font-size: 12px;
+.section-deck {
+  width: min(100%, 34rem);
+  margin: 1rem auto 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.55;
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
-.tech-tile:hover .tech-banner {
-  opacity: 1;
+.workbench {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+}
+
+.workbench-group {
+  position: relative;
+  min-width: 0;
+  flex: 1 1 calc(50% - 1.75rem);
+  padding-top: 1rem;
+  border-top: 1px solid currentcolor;
+}
+
+.workbench-group header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.workbench-group header > span {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.workbench-group h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: -0.035em 0.06em var(--tertiary-color);
+}
+
+.workbench-group > p {
+  margin: 1rem 0 0;
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.workbench-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workbench-group li {
+  padding-bottom: 0.12rem;
+  border-bottom: 1px dotted currentcolor;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (width <= 620px) {
+  .workbench-group {
+    flex-basis: 100%;
+  }
+
+  .workbench-group:nth-child(even) {
+    margin-top: 0;
+  }
 }

@@ -1,0 +1,126 @@
+:host {
+  display: block;
+}
+
+.contact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.65rem;
+  border-block: 1px solid color-mix(in srgb, currentcolor 72%, transparent);
+  margin-bottom: 1.25rem;
+}
+
+.contact-label {
+  display: inline-block;
+  color: inherit;
+  font-family: var(--font-editorial);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.contact-label:hover,
+.contact-label:focus-visible {
+  transform: scale(1.08);
+}
+
+.contact-label:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.3rem;
+}
+
+.contact-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.contact-socials a {
+  display: grid;
+  color: inherit;
+  place-items: center;
+  transition: transform 0.18s ease;
+}
+
+.contact-socials a:hover,
+.contact-socials a:focus-visible {
+  transform: scale(1.14);
+}
+
+.contact-socials a:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.3rem;
+}
+
+.contact-socials img {
+  width: clamp(1.75rem, 4vw, 2.15rem);
+  height: auto;
+}
+
+.portfolio-index {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.index-link {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.65rem, 2vw, 1.25rem);
+  padding: 0.8rem 0.65rem;
+  color: inherit;
+  text-decoration: none;
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+
+.index-link:not(.is-current):hover,
+.index-link:not(.is-current):focus-visible {
+  transform: scale(1.035);
+}
+
+.index-link:not(.is-current):focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.2rem;
+}
+
+.index-link.is-current {
+  color: color-mix(in srgb, var(--secondary-color) 62%, var(--tertiary-color));
+  cursor: default;
+}
+
+.index-label {
+  font-family: var(--font-label);
+  font-size: clamp(0.8rem, 1.7vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.index-leader {
+  height: 0.55rem;
+  flex: 1;
+  background-image: radial-gradient(circle, currentcolor 0 0.13rem, transparent 0.14rem);
+  background-position: left center;
+  background-size: 0.72rem 0.55rem;
+  opacity: 0.78;
+  transform: translateY(0.08rem);
+}
+
+.index-number {
+  min-width: 2rem;
+  font-family: var(--font-editorial);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-label,
+  .contact-socials a,
+  .index-link {
+    transition: none;
+  }
+}

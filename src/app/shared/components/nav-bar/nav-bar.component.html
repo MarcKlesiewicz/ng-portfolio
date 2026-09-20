@@ -1,27 +1,31 @@
-<div [@slideDown]="isMenuOpen ? 'open' : 'closed'" class="absolute flex w-screen z-10 frosted-glass">
+<div
+  class="nav-menu absolute inset-x-0 top-0 flex frosted-glass"
+  [class.nav-menu--open]="isMenuOpen()"
+  [attr.aria-hidden]="!isMenuOpen()"
+>
   <div
-    [@slideDown]="isMenuOpen ? 'open' : 'closed'"
-    class="flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
+    class="nav-menu__content flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
   >
-    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/', label: 'Home' }"></ng-container>
+    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/home', label: 'Home' }"></ng-container>
     <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/about', label: 'Who is Marc?' }"></ng-container>
-    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/projects', label: 'Projects' }"></ng-container>
+    <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/work', label: 'Work' }"></ng-container>
   </div>
 </div>
 
-<div class="flex flex-row w-screen absolute justify-between m-4 text-secondary z-20">
-  @if (!isMenuOpen) {
-  <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
-  }@else {
-  <div class="btn btn-ghost btn-circle text-2xl icon-hover">
-    <span class="material-icons-outlined text-5xl">language</span>
-  </div>
+<div class="absolute inset-x-0 top-0 z-20 flex flex-row justify-between p-4 text-secondary">
+  @if (!isMenuOpen()) {
+    <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
+  } @else {
+    <div class="btn btn-ghost btn-circle text-2xl icon-hover">
+      <span class="material-icons-outlined text-5xl">language</span>
+    </div>
   }
-  <a (click)="toggleMenu()" class="mr-8 btn btn-ghost btn-circle icon-hover">
-    @if (!isMenuOpen) {
-    <span class="material-icons-outlined text-5xl">drag_handle</span>
-    } @if (isMenuOpen) {
-    <span class="material-icons-outlined text-5xl">close</span>
+  <a (click)="toggleMenu()" class="btn btn-ghost btn-circle icon-hover">
+    @if (!isMenuOpen()) {
+      <span class="material-icons-outlined text-5xl">drag_handle</span>
+    }
+    @if (isMenuOpen()) {
+      <span class="material-icons-outlined text-5xl">close</span>
     }
   </a>
 </div>

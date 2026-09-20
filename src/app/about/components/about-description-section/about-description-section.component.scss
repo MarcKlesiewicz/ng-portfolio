@@ -2,6 +2,7 @@
   0% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -11,28 +12,72 @@
   animation: spin-slow 20s linear infinite;
 }
 
+.introduction-layout {
+  display: flow-root;
+}
+
+.introduction-copy {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.68;
+  white-space: pre-line;
+}
+
+.introduction-copy::first-letter {
+  float: left;
+  margin: 0.04em 0.08em 0 0;
+  color: var(--tertiary-color);
+  font-family: var(--font-display);
+  font-size: 4.4em;
+  line-height: 0.7;
+  text-shadow: -0.025em 0.04em var(--secondary-color);
+}
+
+.portrait-wrap {
+  position: relative;
+  float: right;
+  width: min(52%, 20rem);
+  margin: 0 -1rem 1.5rem clamp(1.75rem, 5vw, 3rem);
+  shape-margin: 1.25rem;
+  shape-outside: polygon(24% 0%, 82% 1%, 100% 18%, 98% 79%, 78% 100%, 17% 98%, 0% 78%, 3% 20%);
+}
+
 .avatar {
   position: absolute;
-  top: -15px;
-  right: 30px;
-  max-height: 75px;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: clamp(4.25rem, 9vw, 5.5rem);
+  aspect-ratio: 1;
+  border: 4px var(--primary-color) solid;
+  border-radius: 50%;
+  object-fit: cover;
   transform: translate(50%, -50%);
-  border: 5px var(--on-primary-color) solid;
 }
 
 .main-image {
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 44% 56% 42% 58% / 34% 42% 58% 66%;
+  filter: sepia(0.18) saturate(0.82) contrast(1.06);
+  object-fit: cover;
 }
 
-.main {
-  background-image: url("../../../../assets/images/me.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+@media (width <= 620px) {
+  .portrait-wrap {
+    float: none;
+    width: min(88%, 20rem);
+    margin: 0 auto 3rem;
+    shape-outside: none;
+  }
 }
 
-.constrained-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+@media (prefers-reduced-motion: reduce) {
+  .spin-slow {
+    animation: none;
+  }
 }

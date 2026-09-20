@@ -17,12 +17,12 @@
     "strict": true,
     "target": "ES2022",
     "typeRoots": ["node_modules/@types"],
-    "baseUrl": "./",
+    "lib": ["es2020", "dom"],
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@shared": ["src/app/@shared"],
-      "@shared/*": ["src/app/@shared/*"],
-      "@env/*": ["src/environments/*"]
+      "@app/*": ["./src/app/*"],
+      "@shared": ["./src/app/@shared"],
+      "@shared/*": ["./src/app/@shared/*"],
+      "@env/*": ["./src/environments/*"]
     },
     "useDefineForClassFields": false
   },

@@ -3,10 +3,31 @@
  * Component-specific style should not go here and be included directly as part of the components.
  */
 
-// Theme variables, must be included before the libraries to allow overriding defaults
-@import "styles/theme-variables";
+@use "styles/theme-variables";
+@use "styles/keyframes";
+@use "tailwindcss";
+@source "./app/**/*.{html,ts}";
 
-//Keyframes
-@import "styles/keyframes.scss";
+@plugin "daisyui" {
+  themes: false;
+}
 
-@import "styles/tailwind.scss";
+@plugin "daisyui/theme" {
+  name: "mytheme";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-primary: #050024;
+  --color-primary-content: #ece4dc;
+  --color-secondary: #7e6300;
+  --color-secondary-content: #ece4dc;
+  --color-accent: #600106;
+  --color-accent-content: #ece4dc;
+  --color-neutral: #ece4dc;
+  --color-neutral-content: #050024;
+  --color-base-100: #ece4dc;
+  --color-base-200: #ded6ce;
+  --color-base-300: #d0c8c0;
+  --color-base-content: #050024;
+}
