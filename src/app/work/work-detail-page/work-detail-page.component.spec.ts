@@ -36,6 +36,20 @@ describe('WorkDetailPageComponent', () => {
     expect(backLink?.querySelector('.back-link-icon')?.getAttribute('aria-hidden')).toBe('true');
   });
 
+  it('uses the same staggered entry animation as the editorial pages', () => {
+    renderDetail('monto');
+    const componentStyles = Array.from(document.head.querySelectorAll('style'))
+      .find((style) => style.textContent?.includes('.work-detail-page'))
+      ?.textContent?.replace(/\s+/g, ' ');
+
+    expect(componentStyles).toBeTruthy();
+    expect(componentStyles).toMatch(/\.back-link[^}]*animation: fade-in-animation 0\.8s ease-out forwards/);
+    expect(componentStyles).toMatch(/\.work-detail-header[^}]*animation: [^;]*_title-in 0\.9s 0\.1s/);
+    expect(componentStyles).toMatch(/\.work-story[^}]*animation: fade-in-animation 0\.8s 0\.52s ease-out forwards/);
+    expect(componentStyles).toMatch(/\.work-detail-footer[^}]*animation: fade-in-animation 0\.8s 0\.7s ease-out forwards/);
+    expect(componentStyles).toMatch(/prefers-reduced-motion: reduce[^]*\.work-detail-footer[^}]*animation: none/);
+  });
+
   it('renders the not-found view for an unknown work slug', () => {
     const element = renderDetail('missing-work');
 
