@@ -71,7 +71,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 620px) {
+@media (width <= 620px) {
   .workbench-group {
     flex-basis: 100%;
   }

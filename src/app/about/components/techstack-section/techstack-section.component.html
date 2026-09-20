@@ -5,18 +5,18 @@
 
   <div class="workbench">
     @for (group of toolGroups; track group) {
-    <article class="workbench-group">
-      <header>
-        <span aria-hidden="true">{{ group.marker }}</span>
-        <h3>{{ group.title }}</h3>
-      </header>
-      <p>{{ group.description }}</p>
-      <ul>
-        @for (tool of group.tools; track tool) {
-        <li>{{ tool }}</li>
-        }
-      </ul>
-    </article>
+      <article class="workbench-group">
+        <header>
+          <span aria-hidden="true">{{ group.marker }}</span>
+          <h3>{{ group.title }}</h3>
+        </header>
+        <p>{{ group.description }}</p>
+        <ul>
+          @for (tool of group.tools; track tool) {
+            <li>{{ tool }}</li>
+          }
+        </ul>
+      </article>
     }
   </div>
 </section>

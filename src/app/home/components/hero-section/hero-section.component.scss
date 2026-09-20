@@ -124,7 +124,7 @@ app-portfolio-index {
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .landing-content {
     padding-right: 1.6rem;
     padding-left: 1.6rem;
@@ -140,7 +140,7 @@ app-portfolio-index {
   }
 }
 
-@media (max-height: 760px) and (min-width: 641px) {
+@media (height <= 760px) and (width >= 641px) {
   .landing-content {
     padding-top: 4.5rem;
     padding-bottom: 1.5rem;

@@ -5,7 +5,6 @@
 .frosted-glass {
   background-color: #6001064d; /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Frosted glass effect */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
 .nav-menu,
@@ -13,13 +12,18 @@
   height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: height 0.3s ease-out, opacity 0.3s ease-out;
+  transition:
+    height 0.3s ease-out,
+    opacity 0.3s ease-out;
 }
 
 .nav-menu {
   z-index: -1;
   pointer-events: none;
-  transition: height 0.3s ease-out, opacity 0.3s ease-out, z-index 0s linear 0.3s;
+  transition:
+    height 0.3s ease-out,
+    opacity 0.3s ease-out,
+    z-index 0s linear 0.3s;
 }
 
 .nav-menu--open,
@@ -38,7 +42,9 @@
 .animated-div object {
   opacity: 0;
   transform: scale(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .animated-div a {

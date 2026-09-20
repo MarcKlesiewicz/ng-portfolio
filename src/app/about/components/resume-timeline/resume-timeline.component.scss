@@ -99,7 +99,7 @@
   line-height: 1.45;
 }
 
-@media (max-width: 520px) {
+@media (width <= 520px) {
   .company-mark {
     width: 2.8rem;
   }

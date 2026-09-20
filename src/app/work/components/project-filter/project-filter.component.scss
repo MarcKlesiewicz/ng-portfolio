@@ -3,7 +3,10 @@
   opacity: 0;
   overflow: hidden;
   visibility: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+  transition:
+    max-height 0.3s ease-in-out,
+    opacity 0.3s ease-in-out,
+    visibility 0s linear 0.3s;
 }
 
 .project-filter-options--open {

@@ -3,32 +3,32 @@
 
   <ol class="timeline timeline-vertical timeline-compact timeline-snap-icon resume-timeline">
     @for (item of resumeItems; track item.name; let first = $first, last = $last) {
-    <li>
-      @if (!first) {
-      <hr />
-      }
+      <li>
+        @if (!first) {
+          <hr />
+        }
 
-      <div class="timeline-middle timeline-mark" aria-hidden="true">
-        <div class="avatar">
-          <div class="company-mark">
-            <img [src]="item.logo" alt="" />
+        <div class="timeline-middle timeline-mark" aria-hidden="true">
+          <div class="avatar">
+            <div class="company-mark">
+              <img [src]="item.logo" alt="" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <article class="timeline-start timeline-box resume-card">
-        <div class="resume-meta">
-          <time>{{ item.startDate }}–{{ item.endDate }}</time>
-          <span>{{ item.occupation }}</span>
-        </div>
-        <h3>{{ item.name }}</h3>
-        <p>{{ item.description }}</p>
-      </article>
+        <article class="timeline-start timeline-box resume-card">
+          <div class="resume-meta">
+            <time>{{ item.startDate }}–{{ item.endDate }}</time>
+            <span>{{ item.occupation }}</span>
+          </div>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
 
-      @if (!last) {
-      <hr />
-      }
-    </li>
+        @if (!last) {
+          <hr />
+        }
+      </li>
     }
   </ol>
 </section>

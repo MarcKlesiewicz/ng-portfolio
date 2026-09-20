@@ -14,17 +14,18 @@
 
 <div class="absolute inset-x-0 top-0 z-20 flex flex-row justify-between p-4 text-secondary">
   @if (!isMenuOpen()) {
-  <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
-  }@else {
-  <div class="btn btn-ghost btn-circle text-2xl icon-hover">
-    <span class="material-icons-outlined text-5xl">language</span>
-  </div>
+    <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
+  } @else {
+    <div class="btn btn-ghost btn-circle text-2xl icon-hover">
+      <span class="material-icons-outlined text-5xl">language</span>
+    </div>
   }
   <a (click)="toggleMenu()" class="btn btn-ghost btn-circle icon-hover">
     @if (!isMenuOpen()) {
-    <span class="material-icons-outlined text-5xl">drag_handle</span>
-    } @if (isMenuOpen()) {
-    <span class="material-icons-outlined text-5xl">close</span>
+      <span class="material-icons-outlined text-5xl">drag_handle</span>
+    }
+    @if (isMenuOpen()) {
+      <span class="material-icons-outlined text-5xl">close</span>
     }
   </a>
 </div>

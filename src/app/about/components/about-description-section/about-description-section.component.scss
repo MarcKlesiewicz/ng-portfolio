@@ -67,7 +67,7 @@
   object-fit: cover;
 }
 
-@media (max-width: 620px) {
+@media (width <= 620px) {
   .portrait-wrap {
     float: none;
     width: min(88%, 20rem);

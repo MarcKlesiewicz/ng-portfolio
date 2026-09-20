@@ -1,47 +1,48 @@
 @if (showContact()) {
-<aside class="contact-strip" aria-label="Contact">
-  <a class="contact-label" href="mailto:marcklesiewiczdev@gmail.com">Email</a>
+  <aside class="contact-strip" aria-label="Contact">
+    <a class="contact-label" href="mailto:marcklesiewiczdev@gmail.com">Email</a>
 
-  <div class="contact-socials">
-    <a
-      href="https://dk.linkedin.com/in/marc-klesiewicz-584910194"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn (opens in a new tab)"
-    >
-      <img src="/assets/svgs/linkedin_logo.svg" alt="" />
-    </a>
-    <a
-      href="https://github.com/MarcKlesiewicz"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="GitHub (opens in a new tab)"
-    >
-      <img src="/assets/svgs/github_logo.svg" alt="" />
-    </a>
-  </div>
-</aside>
+    <div class="contact-socials">
+      <a
+        href="https://dk.linkedin.com/in/marc-klesiewicz-584910194"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn (opens in a new tab)"
+      >
+        <img src="/assets/svgs/linkedin_logo.svg" alt="" />
+      </a>
+      <a
+        href="https://github.com/MarcKlesiewicz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub (opens in a new tab)"
+      >
+        <img src="/assets/svgs/github_logo.svg" alt="" />
+      </a>
+    </div>
+  </aside>
 }
 
 <nav class="portfolio-index" aria-label="Primary">
   @if (includeHome()) {
-  <a class="index-link" routerLink="/home">
-    <span class="index-label">Home</span>
-    <span class="index-leader" aria-hidden="true"></span>
-    <span class="index-number" aria-hidden="true">I</span>
-  </a>
-  } @if (current() === 'about') {
-  <span class="index-link is-current" aria-current="page">
-    <span class="index-label">About</span>
-    <span class="index-leader" aria-hidden="true"></span>
-    <span class="index-number" aria-hidden="true">{{ includeHome() ? 'II' : 'I' }}</span>
-  </span>
+    <a class="index-link" routerLink="/home">
+      <span class="index-label">Home</span>
+      <span class="index-leader" aria-hidden="true"></span>
+      <span class="index-number" aria-hidden="true">I</span>
+    </a>
+  }
+  @if (current() === 'about') {
+    <span class="index-link is-current" aria-current="page">
+      <span class="index-label">About</span>
+      <span class="index-leader" aria-hidden="true"></span>
+      <span class="index-number" aria-hidden="true">{{ includeHome() ? 'II' : 'I' }}</span>
+    </span>
   } @else {
-  <a class="index-link" routerLink="/about">
-    <span class="index-label">About</span>
-    <span class="index-leader" aria-hidden="true"></span>
-    <span class="index-number" aria-hidden="true">I</span>
-  </a>
+    <a class="index-link" routerLink="/about">
+      <span class="index-label">About</span>
+      <span class="index-leader" aria-hidden="true"></span>
+      <span class="index-number" aria-hidden="true">I</span>
+    </a>
   }
 
   <a class="index-link" routerLink="/projects">

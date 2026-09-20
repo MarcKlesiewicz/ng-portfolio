@@ -2,7 +2,7 @@
   <div class="flex flex-grow flex-col max-w-xl gap-6 mt-8">
     <app-project-filter></app-project-filter>
     @for (project of projectsService.projects; track project.id) {
-    <app-project-card [project]="project"></app-project-card>
+      <app-project-card [project]="project"></app-project-card>
     }
   </div>
 </div>

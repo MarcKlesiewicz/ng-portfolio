@@ -1,0 +1,6 @@
+coverage/
+dist/
+docs/generated/
+docs/plans/
+node_modules/
+package-lock.json
