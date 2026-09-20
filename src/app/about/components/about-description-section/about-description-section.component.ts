@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-about-description-section',
@@ -7,15 +7,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class AboutDescriptionSectionComponent {
-  selectedOption = 'myself-long';
-  private birthDate = new Date(1995, 3, 21);
-  private age = this.calculateAge(this.birthDate);
+  readonly selectedOption = signal('myself-long');
+  readonly selectedDescription = computed(() => this.getDescription(this.selectedOption()));
+  private readonly birthDate = new Date(1995, 3, 21);
+  private readonly age = this.calculateAge(this.birthDate);
 
-  get selectedDescription(): string {
-    return this.getDescription(this.selectedOption);
-  }
-
-  descriptionOptions = [
+  readonly descriptionOptions = [
     {
       value: 'myself-long',
       viewValue: 'myself (long version)',
@@ -28,7 +25,7 @@ export class AboutDescriptionSectionComponent {
       value: 'chat-gbt',
       viewValue: 'chatGBT',
     },
-  ];
+  ] as const;
 
   private calculateAge(birthDate: Date): number {
     const today = new Date();

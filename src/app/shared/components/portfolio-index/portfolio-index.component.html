@@ -1,4 +1,4 @@
-@if (showContact) {
+@if (showContact()) {
 <aside class="contact-strip" aria-label="Contact">
   <a class="contact-label" href="mailto:marcklesiewiczdev@gmail.com">Email</a>
 
@@ -24,17 +24,17 @@
 }
 
 <nav class="portfolio-index" aria-label="Primary">
-  @if (includeHome) {
+  @if (includeHome()) {
   <a class="index-link" routerLink="/home">
     <span class="index-label">Home</span>
     <span class="index-leader" aria-hidden="true"></span>
     <span class="index-number" aria-hidden="true">I</span>
   </a>
-  } @if (current === 'about') {
+  } @if (current() === 'about') {
   <span class="index-link is-current" aria-current="page">
     <span class="index-label">About</span>
     <span class="index-leader" aria-hidden="true"></span>
-    <span class="index-number" aria-hidden="true">{{ includeHome ? 'II' : 'I' }}</span>
+    <span class="index-number" aria-hidden="true">{{ includeHome() ? 'II' : 'I' }}</span>
   </span>
   } @else {
   <a class="index-link" routerLink="/about">
@@ -47,7 +47,7 @@
   <a class="index-link" routerLink="/projects">
     <span class="index-label">Projects</span>
     <span class="index-leader" aria-hidden="true"></span>
-    <span class="index-number" aria-hidden="true">{{ includeHome ? 'III' : 'II' }}</span>
+    <span class="index-number" aria-hidden="true">{{ includeHome() ? 'III' : 'II' }}</span>
   </a>
 
   <a
@@ -59,6 +59,6 @@
   >
     <span class="index-label">GitHub</span>
     <span class="index-leader" aria-hidden="true"></span>
-    <span class="index-number" aria-hidden="true">{{ includeHome ? 'IV' : 'III' }}</span>
+    <span class="index-number" aria-hidden="true">{{ includeHome() ? 'IV' : 'III' }}</span>
   </a>
 </nav>

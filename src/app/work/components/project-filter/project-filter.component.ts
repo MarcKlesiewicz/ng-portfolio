@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-project-filter',
@@ -15,9 +15,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class ProjectFilterComponent {
-  isFilterListOpen = false;
+  readonly isFilterListOpen = signal(false);
 
   toggleFilterList() {
-    this.isFilterListOpen = !this.isFilterListOpen;
+    this.isFilterListOpen.update((isOpen) => !isOpen);
   }
 }

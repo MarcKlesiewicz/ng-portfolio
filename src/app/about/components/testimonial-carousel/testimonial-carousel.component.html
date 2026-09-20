@@ -11,7 +11,10 @@
 
   <div class="testimonial-stage" aria-live="polite">
     @for (testimonial of testimonials; track testimonial.author; let index = $index) {
-    <blockquote [class.is-active]="index === currentIndex" [attr.aria-hidden]="index === currentIndex ? null : 'true'">
+    <blockquote
+      [class.is-active]="index === currentIndex()"
+      [attr.aria-hidden]="index === currentIndex() ? null : 'true'"
+    >
       <p>{{ testimonial.quote }}</p>
       <footer>
         <cite>{{ testimonial.author }}</cite>
@@ -26,8 +29,8 @@
       @for (testimonial of testimonials; track testimonial.author; let index = $index) {
       <button
         type="button"
-        [class.is-active]="index === currentIndex"
-        [attr.aria-current]="index === currentIndex ? 'true' : null"
+        [class.is-active]="index === currentIndex()"
+        [attr.aria-current]="index === currentIndex() ? 'true' : null"
         [attr.aria-label]="'Show testimonial ' + (index + 1) + ' of ' + testimonials.length"
         (click)="selectTestimonial(index)"
       ></button>

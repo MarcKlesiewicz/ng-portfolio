@@ -15,7 +15,7 @@ describe('PortfolioIndexComponent', () => {
   });
 
   it('renders the About-page navigation variant', () => {
-    fixture.componentInstance.current = 'about';
+    fixture.componentRef.setInput('current', 'about');
     fixture.detectChanges();
 
     const element: HTMLElement = fixture.nativeElement;
@@ -27,5 +27,18 @@ describe('PortfolioIndexComponent', () => {
     expect(currentItem?.textContent).toContain('I');
     expect(links[0].textContent).toContain('II');
     expect(links[1].textContent).toContain('III');
+  });
+
+  it('reflects optional input changes and preserves their defaults', () => {
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.contact-strip')).toBeNull();
+    expect(fixture.nativeElement.textContent).not.toContain('Home');
+
+    fixture.componentRef.setInput('includeHome', true);
+    fixture.componentRef.setInput('showContact', true);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.contact-strip')).not.toBeNull();
+    expect(fixture.nativeElement.textContent).toContain('Home');
   });
 });

@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Project } from '@app/work/models/project.model';
 
 @Component({
@@ -8,5 +8,5 @@ import { Project } from '@app/work/models/project.model';
   changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class ProjectCardComponent {
-  @Input() project?: Project;
+  readonly project = input<Project>();
 }

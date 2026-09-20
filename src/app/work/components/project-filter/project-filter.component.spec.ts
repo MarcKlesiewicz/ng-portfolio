@@ -21,4 +21,14 @@ describe('ProjectFilterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('returns to its initial state after two toggles', () => {
+    expect(component.isFilterListOpen()).toBeFalse();
+
+    component.toggleFilterList();
+    expect(component.isFilterListOpen()).toBeTrue();
+
+    component.toggleFilterList();
+    expect(component.isFilterListOpen()).toBeFalse();
+  });
 });

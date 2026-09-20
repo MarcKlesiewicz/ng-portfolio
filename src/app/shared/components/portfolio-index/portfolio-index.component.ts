@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
 })
 export class PortfolioIndexComponent {
-  @Input() includeHome = false;
-  @Input() current: 'about' | '' = '';
-  @Input() showContact = false;
+  readonly includeHome = input(false);
+  readonly current = input<'about' | ''>('');
+  readonly showContact = input(false);
 }

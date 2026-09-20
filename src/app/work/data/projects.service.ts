@@ -1,26 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Project, ProjectTags } from '../models/project.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectsService {
-  constructor() {}
-
-  private readonly projectSubject = new BehaviorSubject<Project[]>([]);
-
-  projects$(): Observable<Project[]> {
-    this.fetchProjects();
-    return this.projectSubject.asObservable();
-  }
-
-  private fetchProjects(): void {
-    this.projectSubject.next(projects());
-  }
+  readonly projects: readonly Project[] = PROJECTS;
 }
 
-const projects = () => [
+const PROJECTS: readonly Project[] = [
   {
     id: '1',
     name: 'Monto',

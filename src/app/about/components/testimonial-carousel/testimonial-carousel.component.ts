@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
 
 interface Testimonial {
@@ -30,7 +30,7 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
     },
   ];
 
-  currentIndex = 0;
+  readonly currentIndex = signal(0);
 
   readonly rotationDuration = '8s';
 
@@ -38,8 +38,8 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
   private rotationTimer?: ReturnType<typeof setTimeout>;
   private rotationStartedAt?: number;
   private remainingRotationTime = this.rotationInterval;
-  private isHovered = false;
-  private hasFocusWithin = false;
+  private readonly isHovered = signal(false);
+  private readonly hasFocusWithin = signal(false);
 
   ngOnInit(): void {
     this.startRotation();
@@ -50,26 +50,26 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
   }
 
   selectTestimonial(index: number): void {
-    if (index === this.currentIndex) {
+    if (index === this.currentIndex()) {
       return;
     }
 
-    this.currentIndex = index;
+    this.currentIndex.set(index);
     this.restartRotation();
   }
 
   onMouseEnter(): void {
-    this.isHovered = true;
+    this.isHovered.set(true);
     this.updateRotation();
   }
 
   onMouseLeave(): void {
-    this.isHovered = false;
+    this.isHovered.set(false);
     this.updateRotation();
   }
 
   onFocusIn(): void {
-    this.hasFocusWithin = true;
+    this.hasFocusWithin.set(true);
     this.updateRotation();
   }
 
@@ -78,17 +78,17 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
     const nextTarget = event.relatedTarget as Node | null;
 
     if (!nextTarget || !section.contains(nextTarget)) {
-      this.hasFocusWithin = false;
+      this.hasFocusWithin.set(false);
       this.updateRotation();
     }
   }
 
   private showNextTestimonial(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
+    this.currentIndex.update((index) => (index + 1) % this.testimonials.length);
   }
 
   private updateRotation(): void {
-    if (this.isHovered || this.hasFocusWithin) {
+    if (this.isHovered() || this.hasFocusWithin()) {
       this.pauseRotation();
       return;
     }

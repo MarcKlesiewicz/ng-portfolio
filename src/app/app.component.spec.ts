@@ -35,21 +35,23 @@ describe('AppComponent', () => {
 
   it('hides the global navbar on editorial routes', async () => {
     const fixture = TestBed.createComponent(AppComponent);
+    fixture.autoDetectChanges();
 
     await router.navigateByUrl('/home');
-    fixture.detectChanges();
+    await fixture.whenStable();
     expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
 
     await router.navigateByUrl('/about?from=home');
-    fixture.detectChanges();
+    await fixture.whenStable();
     expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
   });
 
   it('keeps the global navbar on project routes', async () => {
     const fixture = TestBed.createComponent(AppComponent);
+    fixture.autoDetectChanges();
 
     await router.navigateByUrl('/projects');
-    fixture.detectChanges();
+    await fixture.whenStable();
 
     expect(fixture.nativeElement.querySelector('app-nav-bar')).not.toBeNull();
   });

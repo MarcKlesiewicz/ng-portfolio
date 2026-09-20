@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -33,9 +33,9 @@ import { RouterLink } from '@angular/router';
   imports: [NgTemplateOutlet, RouterLink],
 })
 export class NavBarComponent {
-  isMenuOpen = false;
+  readonly isMenuOpen = signal(false);
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen.update((isOpen) => !isOpen);
   }
 }

@@ -21,4 +21,12 @@ describe('WorkPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('renders the static project data once without an async publication', () => {
+    const cards = fixture.nativeElement.querySelectorAll('app-project-card');
+
+    expect(cards.length).toBe(component.projectsService.projects.length);
+    expect(cards.length).toBe(5);
+    expect(component.projectsService.projects).toBe(component.projectsService.projects);
+  });
 });
