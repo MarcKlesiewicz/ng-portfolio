@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "build": "npm run env && ng build",
-    "start": "ng serve",
+    "start": "npm run env && ng serve",
     "env": "node generate-env.js",
     "preview": "http-server ./dist/browser -p 4200 -c-1 --proxy http://localhost:4200?",
     "serve:sw": "npm run build -s && npm run preview",
