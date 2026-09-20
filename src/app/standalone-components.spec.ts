@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
@@ -51,7 +50,7 @@ describe('standalone component graph', () => {
     it(`creates ${component.name} from its standalone imports`, async () => {
       await TestBed.configureTestingModule({
         imports: [component],
-        providers: [provideRouter([]), provideNoopAnimations()],
+        providers: [provideRouter([])],
       }).compileComponents();
 
       const fixture = TestBed.createComponent(component);

@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -16,7 +15,6 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [
-        provideNoopAnimations(),
         provideRouter([
           { path: 'home', component: TestPageComponent },
           { path: 'about', component: TestPageComponent },

@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
@@ -17,7 +16,7 @@ describe('APP_ROUTES', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideRouter(APP_ROUTES), provideNoopAnimations()],
+      providers: [provideRouter(APP_ROUTES)],
     });
 
     harness = await RouterTestingHarness.create();

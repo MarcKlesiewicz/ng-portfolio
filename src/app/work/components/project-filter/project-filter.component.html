@@ -18,9 +18,15 @@
 </div>
 
 <!-- TODO: setup filter buttons -->
-<div class="font-bold text-xs" [@slideInOut]="isFilterListOpen() ? 'out' : 'in'">
-  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Angular</a>
-  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Typescript</a>
-  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Flutter</a>
-  <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Dart</a>
+<div
+  class="project-filter-options"
+  [class.project-filter-options--open]="isFilterListOpen()"
+  [attr.aria-hidden]="!isFilterListOpen()"
+>
+  <div class="project-filter-options__content font-bold text-xs">
+    <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Angular</a>
+    <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Typescript</a>
+    <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Flutter</a>
+    <a class="btn btn-xs border-2 border-solid border-neutral bg-primary text-neutral">Dart</a>
+  </div>
 </div>

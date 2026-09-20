@@ -8,6 +8,33 @@
   -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
+.nav-menu,
+.nav-menu__content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.nav-menu {
+  z-index: -1;
+  pointer-events: none;
+  transition: height 0.3s ease-out, opacity 0.3s ease-out, z-index 0s linear 0.3s;
+}
+
+.nav-menu--open,
+.nav-menu--open .nav-menu__content {
+  height: 100vh;
+  opacity: 1;
+  transition-timing-function: ease-in;
+}
+
+.nav-menu--open {
+  z-index: 10;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
 .animated-div object {
   opacity: 0;
   transform: scale(0);
@@ -30,4 +57,13 @@
 
 .icon-hover:hover {
   color: var(--on-tertiary-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-menu,
+  .nav-menu__content,
+  .animated-div object,
+  .animated-div a {
+    transition: none;
+  }
 }

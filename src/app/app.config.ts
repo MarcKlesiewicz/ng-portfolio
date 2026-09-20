@@ -1,6 +1,5 @@
 import { IMAGE_CONFIG } from '@angular/common';
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 
@@ -9,9 +8,7 @@ import { APP_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection(),
     provideRouter(APP_ROUTES),
-    provideAnimations(),
     provideServiceWorker('ngsw-worker.js', { enabled: environment.production }),
     {
       provide: IMAGE_CONFIG,

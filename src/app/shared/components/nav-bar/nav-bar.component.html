@@ -1,7 +1,10 @@
-<div [@slideDown]="isMenuOpen() ? 'open' : 'closed'" class="absolute inset-x-0 top-0 flex z-10 frosted-glass">
+<div
+  class="nav-menu absolute inset-x-0 top-0 flex frosted-glass"
+  [class.nav-menu--open]="isMenuOpen()"
+  [attr.aria-hidden]="!isMenuOpen()"
+>
   <div
-    [@slideDown]="isMenuOpen() ? 'open' : 'closed'"
-    class="flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
+    class="nav-menu__content flex flex-col place-content-center mx-auto ff-gara text-5xl text-secondary text-center font-semibold gap-8"
   >
     <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/home', label: 'Home' }"></ng-container>
     <ng-container *ngTemplateOutlet="menuItem; context: { $implicit: '/about', label: 'Who is Marc?' }"></ng-container>

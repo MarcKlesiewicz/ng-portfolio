@@ -1,6 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 import { ProjectFilterComponent } from './project-filter.component';
 
@@ -11,7 +10,6 @@ describe('ProjectFilterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProjectFilterComponent],
-      providers: [provideNoopAnimations()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProjectFilterComponent);
@@ -24,12 +22,22 @@ describe('ProjectFilterComponent', () => {
   });
 
   it('returns to its initial state after two toggles', () => {
+    const options = fixture.nativeElement.querySelector('.project-filter-options') as HTMLElement;
+
     expect(component.isFilterListOpen()).toBe(false);
+    expect(options.classList.contains('project-filter-options--open')).toBe(false);
+    expect(options.getAttribute('aria-hidden')).toBe('true');
 
     component.toggleFilterList();
+    fixture.detectChanges();
     expect(component.isFilterListOpen()).toBe(true);
+    expect(options.classList.contains('project-filter-options--open')).toBe(true);
+    expect(options.getAttribute('aria-hidden')).toBe('false');
 
     component.toggleFilterList();
+    fixture.detectChanges();
     expect(component.isFilterListOpen()).toBe(false);
+    expect(options.classList.contains('project-filter-options--open')).toBe(false);
+    expect(options.getAttribute('aria-hidden')).toBe('true');
   });
 });
