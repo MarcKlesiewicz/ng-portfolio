@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { NgTemplateOutlet } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -28,7 +30,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ]),
   ],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
+  imports: [NgTemplateOutlet, RouterLink],
 })
 export class NavBarComponent {
   isMenuOpen = false;

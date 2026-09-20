@@ -1,11 +1,12 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-hovable-icon',
   templateUrl: './hovable-icon.component.html',
   styleUrls: ['./hovable-icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
+  imports: [NgClass],
 })
 export class HovableIconComponent {
   @Input() iconPath: string = '';

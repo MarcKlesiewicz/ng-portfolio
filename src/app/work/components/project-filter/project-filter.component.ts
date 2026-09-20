@@ -13,7 +13,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     ]),
   ],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 export class ProjectFilterComponent {
   isFilterListOpen = false;

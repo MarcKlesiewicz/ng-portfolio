@@ -5,7 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './about-description-section.component.html',
   styleUrls: ['./about-description-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 export class AboutDescriptionSectionComponent {
   selectedOption = 'myself-long';

@@ -1,44 +1,56 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideRouter, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-@Component({
-  selector: 'app-nav-bar',
-  template: '',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
-})
-class NavBarStubComponent {}
+@Component({ template: '' })
+class TestPageComponent {}
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent, NavBarStubComponent],
-      providers: [],
+  let router: Router;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppComponent],
+      providers: [
+        provideNoopAnimations(),
+        provideRouter([
+          { path: 'home', component: TestPageComponent },
+          { path: 'about', component: TestPageComponent },
+          { path: 'projects', component: TestPageComponent },
+        ]),
+      ],
     }).compileComponents();
-  }));
 
-  it('should create the app', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }), 30000);
-
-  it('should hide the global navbar on editorial routes', () => {
-    const homeComponent = new AppComponent({ url: '/home' } as Router);
-    const aboutComponent = new AppComponent({ url: '/about?from=home' } as Router);
-
-    expect(homeComponent.showNavbar).toBeFalse();
-    expect(aboutComponent.showNavbar).toBeFalse();
+    router = TestBed.inject(Router);
   });
 
-  it('should keep the global navbar on other routes', () => {
-    const component = new AppComponent({ url: '/projects' } as Router);
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
 
-    expect(component.showNavbar).toBeTrue();
+    expect(fixture.componentInstance).toBeTruthy();
+  });
+
+  it('hides the global navbar on editorial routes', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+
+    await router.navigateByUrl('/home');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+
+    await router.navigateByUrl('/about?from=home');
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+  });
+
+  it('keeps the global navbar on project routes', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+
+    await router.navigateByUrl('/projects');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).not.toBeNull();
   });
 });

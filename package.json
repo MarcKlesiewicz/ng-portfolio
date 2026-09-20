@@ -60,7 +60,6 @@
     "@typescript-eslint/parser": "8.70.0",
     "daisyui": "^4.12.10",
     "eslint": "10.11.0",
-    "https-proxy-agent": "^5.0.0",
     "husky": "^8.0.1",
     "istanbul-lib-instrument": "^6.0.3",
     "jasmine-core": "4.2.0",

@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PortfolioIndexComponent } from '../../../shared/components/portfolio-index/portfolio-index.component';
+import { OrbitMarkComponent } from '../../../shared/components/orbit-mark/orbit-mark.component';
 
 @Component({
   selector: 'app-hero-section',
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
+  imports: [PortfolioIndexComponent, OrbitMarkComponent],
 })
 export class HeroSectionComponent {
   updateTitleParallax(event: PointerEvent): void {

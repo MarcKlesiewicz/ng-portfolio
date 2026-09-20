@@ -5,7 +5,6 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './wavy-header.component.html',
   styleUrls: ['./wavy-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 export class WavyHeaderComponent {
   @Input() title: string = '';

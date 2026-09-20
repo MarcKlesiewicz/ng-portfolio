@@ -6,7 +6,6 @@ import { Project } from '@app/work/models/project.model';
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.scss',
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 export class ProjectCardComponent {
   @Input() project?: Project;

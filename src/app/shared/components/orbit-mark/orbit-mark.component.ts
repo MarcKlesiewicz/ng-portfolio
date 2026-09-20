@@ -5,6 +5,5 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './orbit-mark.component.html',
   styleUrls: ['./orbit-mark.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 export class OrbitMarkComponent {}

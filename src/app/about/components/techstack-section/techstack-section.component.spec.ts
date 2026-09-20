@@ -6,7 +6,6 @@ import { TechstackSectionComponent } from './techstack-section.component';
   selector: 'app-wavy-header',
   template: '',
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 class WavyHeaderStubComponent {}
 
@@ -15,7 +14,7 @@ describe('TechstackSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TechstackSectionComponent, WavyHeaderStubComponent],
+      imports: [TechstackSectionComponent, WavyHeaderStubComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TechstackSectionComponent);

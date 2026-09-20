@@ -1,8 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import { environment } from '@env/environment';
 import { Logger } from './shared/services/logger.service';
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 
 const log = new Logger('App');
 const EDITORIAL_ROUTES = new Set(['/', '/home', '/about']);
@@ -12,7 +13,7 @@ const EDITORIAL_ROUTES = new Set(['/', '/home', '/about']);
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
+  imports: [NavBarComponent, RouterOutlet],
 })
 export class AppComponent implements OnInit {
   constructor(private readonly router: Router) {}

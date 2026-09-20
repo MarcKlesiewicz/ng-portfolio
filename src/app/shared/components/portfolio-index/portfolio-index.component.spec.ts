@@ -8,8 +8,7 @@ describe('PortfolioIndexComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PortfolioIndexComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, PortfolioIndexComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PortfolioIndexComponent);

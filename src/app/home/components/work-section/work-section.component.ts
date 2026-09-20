@@ -5,7 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './work-section.component.html',
   styleUrls: ['./work-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.Eager,
-  standalone: false,
 })
 export class WorkSectionComponent {
   workPlaces = [

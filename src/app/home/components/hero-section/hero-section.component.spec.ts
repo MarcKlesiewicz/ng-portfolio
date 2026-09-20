@@ -11,8 +11,7 @@ describe('HeroSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroSectionComponent, PortfolioIndexComponent, OrbitMarkComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HeroSectionComponent, PortfolioIndexComponent, OrbitMarkComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroSectionComponent);

@@ -1,0 +1,21 @@
+import { IMAGE_CONFIG } from '@angular/common';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+import { provideServiceWorker } from '@angular/service-worker';
+
+import { environment } from '@env/environment';
+import { APP_ROUTES } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection(),
+    provideRouter(APP_ROUTES),
+    provideAnimations(),
+    provideServiceWorker('ngsw-worker.js', { enabled: environment.production }),
+    {
+      provide: IMAGE_CONFIG,
+      useValue: { disableImageSizeWarning: true, disableImageLazyLoadWarning: true },
+    },
+  ],
+};
