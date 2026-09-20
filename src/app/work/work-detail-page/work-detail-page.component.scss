@@ -216,14 +216,6 @@
   );
 }
 
-.story-features::after {
-  position: absolute;
-  right: 0;
-  bottom: -0.3rem;
-  width: 28%;
-  border-bottom: 0.3rem solid var(--tertiary-color);
-  content: "";
-}
 
 .story-features-kicker {
   font-family: var(--font-label);
