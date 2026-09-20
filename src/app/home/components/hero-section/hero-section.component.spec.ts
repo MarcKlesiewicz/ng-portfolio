@@ -31,12 +31,10 @@ describe('HeroSectionComponent', () => {
     expect(element.querySelector('h1')?.textContent).toContain('Klesiewicz');
     expect(links.map((link) => link.textContent?.replace(/\s+/g, ' ').trim())).toEqual([
       expect.stringMatching(/About.*I/),
-      expect.stringMatching(/Projects.*II/),
-      expect.stringMatching(/GitHub.*III/),
+      expect.stringMatching(/Work.*II/),
     ]);
     expect(links[0].getAttribute('href')).toBe('/about');
-    expect(links[1].getAttribute('href')).toBe('/projects');
-    expect(links[2].getAttribute('href')).toBe('https://github.com/MarcKlesiewicz');
+    expect(links[1].getAttribute('href')).toBe('/work');
   });
 
   it('moves the title and trailing shadow in response to the pointer', () => {

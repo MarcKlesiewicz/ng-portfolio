@@ -12,9 +12,14 @@ export const APP_ROUTES: Routes = [
     title: 'klesiewicz.dev | about',
   },
   {
-    path: 'projects',
+    path: 'work',
+    loadComponent: () => import('./work/work-page/work-page.component').then((module) => module.WorkPageComponent),
+    title: 'klesiewicz.dev | work',
+  },
+  {
+    path: 'work/:slug',
     loadComponent: () =>
-      import('./work/project-page/project-page.component').then((module) => module.ProjectPageComponent),
+      import('./work/work-detail-page/work-detail-page.component').then((module) => module.WorkDetailPageComponent),
     title: 'klesiewicz.dev | work',
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

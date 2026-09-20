@@ -19,9 +19,10 @@ import { PortfolioIndexComponent } from './shared/components/portfolio-index/por
 import { WavyHeaderComponent } from './shared/components/wavy-header/wavy-header.component';
 import { HovableIconComponent } from './shared/src/hovable-icon/hovable-icon.component';
 import { SocialsComponent } from './shared/src/socials/socials.component';
-import { ProjectCardComponent } from './work/components/project-card/project-card.component';
-import { ProjectFilterComponent } from './work/components/project-filter/project-filter.component';
-import { ProjectPageComponent } from './work/project-page/project-page.component';
+import { WorkCardComponent } from './work/components/work-card/work-card.component';
+import { WorkFilterComponent } from './work/components/work-filter/work-filter.component';
+import { WorkDetailPageComponent } from './work/work-detail-page/work-detail-page.component';
+import { WorkPageComponent } from './work/work-page/work-page.component';
 
 const STANDALONE_COMPONENTS: Type<unknown>[] = [
   AppComponent,
@@ -40,9 +41,10 @@ const STANDALONE_COMPONENTS: Type<unknown>[] = [
   WavyHeaderComponent,
   HovableIconComponent,
   SocialsComponent,
-  ProjectPageComponent,
-  ProjectCardComponent,
-  ProjectFilterComponent,
+  WorkPageComponent,
+  WorkDetailPageComponent,
+  WorkCardComponent,
+  WorkFilterComponent,
 ];
 
 describe('standalone component graph', () => {

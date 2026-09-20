@@ -5,7 +5,7 @@ The supported commands and runtime requirements are documented in the repository
 ## Architecture
 
 - `src/main.ts` bootstraps `AppComponent` with the providers in `src/app/app.config.ts`.
-- `src/app/app.routes.ts` lazy-loads the standalone page components for `/home`, `/about`, and `/projects`.
+- `src/app/app.routes.ts` lazy-loads the standalone page components for `/home`, `/about`, `/work`, and `/work/:slug`.
 - Components import their own template dependencies; this project has no NgModules.
 - Template-observed mutable state uses Angular signals. Static portfolio data remains readonly data.
 - Angular CLI's `application` and `dev-server` builders provide the supported Vite-backed workflow. There is no separate Vite configuration.

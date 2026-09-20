@@ -8,7 +8,12 @@ import { Logger } from './shared/services/logger.service';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 
 const log = new Logger('App');
-const EDITORIAL_ROUTES = new Set(['/', '/home', '/about']);
+const EDITORIAL_ROUTES = new Set(['/', '/home', '/about', '/work']);
+
+function isEditorialRoute(url: string): boolean {
+  const path = url.split(/[?#]/, 1)[0];
+  return EDITORIAL_ROUTES.has(path) || path.startsWith('/work/');
+}
 
 @Component({
   selector: 'app-root',
@@ -21,9 +26,9 @@ export class AppComponent implements OnInit {
   readonly showNavbar = toSignal(
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map((event) => !EDITORIAL_ROUTES.has(event.urlAfterRedirects.split(/[?#]/, 1)[0])),
+      map((event) => !isEditorialRoute(event.urlAfterRedirects)),
     ),
-    { initialValue: !EDITORIAL_ROUTES.has(this.router.url.split(/[?#]/, 1)[0]) },
+    { initialValue: !isEditorialRoute(this.router.url) },
   );
 
   ngOnInit() {

@@ -9,6 +9,6 @@ import { RouterLink } from '@angular/router';
 })
 export class PortfolioIndexComponent {
   readonly includeHome = input(false);
-  readonly current = input<'about' | ''>('');
+  readonly current = input<'about' | 'work' | ''>('');
   readonly showContact = input(false);
 }

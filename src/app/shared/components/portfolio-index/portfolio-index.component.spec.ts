@@ -28,7 +28,7 @@ describe('PortfolioIndexComponent', () => {
     expect(currentItem?.textContent).toContain('About');
     expect(currentItem?.textContent).toContain('I');
     expect(links[0].textContent).toContain('II');
-    expect(links[1].textContent).toContain('III');
+    expect(links).toHaveLength(1);
   });
 
   it('reflects optional input changes and preserves their defaults', () => {
@@ -42,5 +42,19 @@ describe('PortfolioIndexComponent', () => {
 
     expect(fixture.nativeElement.querySelector('.contact-strip')).not.toBeNull();
     expect(fixture.nativeElement.textContent).toContain('Home');
+  });
+
+  it('renders Work as the current page instead of a link and omits the GitHub navigation item', () => {
+    fixture.componentRef.setInput('current', 'work');
+    fixture.detectChanges();
+
+    const element: HTMLElement = fixture.nativeElement;
+    const currentItem = element.querySelector<HTMLElement>('.index-link[aria-current="page"]');
+    const workLink = element.querySelector<HTMLAnchorElement>('a[routerlink="/work"]');
+
+    expect(currentItem?.textContent).toContain('Work');
+    expect(currentItem?.textContent).toContain('II');
+    expect(workLink).toBeNull();
+    expect(element.querySelector('nav')?.textContent).not.toContain('GitHub');
   });
 });

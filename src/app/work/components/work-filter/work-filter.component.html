@@ -1,0 +1,31 @@
+<div class="work-filter-bar">
+  <div class="work-categories" aria-label="Work categories">
+    <span class="category-label category-label--active">All</span>
+    <span class="category-label">Client work</span>
+    <span class="category-label">Side quests</span>
+  </div>
+
+  <button
+    type="button"
+    class="filter-toggle"
+    [attr.aria-expanded]="isFilterListOpen()"
+    aria-controls="work-filter-options"
+    (click)="toggleFilterList()"
+  >
+    <span>Technologies</span>
+    <span class="filter-toggle__mark" aria-hidden="true">{{ isFilterListOpen() ? '−' : '+' }}</span>
+  </button>
+</div>
+
+<div
+  id="work-filter-options"
+  class="work-filter-options"
+  [class.work-filter-options--open]="isFilterListOpen()"
+  [attr.aria-hidden]="!isFilterListOpen()"
+>
+  <div class="work-filter-options__content" aria-label="Technologies represented in this work archive">
+    @for (technology of technologies(); track technology) {
+      <span>{{ technology }}</span>
+    }
+  </div>
+</div>

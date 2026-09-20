@@ -23,7 +23,7 @@ Installation configures the local Husky hook but does not format or otherwise re
 npm start
 ```
 
-Open <http://localhost:4200>. The public routes are `/home`, `/about`, and `/projects`.
+Open <http://localhost:4200>. The public routes are `/home`, `/about`, `/work`, and `/work/:slug`.
 
 ## Validate changes
 
@@ -45,7 +45,7 @@ npm run build
 npm run preview
 ```
 
-The optimized browser files are written to `dist/browser`. The preview command serves that directory with SPA fallback at <http://localhost:4200>, so direct requests such as `/about` and `/projects` work. `npm run serve:sw` combines a fresh production build with the same preview server for PWA checks.
+The optimized browser files are written to `dist/browser`. The preview command serves that directory with SPA fallback at <http://localhost:4200>, so direct requests such as `/about` and `/work/monto` work. `npm run serve:sw` combines a fresh production build with the same preview server for PWA checks.
 
 Vercel uses the rewrite in `vercel.json` for extensionless route requests. Static files keep their generated URLs.
 
@@ -59,7 +59,7 @@ src/
     about/                 about page and components
     home/                  home page and components
     shared/                shared standalone components and services
-    work/                  projects page, data, and components
+    work/                  work archive, case studies, data, and components
   assets/                  images and SVGs copied by the Angular build
   environments/            build-time environment selection
   styles/                  global SCSS partials

@@ -1,0 +1,93 @@
+<main class="work-detail-page">
+  <span class="work-detail-backdrop" aria-hidden="true"></span>
+
+  @if (work(); as item) {
+    <article class="work-detail">
+      <a class="back-link" routerLink="/work"><span aria-hidden="true">←</span> Back to work</a>
+
+      <header class="work-detail-header">
+        <p class="work-detail-meta">{{ item.category }} · {{ item.year }}</p>
+        <h1>{{ item.name }}</h1>
+        <p class="work-detail-description">{{ item.description }}</p>
+
+        <figure class="work-detail-hero">
+          <img [src]="item.thumbnail.src" [alt]="item.thumbnail.alt" />
+        </figure>
+      </header>
+
+      @if (item.contribution || item.outcome) {
+        <dl class="work-facts">
+          @if (item.contribution) {
+            <div>
+              <dt>Contribution</dt>
+              <dd>{{ item.contribution }}</dd>
+            </div>
+          }
+          @if (item.outcome) {
+            <div>
+              <dt>Outcome</dt>
+              <dd>{{ item.outcome }}</dd>
+            </div>
+          }
+        </dl>
+      }
+
+      <div class="work-story">
+        @for (block of item.story; track $index) {
+          @switch (block.kind) {
+            @case ('heading') {
+              <h2>{{ block.text }}</h2>
+            }
+            @case ('paragraph') {
+              <p>{{ block.text }}</p>
+            }
+            @case ('list') {
+              <ul>
+                @for (listItem of block.items; track listItem) {
+                  <li>{{ listItem }}</li>
+                }
+              </ul>
+            }
+            @case ('media') {
+              <figure class="story-media">
+                <img [src]="block.media.src" [alt]="block.media.alt" loading="lazy" />
+              </figure>
+            }
+            @case ('callout') {
+              <aside class="story-callout">
+                <strong>{{ block.title }}</strong>
+                <p>{{ block.text }}</p>
+              </aside>
+            }
+          }
+        }
+      </div>
+
+      <ul class="technology-list" aria-label="Technologies used">
+        @for (technology of item.technologies; track technology) {
+          <li>{{ technology }}</li>
+        }
+      </ul>
+
+      <div class="work-detail-actions">
+        @if (item.liveUrl) {
+          <a [href]="item.liveUrl" target="_blank" rel="noopener noreferrer">
+            Visit work <span aria-hidden="true">↗</span>
+          </a>
+        }
+        <a routerLink="/work">Return to all work <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  } @else {
+    <section class="work-not-found" aria-labelledby="work-not-found-title">
+      <p>Work not found</p>
+      <h1 id="work-not-found-title">That case study has wandered off.</h1>
+      <a routerLink="/work">Return to all work <span aria-hidden="true">→</span></a>
+    </section>
+  }
+
+  <footer class="work-detail-footer">
+    <app-orbit-mark></app-orbit-mark>
+    <app-portfolio-index current="work" [showContact]="true"></app-portfolio-index>
+  </footer>
+</main>

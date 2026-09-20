@@ -18,7 +18,8 @@ describe('AppComponent', () => {
         provideRouter([
           { path: 'home', component: TestPageComponent },
           { path: 'about', component: TestPageComponent },
-          { path: 'projects', component: TestPageComponent },
+          { path: 'work', component: TestPageComponent },
+          { path: 'work/:slug', component: TestPageComponent },
         ]),
       ],
     }).compileComponents();
@@ -45,13 +46,18 @@ describe('AppComponent', () => {
     expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
   });
 
-  it('keeps the global navbar on project routes', async () => {
+  it('hides the global navbar on the editorial work route', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.autoDetectChanges();
 
-    await router.navigateByUrl('/projects');
+    await router.navigateByUrl('/work');
     await fixture.whenStable();
 
-    expect(fixture.nativeElement.querySelector('app-nav-bar')).not.toBeNull();
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+
+    await router.navigateByUrl('/work/monto');
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
   });
 });
