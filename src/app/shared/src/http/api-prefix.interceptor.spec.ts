@@ -1,7 +1,13 @@
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+  withXhr,
+} from '@angular/common/http';
 
 import { environment } from '@env/environment';
 import { ApiPrefixInterceptor } from './api-prefix.interceptor';
@@ -19,7 +25,7 @@ describe('ApiPrefixInterceptor', () => {
           useClass: ApiPrefixInterceptor,
           multi: true,
         },
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting(),
       ],
     });

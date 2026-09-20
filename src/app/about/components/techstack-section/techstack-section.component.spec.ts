@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TechstackSectionComponent } from './techstack-section.component';
 
-@Component({ selector: 'app-wavy-header', template: '' })
+@Component({
+  selector: 'app-wavy-header',
+  template: '',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
+})
 class WavyHeaderStubComponent {}
 
 describe('TechstackSectionComponent', () => {

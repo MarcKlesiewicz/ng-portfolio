@@ -4,15 +4,19 @@
   <p class="section-deck">Tools change. The practices behind good product work stay.</p>
 
   <div class="workbench">
-    <article *ngFor="let group of toolGroups" class="workbench-group">
+    @for (group of toolGroups; track group) {
+    <article class="workbench-group">
       <header>
         <span aria-hidden="true">{{ group.marker }}</span>
         <h3>{{ group.title }}</h3>
       </header>
       <p>{{ group.description }}</p>
       <ul>
-        <li *ngFor="let tool of group.tools">{{ tool }}</li>
+        @for (tool of group.tools; track tool) {
+        <li>{{ tool }}</li>
+        }
       </ul>
     </article>
+    }
   </div>
 </section>

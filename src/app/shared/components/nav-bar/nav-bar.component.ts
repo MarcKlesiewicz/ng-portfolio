@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -27,6 +27,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('open => closed', [animate('300ms ease-out')]),
     ]),
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class NavBarComponent {
   isMenuOpen = false;

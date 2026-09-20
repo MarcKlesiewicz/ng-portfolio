@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-project-filter',
@@ -12,6 +12,8 @@ import { Component } from '@angular/core';
       transition('in <=> out', animate('300ms ease-in-out')),
     ]),
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ProjectFilterComponent {
   isFilterListOpen = false;

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-work-section',
   templateUrl: './work-section.component.html',
   styleUrls: ['./work-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class WorkSectionComponent {
   workPlaces = [

@@ -4,7 +4,9 @@
   <ol class="timeline timeline-vertical timeline-compact timeline-snap-icon resume-timeline">
     @for (item of resumeItems; track item.name; let first = $first, last = $last) {
     <li>
-      <hr *ngIf="!first" />
+      @if (!first) {
+      <hr />
+      }
 
       <div class="timeline-middle timeline-mark" aria-hidden="true">
         <div class="avatar">
@@ -23,7 +25,9 @@
         <p>{{ item.description }}</p>
       </article>
 
-      <hr *ngIf="!last" />
+      @if (!last) {
+      <hr />
+      }
     </li>
     }
   </ol>

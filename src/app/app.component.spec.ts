@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 
-@Component({ selector: 'app-nav-bar', template: '' })
+@Component({
+  selector: 'app-nav-bar',
+  template: '',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
+})
 class NavBarStubComponent {}
 
 describe('AppComponent', () => {

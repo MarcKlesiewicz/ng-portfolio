@@ -5,6 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class HeroSectionComponent {
   updateTitleParallax(event: PointerEvent): void {
