@@ -50,4 +50,29 @@ describe('WorkDetailPageComponent', () => {
     expect(element.querySelector('.work-facts')).toBeNull();
     expect(element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]')).toBeNull();
   });
+
+  it('renders a paired outcome and the restored project narrative', () => {
+    const element = renderDetail('myepi');
+    const facts = Array.from(element.querySelectorAll('.work-facts > div')).map((fact) => fact.textContent?.trim());
+
+    expect(facts).toEqual([expect.stringContaining('Contribution'), expect.stringContaining('Outcome')]);
+    expect(element.textContent).toContain('Watch application');
+    expect(element.textContent).toContain('built-in sensor technology');
+  });
+
+  it('presents notable features as a dedicated capability section', () => {
+    const element = renderDetail('monto');
+    const featureSection = element.querySelector('.story-features');
+
+    expect(featureSection?.querySelector('h2')?.textContent).toContain('Notable features');
+    expect(featureSection?.querySelectorAll('li')).toHaveLength(7);
+  });
+
+  it('uses the readable domain as the external work link label', () => {
+    const element = renderDetail('myepi');
+    const liveLink = element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]');
+
+    expect(liveLink?.getAttribute('href')).toBe('https://www.myepi.dk/');
+    expect(liveLink?.textContent?.trim()).toBe('myepi.dk ↗');
+  });
 });

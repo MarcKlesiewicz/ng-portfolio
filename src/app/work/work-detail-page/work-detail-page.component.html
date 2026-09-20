@@ -18,20 +18,16 @@
         </figure>
       </header>
 
-      @if (item.contribution || item.outcome) {
+      @if (item.contribution && item.outcome) {
         <dl class="work-facts">
-          @if (item.contribution) {
-            <div>
-              <dt>Contribution</dt>
-              <dd>{{ item.contribution }}</dd>
-            </div>
-          }
-          @if (item.outcome) {
-            <div>
-              <dt>Outcome</dt>
-              <dd>{{ item.outcome }}</dd>
-            </div>
-          }
+          <div>
+            <dt>Contribution</dt>
+            <dd>{{ item.contribution }}</dd>
+          </div>
+          <div>
+            <dt>Outcome</dt>
+            <dd>{{ item.outcome }}</dd>
+          </div>
         </dl>
       }
 
@@ -44,12 +40,16 @@
             @case ('paragraph') {
               <p>{{ block.text }}</p>
             }
-            @case ('list') {
-              <ul>
-                @for (listItem of block.items; track listItem) {
-                  <li>{{ listItem }}</li>
-                }
-              </ul>
+            @case ('features') {
+              <section class="story-features">
+                <p class="story-features-kicker">Selected capabilities</p>
+                <h2>Notable features</h2>
+                <ul>
+                  @for (listItem of block.items; track listItem) {
+                    <li>{{ listItem }}</li>
+                  }
+                </ul>
+              </section>
             }
             @case ('media') {
               <figure class="story-media">
@@ -75,7 +75,7 @@
       <div class="work-detail-actions">
         @if (item.liveUrl) {
           <a [href]="item.liveUrl" target="_blank" rel="noopener noreferrer">
-            Visit work <span aria-hidden="true">↗</span>
+            {{ liveUrlLabel() }} <span aria-hidden="true">↗</span>
           </a>
         }
         <a routerLink="/work">Return to all work <span aria-hidden="true">→</span></a>

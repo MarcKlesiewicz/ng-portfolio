@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { OrbitMarkComponent } from '@app/shared/components/orbit-mark/orbit-mark.component';
@@ -17,5 +17,10 @@ export class WorkDetailPageComponent {
 
   readonly work = toSignal(this.route.paramMap.pipe(map((params) => getWorkBySlug(params.get('slug')))), {
     requireSync: true,
+  });
+
+  readonly liveUrlLabel = computed(() => {
+    const liveUrl = this.work()?.liveUrl;
+    return liveUrl ? new URL(liveUrl).hostname.replace(/^www\./, '') : undefined;
   });
 }

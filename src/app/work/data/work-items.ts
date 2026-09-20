@@ -23,18 +23,23 @@ export const WORK_ITEMS: readonly WorkItem[] = [
         kind: 'paragraph',
         text: 'Monto is a Danish rental platform where private individuals and businesses can rent out everyday items in their local area.',
       },
-      { kind: 'heading', text: 'Notable features' },
       {
-        kind: 'list',
+        kind: 'features',
         items: [
           'Rental item management and image upload',
-          'Rental periods, calendars and bulk discounts',
+          'Rental calendars and bulk discounts',
           'Keyword, category and geographic filtering',
-          'Rental agreements and one-to-one live chat',
-          'Reviews, ratings and administrative reporting tools',
+          'Rental agreement management',
+          'One-to-one live chat',
+          'Reviews and ratings',
+          'Administrative category, reporting and statistics tools',
         ],
       },
       { kind: 'media', media: { src: '/assets/images/monto/monto.jpg', alt: 'Monto web application overview' } },
+      {
+        kind: 'paragraph',
+        text: 'My role was to implement the Flutter frontend. It was my first cross-platform project and gave me responsibility across both large and small product areas.',
+      },
       {
         kind: 'paragraph',
         text: 'The assignment developed my understanding of component architecture, mobile interface practice and real product delivery. About a year later I returned to implement the web version and served as lead developer for a period.',
@@ -63,9 +68,8 @@ export const WORK_ITEMS: readonly WorkItem[] = [
         kind: 'paragraph',
         text: 'The application uses golf-related input to recommend exercises and tips. Visitors can also browse more than 50 video exercises with step-by-step guidance.',
       },
-      { kind: 'heading', text: 'Notable features' },
       {
-        kind: 'list',
+        kind: 'features',
         items: [
           'Onboarding with golf-related input',
           'A custom exercise video player',
@@ -76,6 +80,10 @@ export const WORK_ITEMS: readonly WorkItem[] = [
       {
         kind: 'media',
         media: { src: '/assets/images/und/und_screens.jpg', alt: "Up N' Down application screen collection" },
+      },
+      {
+        kind: 'paragraph',
+        text: 'Working from the client’s design and an existing GraphQL backend, I built the frontend in a linear delivery process that reached roughly 95% completion during the first month.',
       },
     ],
   },
@@ -91,18 +99,25 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     year: 2023,
     liveUrl: 'https://www.myepi.dk/',
     contribution: 'I refined the interface, implemented periodic PDF generation and restructured state management.',
+    outcome:
+      'The product gained a more consistent interface, exportable seizure documentation and a cleaner Riverpod architecture.',
     story: [
       {
         kind: 'paragraph',
         text: 'MyEpi is intended to make life safer for people living with epilepsy. I joined after its MVP phase to help move the existing application forward.',
       },
-      { kind: 'heading', text: 'Mobile and watch applications' },
+      { kind: 'heading', text: 'Mobile application' },
       {
         kind: 'paragraph',
         text: 'Patients can record seizures and follow community updates, while family members can receive the time and location of a seizure registered by an Apple Watch.',
       },
+      { kind: 'heading', text: 'Watch application' },
       {
-        kind: 'list',
+        kind: 'paragraph',
+        text: 'The watch application uses built-in sensor technology to detect seizure-characteristic movement and send alerts to family members.',
+      },
+      {
+        kind: 'features',
         items: [
           'Apple Watch seizure detection',
           'Family notifications through notification or SMS',
@@ -132,6 +147,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     year: 2022,
     liveUrl: 'https://selvhent.com/',
     contribution: 'I implemented the web administration application and pickup-request handling in the warehouse unit.',
+    outcome: 'The delivered tools connected parcel-shop administration with day-to-day warehouse pickup handling.',
     story: [
       {
         kind: 'paragraph',
@@ -141,9 +157,8 @@ export const WORK_ITEMS: readonly WorkItem[] = [
         kind: 'paragraph',
         text: 'The product combines a customer kiosk for package information with a tablet-based warehouse unit that tracks package locations.',
       },
-      { kind: 'heading', text: 'Notable features' },
       {
-        kind: 'list',
+        kind: 'features',
         items: [
           'Package inventory visibility for employees',
           'Customer input for couriers, package numbers and bulk pickups',
@@ -153,6 +168,10 @@ export const WORK_ITEMS: readonly WorkItem[] = [
       {
         kind: 'media',
         media: { src: '/assets/images/selvhent/selvhent_employee.jpg', alt: 'Selvhent warehouse application in use' },
+      },
+      {
+        kind: 'paragraph',
+        text: 'My role was to implement the Flutter web administration application and handle pickup requests in the warehouse unit.',
       },
     ],
   },
@@ -174,6 +193,14 @@ export const WORK_ITEMS: readonly WorkItem[] = [
       {
         kind: 'paragraph',
         text: 'Recipes can be customized to match personal preferences, calorie targets and macronutrient goals.',
+      },
+      {
+        kind: 'features',
+        items: [
+          'Recipes tailored to personal preferences',
+          'Meal planning around individual calorie targets',
+          'Macronutrient and detailed nutrition breakdowns',
+        ],
       },
       {
         kind: 'callout',

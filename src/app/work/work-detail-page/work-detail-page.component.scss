@@ -204,6 +204,76 @@
   padding-left: 1.35rem;
 }
 
+.story-features {
+  position: relative;
+  margin: 2rem 0 0.75rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border-block: 1px solid color-mix(in srgb, var(--secondary-color) 64%, transparent);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--secondary-color) 8%, transparent),
+    color-mix(in srgb, var(--primary-color) 92%, transparent)
+  );
+}
+
+.story-features::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.3rem;
+  width: 28%;
+  border-bottom: 0.3rem solid var(--tertiary-color);
+  content: "";
+}
+
+.story-features-kicker {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.story-features h2 {
+  margin: 0.35rem 0 1.4rem;
+  font-size: clamp(2.25rem, 6vw, 3.4rem);
+}
+
+.story-features ul {
+  grid-template-columns: repeat(2, minmax(0, 50%));
+  gap: 0;
+  padding: 0;
+  border-top: 1px dotted color-mix(in srgb, var(--secondary-color) 48%, transparent);
+  counter-reset: feature;
+  list-style: none;
+}
+
+.story-features li {
+  display: grid;
+  grid-template-columns: 2rem auto;
+  gap: 0.65rem;
+  align-items: baseline;
+  padding: 0.9rem 0.75rem 0.9rem 0;
+  border-bottom: 1px dotted color-mix(in srgb, var(--secondary-color) 48%, transparent);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  line-height: 1.35;
+  counter-increment: feature;
+}
+
+.story-features li:nth-child(even) {
+  padding-right: 0;
+  padding-left: 0.75rem;
+  border-left: 1px dotted color-mix(in srgb, var(--secondary-color) 35%, transparent);
+}
+
+.story-features li::before {
+  color: var(--tertiary-color);
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  content: counter(feature, decimal-leading-zero);
+}
+
 .story-media {
   margin-top: 1.75rem;
 }
@@ -294,6 +364,15 @@ app-portfolio-index {
 
   .work-facts div + div {
     border-top: 1px solid color-mix(in srgb, var(--secondary-color) 42%, transparent);
+    border-left: 0;
+  }
+
+  .story-features ul {
+    grid-template-columns: 100%;
+  }
+
+  .story-features li:nth-child(even) {
+    padding-left: 0;
     border-left: 0;
   }
 }
