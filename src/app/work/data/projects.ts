@@ -1,14 +1,6 @@
-import { Injectable } from '@angular/core';
 import { Project, ProjectTags } from '../models/project.model';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ProjectsService {
-  readonly projects: readonly Project[] = PROJECTS;
-}
-
-const PROJECTS: readonly Project[] = [
+export const PROJECTS: readonly Project[] = [
   {
     id: '1',
     name: 'Monto',

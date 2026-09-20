@@ -1,11 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
 
 @Component({
   selector: 'app-techstack-section',
   templateUrl: './techstack-section.component.html',
   styleUrls: ['./techstack-section.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [WavyHeaderComponent],
 })
 export class TechstackSectionComponent {

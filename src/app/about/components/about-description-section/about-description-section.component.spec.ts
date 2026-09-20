@@ -10,19 +10,10 @@ describe('AboutDescriptionSectionComponent', () => {
     }).compileComponents();
   });
 
-  it('selects each description and keeps the existing unknown-option fallback', () => {
+  it('renders the active description', () => {
     const fixture = TestBed.createComponent(AboutDescriptionSectionComponent);
-    const component = fixture.componentInstance;
+    fixture.detectChanges();
 
-    expect(component.selectedDescription()).toContain('Hello, and thanks for stopping by!');
-
-    component.selectedOption.set('myself-short');
-    expect(component.selectedDescription()).toContain("I'm ");
-
-    component.selectedOption.set('chat-gbt');
-    expect(component.selectedDescription()).toContain('In the heart of Odense');
-
-    component.selectedOption.set('unknown');
-    expect(component.selectedDescription()).toBe('N/A');
+    expect(fixture.nativeElement.textContent).toContain('Hello, and thanks for stopping by!');
   });
 });

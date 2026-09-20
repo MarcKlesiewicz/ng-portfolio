@@ -28,8 +28,6 @@ module.exports = tseslint.config(
         },
       ],
       '@angular-eslint/no-empty-lifecycle-method': 'off',
-      // Eager is intentional for the few components that still depend on default-style
-      // checks while the application runs without ZoneJS.
       '@angular-eslint/prefer-on-push-component-change-detection': 'off',
     },
   },

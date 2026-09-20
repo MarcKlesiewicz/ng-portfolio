@@ -1,11 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-about-point-section',
   templateUrl: './about-point-section.component.html',
   styleUrls: ['./about-point-section.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgTemplateOutlet],
 })
 export class AboutPointSectionComponent {

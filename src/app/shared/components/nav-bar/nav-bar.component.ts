@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -6,7 +6,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgTemplateOutlet, RouterLink],
 })
 export class NavBarComponent {

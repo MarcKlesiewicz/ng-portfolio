@@ -1,21 +1,13 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TechstackSectionComponent } from './techstack-section.component';
-
-@Component({
-  selector: 'app-wavy-header',
-  template: '',
-  changeDetection: ChangeDetectionStrategy.Eager,
-})
-class WavyHeaderStubComponent {}
 
 describe('TechstackSectionComponent', () => {
   let fixture: ComponentFixture<TechstackSectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TechstackSectionComponent, WavyHeaderStubComponent],
+      imports: [TechstackSectionComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TechstackSectionComponent);

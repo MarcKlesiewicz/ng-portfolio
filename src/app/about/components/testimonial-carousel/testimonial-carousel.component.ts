@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
 
 interface Testimonial {
@@ -11,7 +11,6 @@ interface Testimonial {
   selector: 'app-testimonial-carousel',
   templateUrl: './testimonial-carousel.component.html',
   styleUrl: './testimonial-carousel.component.scss',
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [WavyHeaderComponent],
 })
 export class TestimonialCarouselComponent implements OnInit, OnDestroy {
@@ -38,8 +37,8 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
   private rotationTimer?: ReturnType<typeof setTimeout>;
   private rotationStartedAt?: number;
   private remainingRotationTime = this.rotationInterval;
-  private readonly isHovered = signal(false);
-  private readonly hasFocusWithin = signal(false);
+  private isHovered = false;
+  private hasFocusWithin = false;
 
   ngOnInit(): void {
     this.startRotation();
@@ -59,17 +58,17 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
   }
 
   onMouseEnter(): void {
-    this.isHovered.set(true);
+    this.isHovered = true;
     this.updateRotation();
   }
 
   onMouseLeave(): void {
-    this.isHovered.set(false);
+    this.isHovered = false;
     this.updateRotation();
   }
 
   onFocusIn(): void {
-    this.hasFocusWithin.set(true);
+    this.hasFocusWithin = true;
     this.updateRotation();
   }
 
@@ -78,7 +77,7 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
     const nextTarget = event.relatedTarget as Node | null;
 
     if (!nextTarget || !section.contains(nextTarget)) {
-      this.hasFocusWithin.set(false);
+      this.hasFocusWithin = false;
       this.updateRotation();
     }
   }
@@ -88,7 +87,7 @@ export class TestimonialCarouselComponent implements OnInit, OnDestroy {
   }
 
   private updateRotation(): void {
-    if (this.isHovered() || this.hasFocusWithin()) {
+    if (this.isHovered || this.hasFocusWithin) {
       this.pauseRotation();
       return;
     }

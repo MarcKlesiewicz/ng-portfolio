@@ -1,8 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { PortfolioIndexComponent } from '@app/shared/components/portfolio-index/portfolio-index.component';
-import { OrbitMarkComponent } from '@app/shared/components/orbit-mark/orbit-mark.component';
+import { provideRouter } from '@angular/router';
 
 import { HeroSectionComponent } from './hero-section.component';
 
@@ -12,7 +10,8 @@ describe('HeroSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HeroSectionComponent, PortfolioIndexComponent, OrbitMarkComponent],
+      imports: [HeroSectionComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroSectionComponent);
