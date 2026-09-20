@@ -3,7 +3,10 @@
 
   @if (work(); as item) {
     <article class="work-detail">
-      <a class="back-link" routerLink="/work"><span aria-hidden="true">←</span> Back to work</a>
+      <a class="back-link" routerLink="/work">
+        <span class="back-link-icon" aria-hidden="true">←</span>
+        <span>Back to all work</span>
+      </a>
 
       <header class="work-detail-header">
         <p class="work-detail-meta">{{ item.category }} · {{ item.year }}</p>

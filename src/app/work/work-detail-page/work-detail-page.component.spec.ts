@@ -30,7 +30,10 @@ describe('WorkDetailPageComponent', () => {
 
     expect(element.querySelector('h1')?.textContent).toContain('Monto');
     expect(element.textContent).toContain('Notable features');
-    expect(element.querySelector<HTMLAnchorElement>('.back-link')?.getAttribute('href')).toBe('/work');
+    const backLink = element.querySelector<HTMLAnchorElement>('.back-link');
+    expect(backLink?.getAttribute('href')).toBe('/work');
+    expect(backLink?.textContent).toContain('Back to all work');
+    expect(backLink?.querySelector('.back-link-icon')?.getAttribute('aria-hidden')).toBe('true');
   });
 
   it('renders the not-found view for an unknown work slug', () => {

@@ -37,6 +37,16 @@ describe('HeroSectionComponent', () => {
     expect(links[1].getAttribute('href')).toBe('/work');
   });
 
+  it('renders the title shadow before the first pointer movement', () => {
+    const element: HTMLElement = fixture.nativeElement;
+    const surface = element.querySelector<HTMLElement>('.landing-page');
+
+    expect(surface).not.toBeNull();
+
+    expect(getComputedStyle(surface!).getPropertyValue('--title-shadow-x').trim()).toBe('0px');
+    expect(getComputedStyle(surface!).getPropertyValue('--title-shadow-y').trim()).toBe('0px');
+  });
+
   it('moves the title and trailing shadow in response to the pointer', () => {
     const surface = document.createElement('main');
     vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({

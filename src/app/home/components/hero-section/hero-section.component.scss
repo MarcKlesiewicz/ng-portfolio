@@ -4,12 +4,12 @@
 }
 
 .landing-page {
-  --title-parallax-x: 0;
-  --title-parallax-y: 0;
+  --title-parallax-x: 0px;
+  --title-parallax-y: 0px;
   --title-rotate-x: 0deg;
   --title-rotate-y: 0deg;
-  --title-shadow-x: 0;
-  --title-shadow-y: 0;
+  --title-shadow-x: 0px;
+  --title-shadow-y: 0px;
 
   position: relative;
   display: grid;
