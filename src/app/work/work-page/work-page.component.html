@@ -1,0 +1,22 @@
+<main class="work-page">
+  <span class="work-backdrop" aria-hidden="true"></span>
+
+  <header class="work-masthead">
+    <a class="folio-mark" routerLink="/home" aria-label="Back to home">II</a>
+    <h1>Work</h1>
+    <span class="masthead-wave" aria-hidden="true"></span>
+  </header>
+
+  <section class="work-content" aria-label="Selected work">
+    <div class="work-list">
+      @for (work of workItems; track work.id; let odd = $odd) {
+        <app-work-card [work]="work" [reverse]="odd"></app-work-card>
+      }
+    </div>
+  </section>
+
+  <footer class="work-footer">
+    <app-orbit-mark></app-orbit-mark>
+    <app-portfolio-index current="work" [showContact]="true"></app-portfolio-index>
+  </footer>
+</main>

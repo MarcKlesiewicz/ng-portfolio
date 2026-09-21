@@ -1,21 +1,63 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateModule } from '@ngx-translate/core';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { provideRouter, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule, TranslateModule.forRoot()],
-      declarations: [AppComponent],
-      providers: [],
-    }).compileComponents();
-  }));
+@Component({ template: '' })
+class TestPageComponent {}
 
-  it('should create the app', waitForAsync(() => {
+describe('AppComponent', () => {
+  let router: Router;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppComponent],
+      providers: [
+        provideRouter([
+          { path: 'home', component: TestPageComponent },
+          { path: 'about', component: TestPageComponent },
+          { path: 'work', component: TestPageComponent },
+          { path: 'work/:slug', component: TestPageComponent },
+        ]),
+      ],
+    }).compileComponents();
+
+    router = TestBed.inject(Router);
+  });
+
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }), 30000);
+
+    expect(fixture.componentInstance).toBeTruthy();
+  });
+
+  it('hides the global navbar on editorial routes', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.autoDetectChanges();
+
+    await router.navigateByUrl('/home');
+    await fixture.whenStable();
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+
+    await router.navigateByUrl('/about?from=home');
+    await fixture.whenStable();
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+  });
+
+  it('hides the global navbar on the editorial work route', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.autoDetectChanges();
+
+    await router.navigateByUrl('/work');
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+
+    await router.navigateByUrl('/work/monto');
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.querySelector('app-nav-bar')).toBeNull();
+  });
 });

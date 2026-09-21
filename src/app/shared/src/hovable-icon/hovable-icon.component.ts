@@ -1,16 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-hovable-icon',
   templateUrl: './hovable-icon.component.html',
   styleUrls: ['./hovable-icon.component.scss'],
+  imports: [NgClass],
 })
 export class HovableIconComponent {
-  @Input() iconPath: string = '';
-  @Input() iconAlt: string = '';
-  @Input() link?: string;
-  @Input() defaultFilter?: string;
-  @Input() hoverFilter?: string;
+  readonly iconPath = input('');
+  readonly iconAlt = input('');
+  readonly link = input<string>();
+  readonly defaultFilter = input<string>();
+  readonly hoverFilter = input<string>();
 
-  isHovering: boolean = false;
+  readonly isHovering = signal(false);
 }

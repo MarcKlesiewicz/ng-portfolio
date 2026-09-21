@@ -1,60 +1,54 @@
 import { Component } from '@angular/core';
+import { WavyHeaderComponent } from '../../../shared/components/wavy-header/wavy-header.component';
 
 @Component({
   selector: 'app-resume-timeline',
   templateUrl: './resume-timeline.component.html',
   styleUrl: './resume-timeline.component.scss',
+  imports: [WavyHeaderComponent],
 })
 export class ResumeTimelineComponent {
-  resumeItems = [
+  readonly resumeItems = [
     {
       name: 'Autorola',
-      occupation: 'Frontend web developer',
+      occupation: 'Frontend Developer',
       startDate: '2023',
-      endDate: 'current',
-      description: `👨‍💻 Developing and maintaining responsive, frontend applications for the Autorola Marketplace platform.
-
-                    🛠️ Daily work using Angular, TypeScript, RxJS and bootstrap.
-
-                    📅 Participating in Agile workflows, including code reviews, iteration planning and refinement.`,
+      endDate: 'Present',
+      description:
+        'Building and evolving Autorola Marketplace with Angular, TypeScript and RxJS—from refinement and code review through delivery.',
       logo: 'assets/images/autorola_logo.jpg',
     },
     {
       name: 'Little Giants',
-      occupation: 'App developer',
+      occupation: 'App Developer',
       startDate: '2022',
       endDate: '2023',
-      description: `🚀 Assisting start-up companies in developing their mobile and web-based applications.
-
-                    📱 Hone skills within building cross-platform frontend apps using Flutter, Dart, Riverpod and GraphQL.`,
+      description: 'Built web and cross-platform products for startups with Flutter, Dart, Riverpod and GraphQL.',
       logo: 'assets/images/littlegiants_logo.png',
     },
     {
-      name: 'Resturant Eventyr Golf',
+      name: 'Restaurant Eventyr Golf',
       occupation: 'Waiter',
       startDate: '2021',
       endDate: '2022',
-      description: `🍽️ Serving food and beverages to guests at Resturant Eventyr Golf`,
+      description: 'Worked front of house in a busy restaurant, keeping service calm and guests looked after.',
       logo: 'assets/images/eventyrgolf_logo.png',
     },
     {
       name: 'Danski',
-      occupation: 'Vacation coordinator',
+      occupation: 'Vacation Coordinator',
       startDate: '2018',
       endDate: '2019',
-      description: `🎿 Guiding ski tours and assisting guests with ski-related activities at Danski.
-
-                    🗻 Leading groups on mountain trails, ensuring safety and enjoyment.`,
+      description:
+        'Coordinated ski holidays and guided groups on the mountain, balancing hospitality, logistics and safety.',
       logo: 'assets/images/danski_logo.png',
     },
     {
       name: 'Guldborgsundhallerne',
-      occupation: 'Lifeguard/instructor',
+      occupation: 'Lifeguard & Instructor',
       startDate: '2012',
       endDate: '2020',
-      description: `🛟 Ensuring the safety of swimmers and visitors at Guldborgsundhallerne.
-      
-                    📝 Instruction planning and facilitating exercise classes.`,
+      description: 'Kept swimmers safe and planned group exercise sessions as a lifeguard and instructor.',
       logo: 'assets/images/scf_logo.jpg',
     },
   ];

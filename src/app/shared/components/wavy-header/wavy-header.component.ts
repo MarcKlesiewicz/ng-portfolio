@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-wavy-header',
@@ -7,6 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./wavy-header.component.scss'],
 })
 export class WavyHeaderComponent {
-  @Input() title: string = '';
-  @Input() bgColor: string = '';
+  readonly title = input('');
 }

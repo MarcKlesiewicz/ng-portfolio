@@ -1,0 +1,122 @@
+.work-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--secondary-color) 72%, transparent);
+}
+
+.work-categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1.2rem;
+}
+
+.category-label,
+.filter-toggle {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.category-label {
+  opacity: 0.58;
+}
+
+.category-label--active {
+  position: relative;
+  opacity: 1;
+}
+
+.category-label--active::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.45rem;
+  left: 0;
+  height: 0.15rem;
+  border-radius: 999px;
+  background: var(--tertiary-color);
+  content: "";
+}
+
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.filter-toggle:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.35rem;
+}
+
+.filter-toggle__mark {
+  display: grid;
+  width: 1.65rem;
+  aspect-ratio: 1;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  font-family: var(--font-editorial);
+  font-size: 1.1rem;
+  line-height: 1;
+  place-items: center;
+}
+
+.work-filter-options {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition:
+    max-height 0.3s ease-in-out,
+    opacity 0.3s ease-in-out,
+    visibility 0s linear 0.3s;
+}
+
+.work-filter-options--open {
+  max-height: 5rem;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.work-filter-options__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.25rem;
+  padding: 1rem 0 0.25rem;
+}
+
+.work-filter-options__content span {
+  font-family: var(--font-editorial);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.work-filter-options__content span::before {
+  margin-right: 0.45rem;
+  color: var(--tertiary-color);
+  content: "•";
+}
+
+@media (width <= 420px) {
+  .work-filter-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-filter-options {
+    transition: none;
+  }
+}

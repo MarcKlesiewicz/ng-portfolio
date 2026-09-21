@@ -3,15 +3,17 @@
  * Framework overrides and customization goes here.
  */
 
-//Import the fonts
-//Montserrat
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-//Berkshire Swash
-@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
-//EB Garamond
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+// Import the fonts
+// Alegreya Sans SC
+@import "https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,400;0,500;0,700;1,400&display=swap";
 
-//Import the Material Icons
+// Berkshire Swash
+@import "https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap";
+
+// Crimson Pro
+@import "https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400..700;1,400..700&display=swap";
+
+// Import the Material Icons
 @import "material-icons/iconfont/material-icons.css";
 
 // stylelint-disable-next-line selector-max-universal
@@ -22,10 +24,16 @@
 html,
 body {
   display: flex;
+  min-height: 100%;
   flex-direction: column;
   margin: 0;
-  height: 100%;
   overflow-x: hidden;
+}
+
+html {
+  // Keep the compact proportions previously seen at 75% browser zoom while
+  // preserving normal document flow, sharp rendering, and accessible zooming.
+  font-size: 75%;
 }
 
 :root {
@@ -35,18 +43,21 @@ body {
   --on-secondary-color: #ece4dc;
   --tertiary-color: #600106;
   --on-tertiary-color: #ece4dc;
+  --font-label: "Alegreya Sans SC", sans-serif;
+  --font-display: "Berkshire Swash", cursive;
+  --font-editorial: "Crimson Pro", serif;
 }
 
 .ff-mont {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-label);
 }
 
 .ff-berk {
-  font-family: "Berkshire Swash", cursive;
+  font-family: var(--font-display);
 }
 
 .ff-gara {
-  font-family: "EB Garamond", serif;
+  font-family: var(--font-editorial);
 }
 
 .primary-text {
@@ -90,7 +101,7 @@ body {
 }
 
 .bread-text {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-label);
   letter-spacing: 0.08rem;
   font-weight: 600;
   font-size: 0.875rem;
@@ -99,5 +110,5 @@ body {
 }
 
 .constrained-container {
-  max-width: 768px;
+  max-width: 48rem;
 }

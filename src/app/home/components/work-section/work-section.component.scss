@@ -14,34 +14,34 @@
 
 .text-content {
   text-align: center;
-  padding: 0 10px;
+  padding: 0 0.625rem;
   display: inline-block;
   background-color: var(--primary-color);
 }
 
 .text-content h2 {
-  font-family: "EB Garamond";
+  font-family: var(--font-editorial);
   color: var(--secondary-color);
   font-weight: 500;
 }
 
 .work-list {
-  max-width: 700px;
+  max-width: 43.75rem;
   width: 100%;
 }
 
 .period {
-  font-family: "Montserrat";
+  font-family: var(--font-label);
   color: var(--secondary-color);
   font-weight: 500;
   position: absolute;
-  left: 5px;
+  left: 0.3125rem;
 }
 
 .workplace {
-  font-family: "Berkshire Swash";
+  font-family: var(--font-display);
   color: var(--secondary-color);
   font-weight: 500;
   position: absolute;
-  left: 5px;
+  left: 0.3125rem;
 }

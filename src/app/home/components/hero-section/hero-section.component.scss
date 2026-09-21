@@ -1,8 +1,185 @@
-#moon {
-  animation: fadeInAnimation 2s ease-in-out forwards, scaleAnimation 20s infinite alternate ease-in-out;
+:host {
+  display: block;
+  width: 100%;
 }
 
-#brand {
-  animation: fadeInAnimation 3s ease-in-out forwards;
+.landing-page {
+  --title-parallax-x: 0px;
+  --title-parallax-y: 0px;
+  --title-rotate-x: 0deg;
+  --title-rotate-y: 0deg;
+  --title-shadow-x: 0px;
+  --title-shadow-y: 0px;
+
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  width: 100vw;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--secondary-color);
+  background: var(--primary-color) url("/assets/images/bg.png") center / cover no-repeat;
+  perspective: 56.25rem;
+}
+
+.landing-content {
+  display: flex;
+  width: min(100%, 64rem);
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(4rem, 9vh, 6.5rem) clamp(2rem, 7vw, 5rem) clamp(2.5rem, 6vh, 4rem);
+  text-align: center;
+}
+
+.hero-heading h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12.5vw, 9.5rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.76;
+  text-wrap: balance;
+  transform: translate3d(var(--title-parallax-x), var(--title-parallax-y), 0) rotateX(var(--title-rotate-x))
+    rotateY(var(--title-rotate-y));
+  transform-style: preserve-3d;
+  transition: transform 0.16s ease-out;
+  will-change: transform;
+}
+
+.hero-heading h1 > .title-line {
+  position: relative;
+  z-index: 0;
+  display: block;
+  isolation: isolate;
   opacity: 0;
+  transform: translateY(0.35em);
+  animation: title-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-heading .title-shadow {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  color: var(--tertiary-color);
+  pointer-events: none;
+  transform: translate3d(calc(-0.035em + var(--title-shadow-x)), calc(0.085em + var(--title-shadow-y)), -1px);
+  transition: transform 0.16s ease-out;
+}
+
+.hero-heading .title-text {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.hero-heading h1 > .title-line:last-child {
+  animation-delay: 0.1s;
+}
+
+.hero-heading p {
+  margin: clamp(1.5rem, 4vh, 2.5rem) 0 0;
+  color: inherit;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.15rem, 2.4vw, 1.65rem);
+  font-style: italic;
+  letter-spacing: 0.025em;
+  opacity: 0;
+  animation: reveal 0.8s 0.38s ease-out forwards;
+}
+
+app-portfolio-index {
+  display: block;
+  width: min(100%, 39rem);
+  margin-top: clamp(3rem, 8vh, 5.5rem);
+  opacity: 0;
+  animation: reveal 0.8s 0.52s ease-out forwards;
+}
+
+.landing-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: clamp(3rem, 8vh, 5rem);
+  color: inherit;
+  opacity: 0;
+  animation: reveal 0.8s 0.7s ease-out forwards;
+}
+
+@keyframes title-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (width <= 480px) {
+  .landing-content {
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(3.35rem, 17vw, 5.4rem);
+    line-height: 0.82;
+  }
+
+  app-portfolio-index {
+    margin-top: clamp(2.75rem, 7vh, 4rem);
+  }
+}
+
+@media (height <= 570px) and (width >= 481px) {
+  .landing-content {
+    padding-top: 4.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(4rem, 10vw, 7.5rem);
+  }
+
+  .hero-heading p {
+    margin-top: 1rem;
+  }
+
+  app-portfolio-index {
+    margin-top: 2rem;
+  }
+
+  .landing-footer {
+    padding-top: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading h1 {
+    transform: none;
+    transition: none;
+  }
+
+  .hero-heading h1 > .title-line,
+  .hero-heading p,
+  app-portfolio-index,
+  .landing-footer {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero-heading .title-shadow {
+    transform: translate3d(-0.035em, 0.085em, -1px);
+    transition: none;
+  }
 }

@@ -1,46 +1,25 @@
-# Updating npm dependencies
+# Updating dependencies
 
-- Check outdated packages
+Use the Node and npm versions declared in `package.json`.
 
 ```sh
 npm outdated
+npm install <package>@<version>
+npm install --save-dev <package>@<version>
 ```
 
-- Update local packages according to `package.json`
+Commit both `package.json` and `package-lock.json`. Use `npm ci` to verify the exact locked dependency tree before handing off a change.
+
+For Angular major upgrades, follow the [Angular Update Guide](https://angular.dev/update-guide) and update one major at a time. Keep Angular framework packages aligned, keep TypeScript within Angular's documented compatibility range, and run the migration schematics at each boundary.
+
+After any dependency change, run:
 
 ```sh
-npm update
+npm test
+npm run test:coverage
+npm run lint
+npm run format:check
+npm run build
 ```
 
-- Upgrade packages manually
-
-```sh
-npm install --save[-dev] <package_name>@latest
-```
-
-Alternatively, you can use [npm-check](https://github.com/dylang/npm-check) to perform an interactive upgrade:
-
-```sh
-npm-check -u --skip-unused
-```
-
-## Locking package versions
-
-Starting from `npm@5` a new `package-lock.json` file is
-[automatically generated](https://docs.npmjs.com/files/package-locks) when using `npm install` commands, to ensure a
-reproducible dependency tree and avoid unwanted package updates.
-
-If you use a previous npm version, it is recommended to use [npm shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap) to
-lock down all your dependencies version:
-
-```sh
-npm shrinkwrap --dev
-```
-
-This will create a file `npm-shrinkwrap.json` alongside your `package.json` files.
-
-> Do not forget to run shrinkwrap each time you manually update your dependencies!
-
-# Updating angular-related dependencies
-
-See the [Angular update website](https://update.angular.io) to guide you through the updating/upgrading steps.
+Do not use `npm audit fix --force`; review findings and apply compatible package upgrades deliberately.

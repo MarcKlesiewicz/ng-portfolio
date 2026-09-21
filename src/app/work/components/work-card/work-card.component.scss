@@ -1,0 +1,195 @@
+:host {
+  display: block;
+}
+
+.work-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+.work-card--reverse .work-visual {
+  order: 2;
+  transform: rotate(1deg);
+}
+
+.work-visual {
+  position: relative;
+  flex: 1.05 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 72%, transparent);
+  background: color-mix(in srgb, var(--primary-color) 84%, var(--tertiary-color));
+  box-shadow: 0.55rem 0.6rem 0 color-mix(in srgb, var(--tertiary-color) 72%, transparent);
+  clip-path: polygon(0.9rem 0, 100% 0, 100% calc(100% - 0.9rem), calc(100% - 0.9rem) 100%, 0 100%, 0 0.9rem);
+  transform: rotate(-1deg);
+  transition:
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+
+.work-card:hover .work-visual,
+.work-card:focus-visible .work-visual {
+  box-shadow: 0.8rem 0.85rem 0 color-mix(in srgb, var(--tertiary-color) 82%, transparent);
+  transform: translateY(-0.2rem) rotate(0deg);
+}
+
+.work-card:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 0.65rem;
+}
+
+.work-thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--on-primary-color);
+  filter: sepia(0.1) saturate(0.82) contrast(1.05);
+  object-fit: cover;
+  clip-path: polygon(0.62rem 0, 100% 0, 100% calc(100% - 0.62rem), calc(100% - 0.62rem) 100%, 0 100%, 0 0.62rem);
+  transition: filter 0.22s ease;
+}
+
+.work-card:hover .work-thumbnail,
+.work-card:focus-visible .work-thumbnail {
+  filter: sepia(0) saturate(1) contrast(1.02);
+}
+
+.work-copy {
+  flex: 0.95 1 0;
+  min-width: 0;
+}
+
+.work-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px dotted color-mix(in srgb, var(--secondary-color) 58%, transparent);
+}
+
+.work-meta time {
+  font-family: var(--font-editorial);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.work-meta span,
+.work-link {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.work-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.1rem;
+}
+
+.work-logo {
+  width: 2.65rem;
+  flex: 0 0 2.65rem;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  background: var(--on-primary-color);
+  box-shadow: 0.12rem 0.16rem 0 var(--tertiary-color);
+}
+
+.work-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  text-shadow: -0.035em 0.06em var(--tertiary-color);
+}
+
+.work-description {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.5;
+}
+
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.technology-list li {
+  font-family: var(--font-label);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.technology-list li::before {
+  margin-right: 0.35rem;
+  color: var(--tertiary-color);
+  content: "✦";
+}
+
+.work-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentcolor;
+}
+
+.work-link span {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+
+.work-card:hover .work-link span,
+.work-card:focus-visible .work-link span {
+  transform: translateX(0.3rem);
+}
+
+@media (width <= 510px) {
+  .work-card {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .work-card--reverse .work-visual {
+    order: initial;
+    transform: rotate(-1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-visual,
+  .work-thumbnail,
+  .work-link span {
+    transition: none;
+  }
+
+  .work-card:hover .work-visual,
+  .work-card:focus-visible .work-visual {
+    transform: none;
+  }
+}
