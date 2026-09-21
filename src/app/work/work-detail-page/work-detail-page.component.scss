@@ -75,7 +75,7 @@
 }
 
 .back-link:focus-visible {
-  outline: 2px solid var(--tertiary-color);
+  outline: 0.125rem solid var(--tertiary-color);
   outline-offset: 0.3rem;
 }
 
@@ -367,7 +367,7 @@ app-portfolio-index {
   margin-top: clamp(2.5rem, 6vw, 4rem);
 }
 
-@media (width <= 640px) {
+@media (width <= 480px) {
   .work-detail-page {
     padding-right: 1.6rem;
     padding-left: 1.6rem;

@@ -20,12 +20,12 @@ export class HeroSectionComponent {
     const horizontalPosition = this.normalizePointer(event.clientX, bounds.left, bounds.width);
     const verticalPosition = this.normalizePointer(event.clientY, bounds.top, bounds.height);
 
-    surface.style.setProperty('--title-parallax-x', `${(horizontalPosition * 12).toFixed(2)}px`);
-    surface.style.setProperty('--title-parallax-y', `${(verticalPosition * 8).toFixed(2)}px`);
+    surface.style.setProperty('--title-parallax-x', `${(horizontalPosition * 9).toFixed(2)}px`);
+    surface.style.setProperty('--title-parallax-y', `${(verticalPosition * 6).toFixed(2)}px`);
     surface.style.setProperty('--title-rotate-x', `${(verticalPosition * -1.2).toFixed(2)}deg`);
     surface.style.setProperty('--title-rotate-y', `${(horizontalPosition * 1.4).toFixed(2)}deg`);
-    surface.style.setProperty('--title-shadow-x', `${(horizontalPosition * -4).toFixed(2)}px`);
-    surface.style.setProperty('--title-shadow-y', `${(verticalPosition * -3).toFixed(2)}px`);
+    surface.style.setProperty('--title-shadow-x', `${(horizontalPosition * -3).toFixed(2)}px`);
+    surface.style.setProperty('--title-shadow-y', `${(verticalPosition * -2.25).toFixed(2)}px`);
   }
 
   resetTitleParallax(event: PointerEvent): void {

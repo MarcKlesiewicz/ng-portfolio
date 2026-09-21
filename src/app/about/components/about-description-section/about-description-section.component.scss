@@ -50,7 +50,7 @@
   z-index: 2;
   width: clamp(4.25rem, 9vw, 5.5rem);
   aspect-ratio: 1;
-  border: 4px var(--primary-color) solid;
+  border: 0.25rem var(--primary-color) solid;
   border-radius: 50%;
   object-fit: cover;
   transform: translate(50%, -50%);
@@ -67,7 +67,7 @@
   object-fit: cover;
 }
 
-@media (width <= 620px) {
+@media (width <= 465px) {
   .portrait-wrap {
     float: none;
     width: min(88%, 20rem);

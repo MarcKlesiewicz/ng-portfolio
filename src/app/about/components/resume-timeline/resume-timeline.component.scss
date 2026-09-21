@@ -112,7 +112,7 @@
   line-height: 1.45;
 }
 
-@media (width <= 520px) {
+@media (width <= 390px) {
   .resume-timeline > li {
     grid-template-columns: 2.8rem auto;
     column-gap: 1rem;
