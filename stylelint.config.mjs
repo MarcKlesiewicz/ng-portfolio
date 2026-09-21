@@ -11,7 +11,7 @@ export default {
     'scss/at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['plugin', 'source'],
+        ignoreAtRules: ['plugin', 'source', 'theme'],
       },
     ],
     'scss/comment-no-empty': null,

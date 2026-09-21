@@ -20,7 +20,7 @@
   isolation: isolate;
   color: var(--secondary-color);
   background: var(--primary-color) url("/assets/images/bg.png") center / cover no-repeat;
-  perspective: 900px;
+  perspective: 56.25rem;
 }
 
 .landing-content {
@@ -124,7 +124,7 @@ app-portfolio-index {
   }
 }
 
-@media (width <= 640px) {
+@media (width <= 480px) {
   .landing-content {
     padding-right: 1.6rem;
     padding-left: 1.6rem;
@@ -140,7 +140,7 @@ app-portfolio-index {
   }
 }
 
-@media (height <= 760px) and (width >= 641px) {
+@media (height <= 570px) and (width >= 481px) {
   .landing-content {
     padding-top: 4.5rem;
     padding-bottom: 1.5rem;

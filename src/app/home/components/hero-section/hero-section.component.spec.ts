@@ -63,10 +63,10 @@ describe('HeroSectionComponent', () => {
       pointerType: 'mouse',
     } as unknown as PointerEvent);
 
-    expect(surface.style.getPropertyValue('--title-parallax-x')).toBe('12.00px');
-    expect(surface.style.getPropertyValue('--title-parallax-y')).toBe('-8.00px');
-    expect(surface.style.getPropertyValue('--title-shadow-x')).toBe('-4.00px');
-    expect(surface.style.getPropertyValue('--title-shadow-y')).toBe('3.00px');
+    expect(surface.style.getPropertyValue('--title-parallax-x')).toBe('9.00px');
+    expect(surface.style.getPropertyValue('--title-parallax-y')).toBe('-6.00px');
+    expect(surface.style.getPropertyValue('--title-shadow-x')).toBe('-3.00px');
+    expect(surface.style.getPropertyValue('--title-shadow-y')).toBe('2.25px');
 
     component.resetTitleParallax({ currentTarget: surface } as unknown as PointerEvent);
 

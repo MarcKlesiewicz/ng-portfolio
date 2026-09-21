@@ -30,6 +30,12 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  // Keep the compact proportions previously seen at 75% browser zoom while
+  // preserving normal document flow, sharp rendering, and accessible zooming.
+  font-size: 75%;
+}
+
 :root {
   --primary-color: #050024;
   --on-primary-color: #ece4dc;
@@ -104,5 +110,5 @@ body {
 }
 
 .constrained-container {
-  max-width: 768px;
+  max-width: 48rem;
 }
