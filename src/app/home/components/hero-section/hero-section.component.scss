@@ -14,6 +14,7 @@
   position: relative;
   display: grid;
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
   place-items: center;
   overflow: hidden;
@@ -27,6 +28,7 @@
   display: flex;
   width: min(100%, 64rem);
   min-height: 100vh;
+  min-height: 100dvh;
   flex-direction: column;
   align-items: center;
   padding: clamp(4rem, 9vh, 6.5rem) clamp(2rem, 7vw, 5rem) clamp(2.5rem, 6vh, 4rem);

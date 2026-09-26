@@ -35,7 +35,7 @@ export default {
         ignore: ['custom-elements', 'default-namespace'],
       },
     ],
-    'unit-allowed-list': ['deg', 'em', 'ms', 'px', 'rem', 's', 'vh', 'vw', '%'],
+    'unit-allowed-list': ['deg', 'dvh', 'em', 'ms', 'px', 'rem', 's', 'vh', 'vw', '%'],
     'value-no-vendor-prefix': true,
   },
 };
