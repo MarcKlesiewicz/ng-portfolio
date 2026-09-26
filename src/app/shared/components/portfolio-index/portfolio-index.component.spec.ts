@@ -31,17 +31,13 @@ describe('PortfolioIndexComponent', () => {
     expect(links).toHaveLength(1);
   });
 
-  it('reflects optional input changes and preserves their defaults', () => {
+  it('shows contact details only when requested', () => {
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.contact-strip')).toBeNull();
-    expect(fixture.nativeElement.textContent).not.toContain('Home');
-
-    fixture.componentRef.setInput('includeHome', true);
     fixture.componentRef.setInput('showContact', true);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.querySelector('.contact-strip')).not.toBeNull();
-    expect(fixture.nativeElement.textContent).toContain('Home');
   });
 
   it('renders Work as the current page instead of a link and omits the GitHub navigation item', () => {

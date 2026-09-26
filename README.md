@@ -64,7 +64,7 @@ src/
   environments/            build-time environment selection
   styles/                  global SCSS partials
   main.ts                  standalone bootstrap
-  main.scss                Tailwind, daisyUI, and global style entry point
+  main.scss                global Sass entry point
   manifest.webmanifest     installable-app metadata
 public/icons/              PWA icons copied to `dist/browser/icons`
 ```

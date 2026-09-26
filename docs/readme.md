@@ -10,7 +10,7 @@ The supported commands and runtime requirements are documented in the repository
 - Template-observed mutable state uses Angular signals. Static portfolio data remains readonly data.
 - Angular CLI's `application` and `dev-server` builders provide the supported Vite-backed workflow. There is no separate Vite configuration.
 - The test target uses Angular CLI's Vitest runner and jsdom.
-- Tailwind CSS 4 and daisyUI 5 are configured from `src/main.scss` through `.postcssrc.json`.
+- Global Sass enters through `src/main.scss`; shared theme tokens live in `src/styles/theme-variables.scss`.
 - `src/app/app.config.ts` registers the service worker only for production builds.
 
 ## Deployment and PWA

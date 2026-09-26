@@ -24,16 +24,6 @@
   white-space: pre-line;
 }
 
-.introduction-copy::first-letter {
-  float: left;
-  margin: 0.04em 0.08em 0 0;
-  color: var(--tertiary-color);
-  font-family: var(--font-display);
-  font-size: 4.4em;
-  line-height: 0.7;
-  text-shadow: -0.025em 0.04em var(--secondary-color);
-}
-
 .portrait-wrap {
   position: relative;
   float: right;

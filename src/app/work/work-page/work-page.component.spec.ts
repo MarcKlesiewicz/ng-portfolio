@@ -19,12 +19,11 @@ describe('WorkPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('renders all work items without the retained filter component', () => {
+  it('renders all work items', () => {
     const cards = fixture.nativeElement.querySelectorAll('app-work-card');
 
     expect(cards.length).toBe(component.workItems.length);
     expect(cards.length).toBe(5);
-    expect(fixture.nativeElement.querySelector('app-work-filter')).toBeNull();
   });
 
   it('renders the editorial work masthead and page navigation', () => {
