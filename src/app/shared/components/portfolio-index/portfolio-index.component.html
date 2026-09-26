@@ -24,18 +24,11 @@
 }
 
 <nav class="portfolio-index" aria-label="Primary">
-  @if (includeHome()) {
-    <a class="index-link" routerLink="/home">
-      <span class="index-label">Home</span>
-      <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">I</span>
-    </a>
-  }
   @if (current() === 'about') {
     <span class="index-link is-current" aria-current="page">
       <span class="index-label">About</span>
       <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">{{ includeHome() ? 'II' : 'I' }}</span>
+      <span class="index-number" aria-hidden="true">I</span>
     </span>
   } @else {
     <a class="index-link" routerLink="/about">
@@ -49,13 +42,13 @@
     <span class="index-link is-current" aria-current="page">
       <span class="index-label">Work</span>
       <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">{{ includeHome() ? 'III' : 'II' }}</span>
+      <span class="index-number" aria-hidden="true">II</span>
     </span>
   } @else {
     <a class="index-link" routerLink="/work">
       <span class="index-label">Work</span>
       <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">{{ includeHome() ? 'III' : 'II' }}</span>
+      <span class="index-number" aria-hidden="true">II</span>
     </a>
   }
 </nav>
