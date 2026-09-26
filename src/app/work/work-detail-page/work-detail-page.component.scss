@@ -221,15 +221,6 @@
   );
 }
 
-
-.story-features-kicker {
-  font-family: var(--font-label);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .story-features h2 {
   margin: 0.35rem 0 1.4rem;
   font-size: clamp(2.25rem, 6vw, 3.4rem);
@@ -303,10 +294,11 @@
   list-style: none;
 }
 
-.technology-list li::before {
+.technology-list fa-icon {
   margin-right: 0.4rem;
   color: var(--tertiary-color);
-  content: "✦";
+  font-size: 0.55em;
+  vertical-align: 0.12em;
 }
 
 .work-detail-actions {
@@ -330,6 +322,10 @@
   color: inherit;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.35rem;
+}
+
+.action-icon {
+  margin-left: 0.3em;
 }
 
 .work-not-found {

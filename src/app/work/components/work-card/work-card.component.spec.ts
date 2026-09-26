@@ -30,5 +30,12 @@ describe('WorkCardComponent', () => {
     expect(fixture.nativeElement.querySelector('.card-title').textContent.trim()).toBe('Signal input');
     expect(fixture.nativeElement.textContent).toContain('Angular');
     expect(fixture.nativeElement.querySelector('a').getAttribute('href')).toBe('/work/signal-input');
+    expect(fixture.nativeElement.querySelector('.technology-list li').textContent.trim()).toBe('Angular');
+    expect(
+      fixture.nativeElement.querySelector('.technology-list fa-icon[aria-hidden="true"] svg[data-icon="diamond"]'),
+    ).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('.work-link fa-icon[aria-hidden="true"] svg[data-icon="arrow-right"]'),
+    ).toBeTruthy();
   });
 });

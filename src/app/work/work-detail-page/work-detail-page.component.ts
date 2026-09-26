@@ -3,6 +3,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { OrbitMarkComponent } from '@app/shared/components/orbit-mark/orbit-mark.component';
 import { PortfolioIndexComponent } from '@app/shared/components/portfolio-index/portfolio-index.component';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faArrowLeft, faArrowRight, faArrowUpRightFromSquare, faDiamond } from '@fortawesome/free-solid-svg-icons';
 import { map } from 'rxjs';
 import { getWorkBySlug } from '../data/work-items';
 
@@ -10,10 +12,15 @@ import { getWorkBySlug } from '../data/work-items';
   selector: 'app-work-detail-page',
   templateUrl: './work-detail-page.component.html',
   styleUrl: './work-detail-page.component.scss',
-  imports: [RouterLink, OrbitMarkComponent, PortfolioIndexComponent],
+  imports: [RouterLink, OrbitMarkComponent, PortfolioIndexComponent, FaIconComponent],
 })
 export class WorkDetailPageComponent {
   private readonly route = inject(ActivatedRoute);
+
+  readonly faArrowLeft = faArrowLeft;
+  readonly faArrowRight = faArrowRight;
+  readonly faArrowUpRightFromSquare = faArrowUpRightFromSquare;
+  readonly faDiamond = faDiamond;
 
   readonly work = toSignal(this.route.paramMap.pipe(map((params) => getWorkBySlug(params.get('slug')))), {
     requireSync: true,

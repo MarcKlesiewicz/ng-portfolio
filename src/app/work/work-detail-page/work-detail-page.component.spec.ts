@@ -33,7 +33,7 @@ describe('WorkDetailPageComponent', () => {
     const backLink = element.querySelector<HTMLAnchorElement>('.back-link');
     expect(backLink?.getAttribute('href')).toBe('/work');
     expect(backLink?.textContent).toContain('Back to all work');
-    expect(backLink?.querySelector('.back-link-icon')?.getAttribute('aria-hidden')).toBe('true');
+    expect(backLink?.querySelector('fa-icon[aria-hidden="true"] svg[data-icon="arrow-left"]')).toBeTruthy();
   });
 
   it('uses the same staggered entry animation as the editorial pages', () => {
@@ -46,7 +46,9 @@ describe('WorkDetailPageComponent', () => {
     expect(componentStyles).toMatch(/\.back-link[^}]*animation: fade-in-animation 0\.8s ease-out forwards/);
     expect(componentStyles).toMatch(/\.work-detail-header[^}]*animation: [^;]*_title-in 0\.9s 0\.1s/);
     expect(componentStyles).toMatch(/\.work-story[^}]*animation: fade-in-animation 0\.8s 0\.52s ease-out forwards/);
-    expect(componentStyles).toMatch(/\.work-detail-footer[^}]*animation: fade-in-animation 0\.8s 0\.7s ease-out forwards/);
+    expect(componentStyles).toMatch(
+      /\.work-detail-footer[^}]*animation: fade-in-animation 0\.8s 0\.7s ease-out forwards/,
+    );
     expect(componentStyles).toMatch(/prefers-reduced-motion: reduce[^]*\.work-detail-footer[^}]*animation: none/);
   });
 
@@ -82,11 +84,24 @@ describe('WorkDetailPageComponent', () => {
     expect(featureSection?.querySelectorAll('li')).toHaveLength(7);
   });
 
-  it('uses the readable domain as the external work link label', () => {
+  it('uses Font Awesome markers for technologies instead of Unicode symbols', () => {
+    const element = renderDetail('myepi');
+    const technology = element.querySelector('.technology-list li');
+
+    expect(technology?.textContent?.trim()).toBe('Flutter');
+    expect(technology?.querySelector('fa-icon[aria-hidden="true"] svg[data-icon="diamond"]')).toBeTruthy();
+  });
+
+  it('uses Font Awesome icons for work actions without exposing icon text', () => {
     const element = renderDetail('myepi');
     const liveLink = element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]');
+    const returnLink = element.querySelector<HTMLAnchorElement>('.work-detail-actions a:not([target])');
 
     expect(liveLink?.getAttribute('href')).toBe('https://www.myepi.dk/');
-    expect(liveLink?.textContent?.trim()).toBe('myepi.dk ↗');
+    expect(liveLink?.textContent?.trim()).toBe('myepi.dk');
+    expect(
+      liveLink?.querySelector('fa-icon[aria-hidden="true"] svg[data-icon="arrow-up-right-from-square"]'),
+    ).toBeTruthy();
+    expect(returnLink?.querySelector('fa-icon[aria-hidden="true"] svg[data-icon="arrow-right"]')).toBeTruthy();
   });
 });
