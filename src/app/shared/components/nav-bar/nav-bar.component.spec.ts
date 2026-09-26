@@ -19,12 +19,15 @@ describe('NavBarComponent', () => {
     expect(component.isMenuOpen()).toBe(false);
     expect(menu.classList.contains('nav-menu--open')).toBe(false);
     expect(menu.getAttribute('aria-hidden')).toBe('true');
+    expect(fixture.nativeElement.querySelector('fa-icon svg[data-icon="bars"]')).toBeTruthy();
 
     component.toggleMenu();
     fixture.detectChanges();
     expect(component.isMenuOpen()).toBe(true);
     expect(menu.classList.contains('nav-menu--open')).toBe(true);
     expect(menu.getAttribute('aria-hidden')).toBe('false');
+    expect(fixture.nativeElement.querySelector('fa-icon svg[data-icon="globe"]')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('fa-icon svg[data-icon="xmark"]')).toBeTruthy();
 
     component.toggleMenu();
     fixture.detectChanges();

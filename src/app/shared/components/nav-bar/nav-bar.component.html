@@ -17,15 +17,15 @@
     <a routerLink="/home" class="btn btn-ghost btn-circle text-2xl ff-berk icon-hover">MK</a>
   } @else {
     <div class="btn btn-ghost btn-circle text-2xl icon-hover">
-      <span class="material-icons-outlined text-5xl">language</span>
+      <fa-icon class="text-5xl" [icon]="faGlobe" aria-hidden="true"></fa-icon>
     </div>
   }
   <a (click)="toggleMenu()" class="btn btn-ghost btn-circle icon-hover">
     @if (!isMenuOpen()) {
-      <span class="material-icons-outlined text-5xl">drag_handle</span>
+      <fa-icon class="text-5xl" [icon]="faBars" aria-hidden="true"></fa-icon>
     }
     @if (isMenuOpen()) {
-      <span class="material-icons-outlined text-5xl">close</span>
+      <fa-icon class="text-5xl" [icon]="faXmark" aria-hidden="true"></fa-icon>
     }
   </a>
 </div>

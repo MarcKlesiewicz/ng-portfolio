@@ -4,7 +4,7 @@
   @if (work(); as item) {
     <article class="work-detail">
       <a class="back-link" routerLink="/work">
-        <span class="back-link-icon" aria-hidden="true">←</span>
+        <fa-icon class="back-link-icon" [icon]="faArrowLeft" aria-hidden="true"></fa-icon>
         <span>Back to all work</span>
       </a>
 
@@ -67,24 +67,31 @@
 
       <ul class="technology-list" aria-label="Technologies used">
         @for (technology of item.technologies; track technology) {
-          <li>{{ technology }}</li>
+          <li><fa-icon [icon]="faDiamond" aria-hidden="true"></fa-icon>{{ technology }}</li>
         }
       </ul>
 
       <div class="work-detail-actions">
         @if (item.liveUrl) {
           <a [href]="item.liveUrl" target="_blank" rel="noopener noreferrer">
-            {{ liveUrlLabel() }} <span aria-hidden="true">↗</span>
+            {{ liveUrlLabel() }}
+            <fa-icon class="action-icon" [icon]="faArrowUpRightFromSquare" aria-hidden="true"></fa-icon>
           </a>
         }
-        <a routerLink="/work">Return to all work <span aria-hidden="true">→</span></a>
+        <a routerLink="/work">
+          Return to all work
+          <fa-icon class="action-icon" [icon]="faArrowRight" aria-hidden="true"></fa-icon>
+        </a>
       </div>
     </article>
   } @else {
     <section class="work-not-found" aria-labelledby="work-not-found-title">
       <p>Work not found</p>
       <h1 id="work-not-found-title">That case study has wandered off.</h1>
-      <a routerLink="/work">Return to all work <span aria-hidden="true">→</span></a>
+      <a routerLink="/work">
+        Return to all work
+        <fa-icon class="action-icon" [icon]="faArrowRight" aria-hidden="true"></fa-icon>
+      </a>
     </section>
   }
 

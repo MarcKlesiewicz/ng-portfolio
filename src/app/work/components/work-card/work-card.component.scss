@@ -145,10 +145,11 @@
   text-transform: uppercase;
 }
 
-.technology-list li::before {
+.technology-list fa-icon {
   margin-right: 0.35rem;
   color: var(--tertiary-color);
-  content: "✦";
+  font-size: 0.55em;
+  vertical-align: 0.12em;
 }
 
 .work-link {
@@ -158,13 +159,14 @@
   border-bottom: 1px solid currentcolor;
 }
 
-.work-link span {
+.work-link fa-icon {
   display: inline-block;
+  margin-left: 0.3em;
   transition: transform 0.18s ease;
 }
 
-.work-card:hover .work-link span,
-.work-card:focus-visible .work-link span {
+.work-card:hover .work-link fa-icon,
+.work-card:focus-visible .work-link fa-icon {
   transform: translateX(0.3rem);
 }
 
@@ -184,7 +186,7 @@
 @media (prefers-reduced-motion: reduce) {
   .work-visual,
   .work-thumbnail,
-  .work-link span {
+  .work-link fa-icon {
     transition: none;
   }
 
