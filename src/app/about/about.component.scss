@@ -23,31 +23,6 @@
   pointer-events: none;
 }
 
-.about-page::before,
-.about-page::after {
-  position: absolute;
-  z-index: -1;
-  width: min(38vw, 34rem);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--tertiary-color) 65%, transparent);
-  border-radius: 48% 52% 58% 42%;
-  content: "";
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.about-page::before {
-  top: 18rem;
-  left: max(-20rem, -18vw);
-  transform: rotate(24deg);
-}
-
-.about-page::after {
-  right: max(-22rem, -20vw);
-  bottom: 24rem;
-  transform: rotate(-18deg);
-}
-
 .about-masthead {
   display: flex;
   flex-direction: column;
