@@ -72,6 +72,7 @@
 
 .work-masthead h1 {
   margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+  padding-inline: 0.08em;
   font-family: var(--font-display);
   font-size: clamp(4.5rem, 12vw, 8.5rem);
   font-weight: 400;

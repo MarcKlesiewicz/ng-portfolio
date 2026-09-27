@@ -33,4 +33,13 @@ describe('WorkPageComponent', () => {
     expect(element.querySelector('app-orbit-mark')).not.toBeNull();
     expect(element.querySelector('app-portfolio-index')).not.toBeNull();
   });
+
+  it('keeps inline space around the display-font glyphs', () => {
+    const element: HTMLElement = fixture.nativeElement;
+    const heading = element.querySelector<HTMLHeadingElement>('.work-masthead h1');
+
+    expect(heading).not.toBeNull();
+    if (!heading) throw new Error('Expected the work masthead heading to render');
+    expect(getComputedStyle(heading).paddingInline).toBe('0.08em');
+  });
 });
