@@ -36,7 +36,7 @@ describe('WorkPageComponent', () => {
 
   it('keeps inline space around the display-font glyphs', () => {
     const element: HTMLElement = fixture.nativeElement;
-    const heading = element.querySelector<HTMLHeadingElement>('.work-masthead h1');
+    const heading = element.querySelector<HTMLHeadingElement>('app-page-masthead h1');
 
     expect(heading).not.toBeNull();
     if (!heading) throw new Error('Expected the work masthead heading to render');

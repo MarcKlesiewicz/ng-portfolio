@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.work-page {
+.off-topic-page {
   position: relative;
   width: min(100%, 64rem);
   min-height: 100vh;
@@ -14,7 +14,7 @@
   color: var(--secondary-color);
 }
 
-.work-backdrop {
+.off-topic-backdrop {
   position: fixed;
   z-index: -2;
   inset: 0;
@@ -22,45 +22,22 @@
   pointer-events: none;
 }
 
-.work-page::before,
-.work-page::after {
-  position: absolute;
-  z-index: -1;
-  width: min(38vw, 34rem);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--tertiary-color) 65%, transparent);
-  border-radius: 52% 48% 43% 57%;
-  content: "";
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.work-page::before {
-  top: 30rem;
-  right: max(-21rem, -19vw);
-  transform: rotate(18deg);
-}
-
-.work-page::after {
-  bottom: 32rem;
-  left: max(-22rem, -20vw);
-  transform: rotate(-25deg);
-}
-
-.work-content {
+.off-topic-content {
   width: min(100%, 39rem);
   margin: clamp(4rem, 9vw, 6.5rem) auto 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.55;
   opacity: 0;
+  text-align: center;
   animation: reveal 0.8s 0.52s ease-out forwards;
 }
 
-.work-list {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(4.5rem, 10vw, 7rem);
+.off-topic-content p {
+  margin: 0;
 }
 
-.work-footer {
+.off-topic-footer {
   display: flex;
   width: min(100%, 39rem);
   flex-direction: column;
@@ -78,27 +55,21 @@ app-portfolio-index {
 
 @keyframes reveal {
   to {
-    opacity: var(--reveal-opacity, 1);
+    opacity: 1;
   }
 }
 
 @media (width <= 480px) {
-  .work-page {
+  .off-topic-page {
     padding-right: 1.6rem;
     padding-left: 1.6rem;
-  }
-
-  .work-list {
-    gap: 4.5rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .work-content,
-  .work-footer {
-    opacity: var(--reveal-opacity, 1);
-    transform: none;
-    transition: none;
+  .off-topic-content,
+  .off-topic-footer {
+    opacity: 1;
     animation: none;
   }
 }
