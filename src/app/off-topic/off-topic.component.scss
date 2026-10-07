@@ -33,8 +33,37 @@
   animation: reveal 0.8s 0.52s ease-out forwards;
 }
 
-.off-topic-content p {
+.off-topic-content > p {
   margin: 0;
+}
+
+.soundcloud-embed {
+  width: 100%;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  text-align: left;
+}
+
+.soundcloud-embed iframe {
+  display: block;
+  border: 0;
+}
+
+.soundcloud-attribution {
+  overflow: hidden;
+  margin: 0.5rem 0 0;
+  color: #ccc;
+  font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 100;
+  line-break: anywhere;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+.soundcloud-attribution a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .off-topic-footer {
