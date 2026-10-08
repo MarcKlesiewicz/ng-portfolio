@@ -4,9 +4,19 @@
   <app-page-masthead page="off-topic"></app-page-masthead>
 
   <section class="off-topic-content" aria-label="Off-topic notes">
-    <p>A place for side notes, experiments, and everything that does not fit neatly elsewhere.</p>
+    <section class="book-ranking" aria-label="Book rankings">
+      <h2 class="book-ranking-title">Book Tierlist 2026</h2>
+      <app-book-tier-list [tiers]="bookTiers"></app-book-tier-list>
+    </section>
 
     <div class="soundcloud-embed">
+      <header class="soundcloud-intro">
+        <h2 class="soundcloud-title">Music I’ve made</h2>
+        <p class="soundcloud-description">
+          <em>A small collection of tracks, edits, and experiments released as Midas Peak.</em>
+        </p>
+      </header>
+
       <iframe
         title="Midas Peak SoundCloud playlist"
         width="100%"

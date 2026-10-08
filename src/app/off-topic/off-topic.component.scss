@@ -43,8 +43,28 @@
   text-align: left;
 }
 
+.soundcloud-intro {
+  text-align: center;
+}
+
+.soundcloud-title {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.soundcloud-description {
+  margin: 0.75rem auto 0;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.5;
+  opacity: 0.78;
+}
+
 .soundcloud-embed iframe {
   display: block;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
   border: 0;
 }
 
@@ -64,6 +84,22 @@
 .soundcloud-attribution a {
   color: inherit;
   text-decoration: none;
+}
+
+.book-ranking {
+  width: min(100%, 39rem);
+  margin: clamp(4rem, 9vw, 7rem) auto 0;
+  opacity: 0;
+  animation: reveal 0.8s 0.64s ease-out forwards;
+}
+
+.book-ranking-title {
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  font-family: var(--font-editorial);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
 }
 
 .off-topic-footer {
@@ -97,6 +133,7 @@ app-portfolio-index {
 
 @media (prefers-reduced-motion: reduce) {
   .off-topic-content,
+  .book-ranking,
   .off-topic-footer {
     opacity: 1;
     animation: none;
