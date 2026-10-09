@@ -52,4 +52,14 @@ describe('OffTopicComponent', () => {
     expect(element.querySelectorAll('.tier-s .book-card img')).toHaveLength(3);
     expect(element.querySelectorAll('.tier-b .book-card img')).toHaveLength(3);
   });
+
+  it('shows Cody at the bottom of the off-topic content', () => {
+    const element: HTMLElement = fixture.nativeElement;
+    const image = element.querySelector<HTMLImageElement>('.cody-photo img');
+    const content = element.querySelector('.off-topic-content');
+
+    expect(image?.getAttribute('src')).toBe('/assets/images/cody.jpg');
+    expect(image?.getAttribute('alt')).toContain('Cody');
+    expect(content?.lastElementChild?.classList).toContain('cody-photo');
+  });
 });
