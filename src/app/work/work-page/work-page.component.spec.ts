@@ -28,10 +28,12 @@ describe('WorkPageComponent', () => {
 
   it('renders the editorial work masthead and page navigation', () => {
     const element: HTMLElement = fixture.nativeElement;
+    const footer = element.querySelector('.work-footer');
 
     expect(element.querySelector('h1')?.textContent).toContain('Work');
     expect(element.querySelector('app-orbit-mark')).not.toBeNull();
     expect(element.querySelector('app-portfolio-index')).not.toBeNull();
+    expect(footer?.lastElementChild?.tagName).toBe('APP-ORBIT-MARK');
   });
 
   it('keeps inline space around the display-font glyphs', () => {
