@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { PORTFOLIO_PAGES, PortfolioPageId } from '../../data/portfolio-pages';
 
 @Component({
   selector: 'app-portfolio-index',
@@ -8,6 +9,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
 })
 export class PortfolioIndexComponent {
-  readonly current = input<'about' | 'work' | ''>('');
+  readonly current = input<PortfolioPageId | ''>('');
   readonly showContact = input(false);
+  readonly pages = PORTFOLIO_PAGES;
 }

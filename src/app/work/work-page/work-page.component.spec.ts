@@ -23,14 +23,25 @@ describe('WorkPageComponent', () => {
     const cards = fixture.nativeElement.querySelectorAll('app-work-card');
 
     expect(cards.length).toBe(component.workItems.length);
-    expect(cards.length).toBe(5);
+    expect(cards.length).toBe(6);
   });
 
   it('renders the editorial work masthead and page navigation', () => {
     const element: HTMLElement = fixture.nativeElement;
+    const footer = element.querySelector('.work-footer');
 
     expect(element.querySelector('h1')?.textContent).toContain('Work');
     expect(element.querySelector('app-orbit-mark')).not.toBeNull();
     expect(element.querySelector('app-portfolio-index')).not.toBeNull();
+    expect(footer?.lastElementChild?.tagName).toBe('APP-ORBIT-MARK');
+  });
+
+  it('keeps inline space around the display-font glyphs', () => {
+    const element: HTMLElement = fixture.nativeElement;
+    const heading = element.querySelector<HTMLHeadingElement>('app-page-masthead h1');
+
+    expect(heading).not.toBeNull();
+    if (!heading) throw new Error('Expected the work masthead heading to render');
+    expect(getComputedStyle(heading).paddingInline).toBe('0.08em');
   });
 });

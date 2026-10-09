@@ -1,0 +1,162 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.off-topic-page {
+  position: relative;
+  width: min(100%, 64rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(4rem, 9vh, 6.5rem) clamp(2rem, 7vw, 5rem) clamp(3.5rem, 8vw, 6rem);
+  color: var(--secondary-color);
+}
+
+.off-topic-backdrop {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  background: var(--primary-color) url("/assets/images/bg.png") center / cover no-repeat;
+  pointer-events: none;
+}
+
+.off-topic-content {
+  width: min(100%, 39rem);
+  margin: clamp(4rem, 9vw, 6.5rem) auto 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.55;
+  opacity: 0;
+  text-align: center;
+  animation: reveal 0.8s 0.52s ease-out forwards;
+}
+
+.off-topic-content > p {
+  margin: 0;
+}
+
+.soundcloud-embed {
+  width: 100%;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  text-align: left;
+}
+
+.soundcloud-intro {
+  text-align: center;
+}
+
+.soundcloud-title {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.soundcloud-description {
+  margin: 0.75rem auto 0;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.5;
+  opacity: 0.78;
+}
+
+.soundcloud-embed iframe {
+  display: block;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  border: 0;
+}
+
+.soundcloud-attribution {
+  overflow: hidden;
+  margin: 0.5rem 0 0;
+  color: #ccc;
+  font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-size: 0.625rem;
+  font-weight: 100;
+  line-break: anywhere;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+.soundcloud-attribution a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cody-photo {
+  margin: clamp(3.5rem, 8vw, 6rem) 0 0;
+}
+
+.cody-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.cody-photo figcaption {
+  margin-top: 0.75rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-style: italic;
+  opacity: 0.78;
+}
+
+.book-ranking {
+  width: min(100%, 39rem);
+  margin: clamp(4rem, 9vw, 7rem) auto 0;
+  opacity: 0;
+  animation: reveal 0.8s 0.64s ease-out forwards;
+}
+
+.book-ranking-title {
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  font-family: var(--font-editorial);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.off-topic-footer {
+  display: flex;
+  width: min(100%, 39rem);
+  flex-direction: column;
+  align-items: center;
+  margin: clamp(7rem, 14vw, 11rem) auto 0;
+  opacity: 0;
+  animation: reveal 0.8s 0.7s ease-out forwards;
+}
+
+app-portfolio-index {
+  display: block;
+  width: 100%;
+}
+
+app-orbit-mark {
+  margin-top: clamp(3rem, 8vh, 5rem);
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (width <= 480px) {
+  .off-topic-page {
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .off-topic-content,
+  .book-ranking,
+  .off-topic-footer {
+    opacity: 1;
+    animation: none;
+  }
+}

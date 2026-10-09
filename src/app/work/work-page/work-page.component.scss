@@ -47,55 +47,6 @@
   transform: rotate(-25deg);
 }
 
-.work-masthead {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.folio-mark {
-  color: inherit;
-  font-family: var(--font-editorial);
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 700;
-  opacity: 0;
-  text-decoration: none;
-  animation: reveal 0.8s ease-out forwards;
-  transition: transform 0.18s ease;
-}
-
-.folio-mark:hover,
-.folio-mark:focus-visible {
-  transform: scale(1.16);
-}
-
-.work-masthead h1 {
-  margin: clamp(2rem, 5vw, 3.5rem) 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(4.5rem, 12vw, 8.5rem);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  opacity: 0;
-  text-shadow: -0.035em 0.08em var(--tertiary-color);
-  transform: translateY(0.35em);
-  animation: title-in 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.masthead-wave {
-  --reveal-opacity: 0.78;
-
-  width: min(100%, 39rem);
-  height: 0.85rem;
-  margin-top: clamp(2rem, 5vw, 3rem);
-  background: url("/assets/svgs/masthead-wave-seamless.svg") left center / 7rem 0.85rem repeat-x;
-  opacity: 0;
-  animation:
-    reveal 0.8s 0.38s ease-out forwards,
-    masthead-wave-drift 3.3s linear infinite;
-}
-
 .work-content {
   width: min(100%, 39rem);
   margin: clamp(4rem, 9vw, 6.5rem) auto 0;
@@ -122,25 +73,15 @@
 app-portfolio-index {
   display: block;
   width: 100%;
-  margin-top: clamp(2.5rem, 6vw, 4rem);
 }
 
-@keyframes title-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+app-orbit-mark {
+  margin-top: clamp(3rem, 8vh, 5rem);
 }
 
 @keyframes reveal {
   to {
     opacity: var(--reveal-opacity, 1);
-  }
-}
-
-@keyframes masthead-wave-drift {
-  to {
-    background-position-x: -7rem;
   }
 }
 
@@ -150,19 +91,12 @@ app-portfolio-index {
     padding-left: 1.6rem;
   }
 
-  .work-masthead h1 {
-    font-size: clamp(4rem, 22vw, 6rem);
-  }
-
   .work-list {
     gap: 4.5rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .folio-mark,
-  .work-masthead h1,
-  .masthead-wave,
   .work-content,
   .work-footer {
     opacity: var(--reveal-opacity, 1);

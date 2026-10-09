@@ -28,7 +28,8 @@ describe('PortfolioIndexComponent', () => {
     expect(currentItem?.textContent).toContain('About');
     expect(currentItem?.textContent).toContain('I');
     expect(links[0].textContent).toContain('II');
-    expect(links).toHaveLength(1);
+    expect(links[1].textContent).toContain('III');
+    expect(links).toHaveLength(2);
   });
 
   it('shows contact details only when requested', () => {
@@ -52,5 +53,18 @@ describe('PortfolioIndexComponent', () => {
     expect(currentItem?.textContent).toContain('II');
     expect(workLink).toBeNull();
     expect(element.querySelector('nav')?.textContent).not.toContain('GitHub');
+  });
+
+  it('renders Off topic as the current page instead of a link', () => {
+    fixture.componentRef.setInput('current', 'off-topic');
+    fixture.detectChanges();
+
+    const element: HTMLElement = fixture.nativeElement;
+    const currentItem = element.querySelector<HTMLElement>('.index-link[aria-current="page"]');
+    const offTopicLink = element.querySelector<HTMLAnchorElement>('a[routerlink="/off-topic"]');
+
+    expect(currentItem?.textContent).toContain('Off topic');
+    expect(currentItem?.textContent).toContain('III');
+    expect(offTopicLink).toBeNull();
   });
 });

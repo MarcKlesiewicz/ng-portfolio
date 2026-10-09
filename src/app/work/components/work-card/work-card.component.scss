@@ -12,7 +12,6 @@
 
 .work-card--reverse .work-visual {
   order: 2;
-  transform: rotate(1deg);
 }
 
 .work-visual {
@@ -25,7 +24,6 @@
   background: color-mix(in srgb, var(--primary-color) 84%, var(--tertiary-color));
   box-shadow: 0.55rem 0.6rem 0 color-mix(in srgb, var(--tertiary-color) 72%, transparent);
   clip-path: polygon(0.9rem 0, 100% 0, 100% calc(100% - 0.9rem), calc(100% - 0.9rem) 100%, 0 100%, 0 0.9rem);
-  transform: rotate(-1deg);
   transition:
     box-shadow 0.22s ease,
     transform 0.22s ease;
@@ -34,7 +32,7 @@
 .work-card:hover .work-visual,
 .work-card:focus-visible .work-visual {
   box-shadow: 0.8rem 0.85rem 0 color-mix(in srgb, var(--tertiary-color) 82%, transparent);
-  transform: translateY(-0.2rem) rotate(0deg);
+  transform: translateY(-0.2rem);
 }
 
 .work-card:focus-visible {
@@ -179,7 +177,6 @@
 
   .work-card--reverse .work-visual {
     order: initial;
-    transform: rotate(-1deg);
   }
 }
 

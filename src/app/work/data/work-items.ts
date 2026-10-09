@@ -2,6 +2,44 @@ import { WorkItem } from '../models/work-item.model';
 
 export const WORK_ITEMS: readonly WorkItem[] = [
   {
+    id: '6',
+    slug: 'dashtab',
+    name: 'Dashtab',
+    description: 'A calm personal dashboard that turns every new Chrome tab into a useful daily overview.',
+    thumbnail: {
+      src: '/assets/images/dashtab/dashtab-preview.jpg',
+      alt: 'Dashtab dashboard with a clock, personal greeting, wellness tools and weather',
+    },
+    logo: { src: '/assets/images/dashtab/favicon.svg', alt: 'Dashtab logo' },
+    technologies: ['Angular', 'TypeScript', 'SCSS', 'Chrome Manifest V3'],
+    category: 'Side quest',
+    year: 2025,
+    liveUrl: 'https://github.com/MarcKlesiewicz/Dashtab',
+    contribution: 'I designed and built the extension as a focused home for the small routines that shape my day.',
+    outcome: 'The new-tab experience brings time, focus, movement, hydration and weather into one calm view.',
+    story: [
+      {
+        kind: 'paragraph',
+        text: 'Dashtab is a personal Chrome extension that replaces the default new-tab page with an at-a-glance dashboard. It is designed to make the information and routines I need throughout the day immediately available without opening another app.',
+      },
+      {
+        kind: 'features',
+        items: [
+          'Large clock and personal greeting',
+          'Focus timer with a dedicated focus mode',
+          'Movement reminder for sitting and standing intervals',
+          'Water intake barometer with daily pacing',
+          'Weather widget using the current location',
+        ],
+      },
+      {
+        kind: 'callout',
+        title: 'Built for daily rhythm',
+        text: 'Each tool stays visible but unobtrusive, keeping the dashboard useful whenever a new tab opens.',
+      },
+    ],
+  },
+  {
     id: '1',
     slug: 'monto',
     name: 'Monto',
