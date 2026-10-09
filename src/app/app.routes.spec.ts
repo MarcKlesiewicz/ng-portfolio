@@ -6,6 +6,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { OffTopicComponent } from './off-topic/off-topic.component';
 import { APP_ROUTES } from './app.routes';
 import { WorkDetailPageComponent } from './work/work-detail-page/work-detail-page.component';
 import { WorkPageComponent } from './work/work-page/work-page.component';
@@ -44,6 +45,13 @@ describe('APP_ROUTES', () => {
 
     expect(router.url).toBe('/work');
     expect(title.getTitle()).toBe('klesiewicz.dev | work');
+  });
+
+  it('loads the off-topic feature directly and sets its title', async () => {
+    await harness.navigateByUrl('/off-topic', OffTopicComponent);
+
+    expect(router.url).toBe('/off-topic');
+    expect(title.getTitle()).toBe('klesiewicz.dev | off topic');
   });
 
   it('loads a work detail view by slug', async () => {

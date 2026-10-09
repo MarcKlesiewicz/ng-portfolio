@@ -1,0 +1,60 @@
+<main class="off-topic-page">
+  <span class="off-topic-backdrop" aria-hidden="true"></span>
+
+  <app-page-masthead page="off-topic"></app-page-masthead>
+
+  <section class="off-topic-content" aria-label="Off-topic notes">
+    <section class="book-ranking" aria-label="Book rankings">
+      <h2 class="book-ranking-title">Book Tierlist 2026</h2>
+      <app-book-tier-list [tiers]="bookTiers"></app-book-tier-list>
+    </section>
+
+    <div class="soundcloud-embed">
+      <header class="soundcloud-intro">
+        <h2 class="soundcloud-title">Music I’ve made</h2>
+        <p class="soundcloud-description">
+          <em>A small collection of tracks, edits, and experiments released as Midas Peak.</em>
+        </p>
+      </header>
+
+      <iframe
+        title="Midas Peak SoundCloud playlist"
+        width="100%"
+        height="450"
+        scrolling="no"
+        loading="lazy"
+        allow="autoplay; encrypted-media"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2307101184&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+      ></iframe>
+      <p class="soundcloud-attribution">
+        <a href="https://soundcloud.com/midaspeak" title="Midas Peak." target="_blank" rel="noopener noreferrer"
+          >Midas Peak.</a
+        >
+        ·
+        <a
+          href="https://soundcloud.com/midaspeak/sets/midas-peak"
+          title="Midas Peak."
+          target="_blank"
+          rel="noopener noreferrer"
+          >Midas Peak.</a
+        >
+      </p>
+    </div>
+
+    <figure class="cody-photo">
+      <img
+        src="/assets/images/cody.jpg"
+        alt="Cody, a French bulldog, lying in a freshly dug patch of dirt"
+        width="640"
+        height="855"
+        loading="lazy"
+      />
+      <figcaption>Cody</figcaption>
+    </figure>
+  </section>
+
+  <footer class="off-topic-footer">
+    <app-portfolio-index current="off-topic" [showContact]="true"></app-portfolio-index>
+    <app-orbit-mark></app-orbit-mark>
+  </footer>
+</main>

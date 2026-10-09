@@ -84,6 +84,23 @@ describe('WorkDetailPageComponent', () => {
     expect(featureSection?.querySelectorAll('li')).toHaveLength(7);
   });
 
+  it('renders the Dashtab project and its complete feature set', () => {
+    const element = renderDetail('dashtab');
+    const features = Array.from(element.querySelectorAll('.story-features li')).map((item) => item.textContent?.trim());
+
+    expect(element.querySelector('h1')?.textContent).toContain('Dashtab');
+    expect(features).toEqual([
+      'Large clock and personal greeting',
+      'Focus timer with a dedicated focus mode',
+      'Movement reminder for sitting and standing intervals',
+      'Water intake barometer with daily pacing',
+      'Weather widget using the current location',
+    ]);
+    expect(element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]')?.href).toBe(
+      'https://github.com/MarcKlesiewicz/Dashtab',
+    );
+  });
+
   it('uses Font Awesome markers for technologies instead of Unicode symbols', () => {
     const element = renderDetail('myepi');
     const technology = element.querySelector('.technology-list li');

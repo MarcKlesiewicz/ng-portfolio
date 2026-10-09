@@ -10,7 +10,9 @@ import { TestimonialCarouselComponent } from './about/components/testimonial-car
 import { AppComponent } from './app.component';
 import { HeroSectionComponent } from './home/components/hero-section/hero-section.component';
 import { HomeComponent } from './home/home.component';
+import { OffTopicComponent } from './off-topic/off-topic.component';
 import { OrbitMarkComponent } from './shared/components/orbit-mark/orbit-mark.component';
+import { PageMastheadComponent } from './shared/components/page-masthead/page-masthead.component';
 import { PortfolioIndexComponent } from './shared/components/portfolio-index/portfolio-index.component';
 import { WavyHeaderComponent } from './shared/components/wavy-header/wavy-header.component';
 import { WorkCardComponent } from './work/components/work-card/work-card.component';
@@ -21,11 +23,13 @@ const STANDALONE_COMPONENTS: Type<unknown>[] = [
   AppComponent,
   HomeComponent,
   HeroSectionComponent,
+  OffTopicComponent,
   AboutComponent,
   AboutDescriptionSectionComponent,
   ResumeTimelineComponent,
   TestimonialCarouselComponent,
   OrbitMarkComponent,
+  PageMastheadComponent,
   PortfolioIndexComponent,
   WavyHeaderComponent,
   WorkPageComponent,
@@ -42,6 +46,9 @@ describe('standalone component graph', () => {
       }).compileComponents();
 
       const fixture = TestBed.createComponent(component);
+      if (component === PageMastheadComponent) {
+        fixture.componentRef.setInput('page', 'about');
+      }
       fixture.detectChanges();
 
       expect(fixture.componentInstance).toBeTruthy();

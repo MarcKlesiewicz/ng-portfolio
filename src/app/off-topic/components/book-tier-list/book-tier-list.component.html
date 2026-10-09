@@ -1,0 +1,22 @@
+<section class="tier-list" aria-label="Book tier list">
+  @for (tier of tiers(); track tier.label) {
+    <article [class]="'tier-row tier-' + tier.label.toLowerCase()">
+      <h2 class="tier-label">{{ tier.label }}</h2>
+
+      <div class="tier-books">
+        @for (book of tier.books; track $index) {
+          <article class="book-card">
+            @if (book.coverUrl) {
+              <img [src]="book.coverUrl" [alt]="book.title + ' book cover'" loading="lazy" decoding="async" />
+            } @else {
+              <span class="book-title">{{ book.title }}</span>
+              @if (book.author) {
+                <span class="book-author">{{ book.author }}</span>
+              }
+            }
+          </article>
+        }
+      </div>
+    </article>
+  }
+</section>

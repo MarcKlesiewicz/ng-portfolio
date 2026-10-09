@@ -17,6 +17,11 @@ export const APP_ROUTES: Routes = [
     title: 'klesiewicz.dev | work',
   },
   {
+    path: 'off-topic',
+    loadComponent: () => import('./off-topic/off-topic.component').then((module) => module.OffTopicComponent),
+    title: 'klesiewicz.dev | off topic',
+  },
+  {
     path: 'work/:slug',
     loadComponent: () =>
       import('./work/work-detail-page/work-detail-page.component').then((module) => module.WorkDetailPageComponent),

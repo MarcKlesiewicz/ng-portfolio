@@ -24,31 +24,19 @@
 }
 
 <nav class="portfolio-index" aria-label="Primary">
-  @if (current() === 'about') {
-    <span class="index-link is-current" aria-current="page">
-      <span class="index-label">About</span>
-      <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">I</span>
-    </span>
-  } @else {
-    <a class="index-link" routerLink="/about">
-      <span class="index-label">About</span>
-      <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">I</span>
-    </a>
-  }
-
-  @if (current() === 'work') {
-    <span class="index-link is-current" aria-current="page">
-      <span class="index-label">Work</span>
-      <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">II</span>
-    </span>
-  } @else {
-    <a class="index-link" routerLink="/work">
-      <span class="index-label">Work</span>
-      <span class="index-leader" aria-hidden="true"></span>
-      <span class="index-number" aria-hidden="true">II</span>
-    </a>
+  @for (page of pages; track page.id) {
+    @if (current() === page.id) {
+      <span class="index-link is-current" aria-current="page">
+        <span class="index-label">{{ page.label }}</span>
+        <span class="index-leader" aria-hidden="true"></span>
+        <span class="index-number" aria-hidden="true">{{ page.index }}</span>
+      </span>
+    } @else {
+      <a class="index-link" [routerLink]="page.route">
+        <span class="index-label">{{ page.label }}</span>
+        <span class="index-leader" aria-hidden="true"></span>
+        <span class="index-number" aria-hidden="true">{{ page.index }}</span>
+      </a>
+    }
   }
 </nav>

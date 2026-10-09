@@ -20,7 +20,6 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "serviceWorker": "ngsw-config.json",
             "outputPath": {
               "base": "dist"
             },
@@ -32,6 +31,7 @@
               "src/apple-touch-icon.png",
               "src/robots.txt",
               "src/manifest.webmanifest",
+              "src/ngsw-worker.js",
               {
                 "glob": "**/*",
                 "input": "public/icons",
@@ -57,7 +57,6 @@
                   "maximumError": "10kb"
                 }
               ],
-              "serviceWorker": "ngsw-config.json",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

@@ -32,9 +32,11 @@ describe('HeroSectionComponent', () => {
     expect(links.map((link) => link.textContent?.replace(/\s+/g, ' ').trim())).toEqual([
       expect.stringMatching(/About.*I/),
       expect.stringMatching(/Work.*II/),
+      expect.stringMatching(/Off topic.*III/),
     ]);
     expect(links[0].getAttribute('href')).toBe('/about');
     expect(links[1].getAttribute('href')).toBe('/work');
+    expect(links[2].getAttribute('href')).toBe('/off-topic');
   });
 
   it('renders the title shadow before the first pointer movement', () => {
