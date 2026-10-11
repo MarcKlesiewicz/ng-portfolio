@@ -2,6 +2,64 @@ import { WorkItem } from '../models/work-item.model';
 
 export const WORK_ITEMS: readonly WorkItem[] = [
   {
+    id: '7',
+    slug: 'image-bingo',
+    name: 'Image Bingo',
+    description: 'A local two-team party game built around your own pictures.',
+    thumbnail: {
+      src: '/assets/images/image-bingo/round-gameplay.png',
+      alt: 'Image Bingo round with a numbered grid over a landscape photograph',
+    },
+    technologies: ['Angular', 'TypeScript', 'SCSS', 'Angular CDK'],
+    category: 'Side quest',
+    year: 2026,
+    liveUrl: 'https://github.com/MarcKlesiewicz/Image-Bingo',
+    contribution:
+      'I designed and built the browser-based game, from deck setup and grid editing to scoring and results.',
+    outcome:
+      'The finished game runs entirely in the browser, keeping players’ images private and requiring no account or server.',
+    story: [
+      {
+        kind: 'paragraph',
+        text: 'Image Bingo is a local party game for two teams. A game master builds a deck from personal pictures, places a numbered 10 × 10 grid over each image and marks the cells that should score.',
+      },
+      {
+        kind: 'media',
+        media: {
+          src: '/assets/images/image-bingo/game-setup.png',
+          alt: 'Image Bingo setup screen for arranging rounds and marking winning cells',
+        },
+      },
+      {
+        kind: 'paragraph',
+        text: 'During each round, the teams take turns choosing cells before both sets of guesses are locked. A timed reveal uncovers the picture, scores every correct cell and carries the match into the next round.',
+      },
+      {
+        kind: 'features',
+        items: [
+          'Multi-image decks with a separate movable and resizable grid for every round',
+          'Configurable team names and guesses per team',
+          'Alternating turns, locked guesses and a timed image reveal',
+          'Per-cell scoring with hits, misses and unguessed answers',
+          'Keyboard-accessible grid and deck controls',
+          'Replay using the same deck and game configuration',
+        ],
+      },
+      {
+        kind: 'media',
+        media: {
+          src: '/assets/images/image-bingo/final-results.png',
+          alt: 'Image Bingo results screen showing the final score and round recap',
+        },
+      },
+      {
+        kind: 'callout',
+        title: 'Private by design',
+        text: 'Pictures remain in the current browser session as temporary object URLs. Nothing is uploaded, and the game needs no backend or account.',
+      },
+    ],
+  },
+  {
     id: '6',
     slug: 'dashtab',
     name: 'Dashtab',
