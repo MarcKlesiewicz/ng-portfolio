@@ -10,6 +10,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
       src: '/assets/images/image-bingo/round-gameplay.png',
       alt: 'Image Bingo round with a numbered grid over a landscape photograph',
     },
+    logo: { src: '/assets/images/image-bingo/favicon.svg', alt: 'Image Bingo logo' },
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Angular CDK'],
     category: 'Side quest',
     year: 2026,
