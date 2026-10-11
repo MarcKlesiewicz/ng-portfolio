@@ -101,6 +101,19 @@ describe('WorkDetailPageComponent', () => {
     );
   });
 
+  it('renders Image Bingo with its local-first story and repository link', () => {
+    const element = renderDetail('image-bingo');
+    const features = Array.from(element.querySelectorAll('.story-features li')).map((item) => item.textContent?.trim());
+
+    expect(element.querySelector('h1')?.textContent).toContain('Image Bingo');
+    expect(features).toHaveLength(6);
+    expect(element.querySelector('.story-callout')?.textContent).toContain('Private by design');
+    expect(element.querySelectorAll('.story-media img')).toHaveLength(2);
+    expect(element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]')?.href).toBe(
+      'https://github.com/MarcKlesiewicz/Image-Bingo',
+    );
+  });
+
   it('uses Font Awesome markers for technologies instead of Unicode symbols', () => {
     const element = renderDetail('myepi');
     const technology = element.querySelector('.technology-list li');
