@@ -4,6 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrbitMarkComponent } from '@app/shared/components/orbit-mark/orbit-mark.component';
 import { PortfolioIndexComponent } from '@app/shared/components/portfolio-index/portfolio-index.component';
+import { ImageLightboxDirective } from '@app/shared/directives/image-lightbox.directive';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faArrowLeft, faArrowRight, faArrowUpRightFromSquare, faDiamond } from '@fortawesome/free-solid-svg-icons';
 import { map } from 'rxjs';
@@ -13,7 +14,7 @@ import { getWorkBySlug } from '../data/work-items';
   selector: 'app-work-detail-page',
   templateUrl: './work-detail-page.component.html',
   styleUrl: './work-detail-page.component.scss',
-  imports: [OrbitMarkComponent, PortfolioIndexComponent, FaIconComponent],
+  imports: [OrbitMarkComponent, PortfolioIndexComponent, ImageLightboxDirective, FaIconComponent],
 })
 export class WorkDetailPageComponent {
   private readonly route = inject(ActivatedRoute);

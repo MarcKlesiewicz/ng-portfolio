@@ -14,7 +14,7 @@
         <p class="work-detail-description">{{ item.description }}</p>
 
         <figure class="work-detail-hero">
-          <img [src]="item.thumbnail.src" [alt]="item.thumbnail.alt" />
+          <img appImageLightbox [src]="item.thumbnail.src" [alt]="item.thumbnail.alt" />
         </figure>
       </header>
 
@@ -52,7 +52,7 @@
             }
             @case ('media') {
               <figure class="story-media">
-                <img [src]="block.media.src" [alt]="block.media.alt" loading="lazy" />
+                <img appImageLightbox [src]="block.media.src" [alt]="block.media.alt" loading="lazy" />
               </figure>
             }
             @case ('callout') {

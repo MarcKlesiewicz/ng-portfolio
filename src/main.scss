@@ -5,3 +5,173 @@
 
 @use "styles/theme-variables";
 @use "styles/keyframes";
+
+.image-lightbox-open {
+  overflow: hidden;
+}
+
+.image-lightbox-trigger {
+  cursor: zoom-in;
+  transition:
+    filter 180ms ease,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-lightbox-trigger:hover {
+  filter: brightness(1.04) saturate(1.04);
+  transform: scale(1.008);
+}
+
+.image-lightbox-trigger:focus-visible {
+  outline: 0.2rem solid color-mix(in srgb, var(--tertiary-color) 75%, var(--on-primary-color));
+  outline-offset: 0.35rem;
+}
+
+.image-lightbox {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.5rem, 5vw, 5rem);
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  transition:
+    opacity 220ms ease,
+    display 220ms allow-discrete,
+    overlay 220ms allow-discrete;
+}
+
+.image-lightbox[open] {
+  display: grid;
+  opacity: 1;
+  place-items: center;
+}
+
+.image-lightbox::backdrop {
+  background: rgb(5 0 36 / 0%);
+  backdrop-filter: blur(0) saturate(1);
+  transition:
+    background 220ms ease,
+    backdrop-filter 320ms ease,
+    display 220ms allow-discrete,
+    overlay 220ms allow-discrete;
+}
+
+.image-lightbox[open]::backdrop {
+  background: rgb(5 0 36 / 88%);
+  backdrop-filter: blur(1.2rem) saturate(0.75);
+}
+
+.image-lightbox img {
+  display: block;
+  width: auto;
+  max-width: min(100%, 96rem);
+  height: auto;
+  max-height: calc(100dvh - clamp(9rem, 16vw, 14rem));
+  padding: clamp(0.35rem, 0.65vw, 0.65rem);
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 72%, transparent);
+  background: color-mix(in srgb, var(--primary-color) 88%, var(--on-primary-color));
+  object-fit: contain;
+  opacity: 0;
+  box-shadow:
+    0.7rem 0.8rem 0 color-mix(in srgb, var(--tertiary-color) 82%, transparent),
+    0 2rem 7rem rgb(0 0 0 / 58%);
+  transform: translateY(1rem) scale(0.96);
+  transition:
+    opacity 180ms ease,
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  clip-path: polygon(1rem 0, 100% 0, 100% calc(100% - 1rem), calc(100% - 1rem) 100%, 0 100%, 0 1rem);
+}
+
+.image-lightbox[open] img {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.image-lightbox-close {
+  position: fixed;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  display: grid;
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 0 0 0.16rem;
+  border: 1px solid color-mix(in srgb, var(--on-primary-color) 38%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary-color) 72%, transparent);
+  color: var(--on-primary-color);
+  cursor: pointer;
+  font-family: var(--font-editorial);
+  font-size: 2.3rem;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0;
+  place-items: center;
+  transform: scale(0.8) rotate(-30deg);
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    opacity 180ms 100ms ease,
+    transform 360ms 80ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-lightbox[open] .image-lightbox-close {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+.image-lightbox-close:hover,
+.image-lightbox-close:focus-visible {
+  border-color: color-mix(in srgb, var(--on-primary-color) 72%, transparent);
+  background: var(--on-primary-color);
+  color: var(--primary-color);
+  transform: scale(1.06) rotate(90deg);
+}
+
+.image-lightbox-close:focus-visible {
+  outline: 0.15rem solid var(--secondary-color);
+  outline-offset: 0.3rem;
+}
+
+@starting-style {
+  .image-lightbox[open] {
+    opacity: 0;
+  }
+
+  .image-lightbox[open]::backdrop {
+    background: rgb(5 0 36 / 0%);
+    backdrop-filter: blur(0) saturate(1);
+  }
+
+  .image-lightbox[open] img {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.96);
+  }
+
+  .image-lightbox[open] .image-lightbox-close {
+    opacity: 0;
+    transform: scale(0.8) rotate(-30deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-lightbox-trigger,
+  .image-lightbox,
+  .image-lightbox::backdrop,
+  .image-lightbox img,
+  .image-lightbox-close {
+    transition: none;
+  }
+
+  .image-lightbox-trigger:hover,
+  .image-lightbox[open] img,
+  .image-lightbox[open] .image-lightbox-close,
+  .image-lightbox-close:hover,
+  .image-lightbox-close:focus-visible {
+    transform: none;
+  }
+}
