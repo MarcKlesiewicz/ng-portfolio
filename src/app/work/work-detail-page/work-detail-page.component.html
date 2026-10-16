@@ -3,7 +3,7 @@
 
   @if (work(); as item) {
     <article class="work-detail">
-      <a class="back-link" routerLink="/work">
+      <a class="back-link" href="/work" (click)="returnToWork($event)">
         <fa-icon class="back-link-icon" [icon]="faArrowLeft" aria-hidden="true"></fa-icon>
         <span>Back to all work</span>
       </a>
@@ -78,7 +78,7 @@
             <fa-icon class="action-icon" [icon]="faArrowUpRightFromSquare" aria-hidden="true"></fa-icon>
           </a>
         }
-        <a routerLink="/work">
+        <a href="/work" (click)="returnToWork($event)">
           Return to all work
           <fa-icon class="action-icon" [icon]="faArrowRight" aria-hidden="true"></fa-icon>
         </a>
@@ -88,7 +88,7 @@
     <section class="work-not-found" aria-labelledby="work-not-found-title">
       <p>Work not found</p>
       <h1 id="work-not-found-title">That case study has wandered off.</h1>
-      <a routerLink="/work">
+      <a href="/work" (click)="returnToWork($event)">
         Return to all work
         <fa-icon class="action-icon" [icon]="faArrowRight" aria-hidden="true"></fa-icon>
       </a>

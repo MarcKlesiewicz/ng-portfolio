@@ -14,7 +14,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Angular CDK'],
     category: 'Side quest',
     year: 2026,
-    liveUrl: 'https://github.com/MarcKlesiewicz/Image-Bingo',
+    liveUrl: 'https://image-bingo.klesiewicz.dev',
     contribution:
       'I designed and built the browser-based game, from deck setup and grid editing to scoring and results.',
     outcome:
