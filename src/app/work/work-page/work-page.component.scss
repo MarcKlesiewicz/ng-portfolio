@@ -22,31 +22,6 @@
   pointer-events: none;
 }
 
-.work-page::before,
-.work-page::after {
-  position: absolute;
-  z-index: -1;
-  width: min(38vw, 34rem);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--tertiary-color) 65%, transparent);
-  border-radius: 52% 48% 43% 57%;
-  content: "";
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.work-page::before {
-  top: 30rem;
-  right: max(-21rem, -19vw);
-  transform: rotate(18deg);
-}
-
-.work-page::after {
-  bottom: 32rem;
-  left: max(-22rem, -20vw);
-  transform: rotate(-25deg);
-}
-
 .work-content {
   width: min(100%, 39rem);
   margin: clamp(4rem, 9vw, 6.5rem) auto 0;
