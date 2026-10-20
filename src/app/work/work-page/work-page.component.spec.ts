@@ -23,7 +23,7 @@ describe('WorkPageComponent', () => {
     const cards = fixture.nativeElement.querySelectorAll('app-work-card');
 
     expect(cards.length).toBe(component.workItems.length);
-    expect(cards.length).toBe(7);
+    expect(cards.length).toBe(8);
   });
 
   it('renders the editorial work masthead and page navigation', () => {

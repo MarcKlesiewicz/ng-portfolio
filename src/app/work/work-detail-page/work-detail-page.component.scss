@@ -256,7 +256,7 @@
 .story-features li::before {
   color: var(--tertiary-color);
   font-family: var(--font-label);
-  font-size: 0.65rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   content: counter(feature, decimal-leading-zero);

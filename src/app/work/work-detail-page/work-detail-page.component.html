@@ -3,18 +3,18 @@
 
   @if (work(); as item) {
     <article class="work-detail">
-      <a class="back-link" routerLink="/work">
+      <a class="back-link" href="/work" (click)="returnToWork($event)">
         <fa-icon class="back-link-icon" [icon]="faArrowLeft" aria-hidden="true"></fa-icon>
         <span>Back to all work</span>
       </a>
 
       <header class="work-detail-header">
-        <p class="work-detail-meta">{{ item.category }} · {{ item.year }}</p>
+        <p class="work-detail-meta">{{ item.category }} · {{ item.period ?? item.year }}</p>
         <h1>{{ item.name }}</h1>
         <p class="work-detail-description">{{ item.description }}</p>
 
         <figure class="work-detail-hero">
-          <img [src]="item.thumbnail.src" [alt]="item.thumbnail.alt" />
+          <img appImageLightbox [src]="item.thumbnail.src" [alt]="item.thumbnail.alt" />
         </figure>
       </header>
 
@@ -42,7 +42,7 @@
             }
             @case ('features') {
               <section class="story-features">
-                <h2>Notable features</h2>
+                <h2>{{ block.title ?? 'Notable features' }}</h2>
                 <ul>
                   @for (listItem of block.items; track listItem) {
                     <li>{{ listItem }}</li>
@@ -52,7 +52,7 @@
             }
             @case ('media') {
               <figure class="story-media">
-                <img [src]="block.media.src" [alt]="block.media.alt" loading="lazy" />
+                <img appImageLightbox [src]="block.media.src" [alt]="block.media.alt" loading="lazy" />
               </figure>
             }
             @case ('callout') {
@@ -78,7 +78,7 @@
             <fa-icon class="action-icon" [icon]="faArrowUpRightFromSquare" aria-hidden="true"></fa-icon>
           </a>
         }
-        <a routerLink="/work">
+        <a href="/work" (click)="returnToWork($event)">
           Return to all work
           <fa-icon class="action-icon" [icon]="faArrowRight" aria-hidden="true"></fa-icon>
         </a>
@@ -88,7 +88,7 @@
     <section class="work-not-found" aria-labelledby="work-not-found-title">
       <p>Work not found</p>
       <h1 id="work-not-found-title">That case study has wandered off.</h1>
-      <a routerLink="/work">
+      <a href="/work" (click)="returnToWork($event)">
         Return to all work
         <fa-icon class="action-icon" [icon]="faArrowRight" aria-hidden="true"></fa-icon>
       </a>
