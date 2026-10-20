@@ -1,4 +1,4 @@
-export type WorkCategory = 'Client work' | 'Side quest';
+export type WorkCategory = 'Client work' | 'Professional work' | 'Side quest';
 
 export interface WorkMedia {
   readonly src: string;
@@ -8,7 +8,7 @@ export interface WorkMedia {
 export type WorkStoryBlock =
   | { readonly kind: 'heading'; readonly text: string }
   | { readonly kind: 'paragraph'; readonly text: string }
-  | { readonly kind: 'features'; readonly items: readonly string[] }
+  | { readonly kind: 'features'; readonly title?: string; readonly items: readonly string[] }
   | { readonly kind: 'media'; readonly media: WorkMedia }
   | { readonly kind: 'callout'; readonly title: string; readonly text: string };
 
@@ -22,6 +22,7 @@ interface WorkItemBase {
   readonly technologies: readonly string[];
   readonly category: WorkCategory;
   readonly year: number;
+  readonly period?: string;
   readonly liveUrl?: string;
   readonly story: readonly WorkStoryBlock[];
 }

@@ -140,6 +140,23 @@ describe('WorkDetailPageComponent', () => {
     );
   });
 
+  it('presents Autocom as a long-form professional case study', () => {
+    const element = renderDetail('autocom');
+    const sectionHeadings = Array.from(element.querySelectorAll('.work-story h2')).map((heading) =>
+      heading.textContent?.trim(),
+    );
+
+    expect(element.querySelector('.work-detail-meta')?.textContent).toContain('2023–present');
+    expect(element.textContent).toContain('features used across multiple European marketplaces');
+    expect(sectionHeadings).toContain('The buying journey');
+    expect(sectionHeadings).toContain('Marketplace tooling');
+    expect(sectionHeadings).toContain('Engineering foundations');
+    expect(element.querySelectorAll('.story-media img')).toHaveLength(2);
+    expect(element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]')?.href).toBe(
+      'https://m.autocom.dk/',
+    );
+  });
+
   it('uses Font Awesome markers for technologies instead of Unicode symbols', () => {
     const element = renderDetail('myepi');
     const technology = element.querySelector('.technology-list li');

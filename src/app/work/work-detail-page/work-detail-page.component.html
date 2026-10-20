@@ -9,7 +9,7 @@
       </a>
 
       <header class="work-detail-header">
-        <p class="work-detail-meta">{{ item.category }} · {{ item.year }}</p>
+        <p class="work-detail-meta">{{ item.category }} · {{ item.period ?? item.year }}</p>
         <h1>{{ item.name }}</h1>
         <p class="work-detail-description">{{ item.description }}</p>
 
@@ -42,7 +42,7 @@
             }
             @case ('features') {
               <section class="story-features">
-                <h2>Notable features</h2>
+                <h2>{{ block.title ?? 'Notable features' }}</h2>
                 <ul>
                   @for (listItem of block.items; track listItem) {
                     <li>{{ listItem }}</li>

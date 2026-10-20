@@ -11,7 +11,7 @@
 
     <div class="work-copy">
       <div class="work-meta">
-        <time [attr.datetime]="item.year">{{ item.year }}</time>
+        <time [attr.datetime]="item.year">{{ item.period ?? item.year }}</time>
         <span>{{ item.category }}</span>
       </div>
 

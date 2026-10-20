@@ -16,7 +16,7 @@ export class ResumeTimelineComponent {
       endDate: 'Present',
       description:
         'Building and evolving Autorola Marketplace with Angular, TypeScript and RxJS—from refinement and code review through delivery.',
-      logo: 'assets/images/autorola_logo.jpg',
+      logo: 'assets/images/autocom/autocom-logo.png',
     },
     {
       name: 'Little Giants',
