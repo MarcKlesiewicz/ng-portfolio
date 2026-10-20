@@ -1,12 +1,17 @@
 @if (work(); as item) {
-  <a class="work-card" [class.work-card--reverse]="reverse()" [routerLink]="['/work', item.slug]">
+  <a
+    class="work-card"
+    [class.work-card--reverse]="reverse()"
+    [routerLink]="['/work', item.slug]"
+    [state]="{ fromWorkList: true }"
+  >
     <figure class="work-visual">
       <img class="work-thumbnail" [src]="item.thumbnail.src" [alt]="item.thumbnail.alt" loading="lazy" />
     </figure>
 
     <div class="work-copy">
       <div class="work-meta">
-        <time [attr.datetime]="item.year">{{ item.year }}</time>
+        <time [attr.datetime]="item.year">{{ item.period ?? item.year }}</time>
         <span>{{ item.category }}</span>
       </div>
 

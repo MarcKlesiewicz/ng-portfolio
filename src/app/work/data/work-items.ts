@@ -2,6 +2,105 @@ import { WorkItem } from '../models/work-item.model';
 
 export const WORK_ITEMS: readonly WorkItem[] = [
   {
+    id: '8',
+    slug: 'autocom',
+    name: 'Autocom',
+    description:
+      'A dealer-focused vehicle auction platform that also lets private owners sell their cars, which I have helped shape, scale and modernise since 2023.',
+    thumbnail: {
+      src: '/assets/images/autocom/autocom-home.png',
+      alt: 'Autocom marketplace home page with vehicle search and live auction listings',
+    },
+    logo: { src: '/assets/images/autocom/autocom-logo.png', alt: 'Autocom logo' },
+    technologies: ['Angular', 'TypeScript', 'Nx', 'RxJS', 'Signals', 'JSON Forms'],
+    category: 'Professional work',
+    year: 2023,
+    period: '2023–present',
+    liveUrl: 'https://m.autocom.dk/',
+    contribution:
+      'I work across the frontend, from dealer-facing search and live bidding to onboarding, content management and the architecture behind multiple branded marketplaces.',
+    outcome:
+      'I have helped make a long-lived application more scalable, observable and consistent while continuing to deliver features used across multiple European marketplaces.',
+    story: [
+      {
+        kind: 'paragraph',
+        text: 'I joined Autorola in October 2023 to work on Autocom, the dealer-facing side of its European vehicle remarketing business. Leasing companies, manufacturers, fleet owners and private sellers bring used vehicles to the platform. Professional dealers use it to find stock, follow auctions, bid and manage what happens after a sale.',
+      },
+      {
+        kind: 'callout',
+        title: 'One product, many marketplaces',
+        text: 'The same frontend also powers white-labelled partner marketplaces and an embedded vehicle experience in Autorola’s established desktop product. Every feature has to work across markets, brands and different ways of buying.',
+      },
+      { kind: 'heading', text: 'The buying journey' },
+      {
+        kind: 'paragraph',
+        text: 'My first product work centred on the path dealers use every day. I have built and refined the experience from the first search through the live auction and into the practical work that follows a purchase.',
+      },
+      {
+        kind: 'media',
+        media: {
+          src: '/assets/images/autocom/autocom-vehicle-list.png',
+          alt: 'Autocom vehicle results with detailed filters and live auction information',
+        },
+      },
+      {
+        kind: 'features',
+        title: 'Product work',
+        items: [
+          'Live and tender bidding with real-time price updates and bid feedback over Lightstreamer',
+          'Vehicle search, active filters, saved searches and email-based search agents',
+          'Favourites, auction lists and detailed vehicle, damage and specification views',
+          'Multi-step dealer onboarding with uploads, country-specific fields and access guards',
+          'Account, employee and document management for approved dealers',
+          'Trades, claims and stock-locator workflows after the auction',
+        ],
+      },
+      {
+        kind: 'media',
+        media: {
+          src: '/assets/images/autocom/autocom-vehicle-detail.png',
+          alt: 'Autocom vehicle detail page with auction price, gallery and vehicle specifications',
+        },
+      },
+      { kind: 'heading', text: 'Marketplace operations' },
+      {
+        kind: 'paragraph',
+        text: 'A marketplace also needs to be operated. I have built admin tools that let business teams change navigation, publish pages and brand a partner site without waiting for a developer. The largest of these is a section-based page editor with inline rich text and form-driven widget configuration.',
+      },
+      {
+        kind: 'features',
+        title: 'Marketplace tooling',
+        items: [
+          'Menu, link and page management for each marketplace',
+          'Composable page sections configured with JSON Forms and edited with Froala',
+          'Flexible page composition with section reordering, scheduled publishing and unsaved-change safeguards',
+          'Conflict handling that prevents editors from overwriting each other’s work',
+          'A theme editor with live preview for white-label colours, logos and access rules',
+        ],
+      },
+      { kind: 'heading', text: 'Built to evolve' },
+      {
+        kind: 'paragraph',
+        text: 'Much of my contribution happens below the visible product. Autocom has to keep shipping while its foundations evolve, so I have worked with the team to break large migrations into changes that can be reviewed and released safely.',
+      },
+      {
+        kind: 'features',
+        title: 'Engineering foundations',
+        items: [
+          'Restructured the application as an Nx monorepo with enforced layers and about 20 feature domains',
+          'Untangled circular dependencies and split oversized helpers into smaller tested units',
+          'Adopted standalone components, signals, typed forms and Angular TestBed across the codebase',
+          'Added Sentry reporting, safer network handling, pipeline updates and local API mocks',
+        ],
+      },
+      {
+        kind: 'callout',
+        title: 'What three years changed',
+        text: 'Autocom taught me how to own a product over time: balancing immediate dealer needs with the quieter architectural work that keeps the next feature affordable. It is the project where I learned to make large changes through small, reviewable steps.',
+      },
+    ],
+  },
+  {
     id: '7',
     slug: 'image-bingo',
     name: 'Image Bingo',
@@ -14,7 +113,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     technologies: ['Angular', 'TypeScript', 'SCSS', 'Angular CDK'],
     category: 'Side quest',
     year: 2026,
-    liveUrl: 'https://github.com/MarcKlesiewicz/Image-Bingo',
+    liveUrl: 'https://image-bingo.klesiewicz.dev',
     contribution:
       'I designed and built the browser-based game, from deck setup and grid editing to scoring and results.',
     outcome:
@@ -106,7 +205,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     thumbnail: { src: '/assets/images/monto/monto_phones.png', alt: 'Monto mobile application screens' },
     logo: { src: '/assets/images/monto/monto_logo.jpg', alt: 'Monto logo' },
     technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL'],
-    category: 'Client work',
+    category: 'Professional work',
     year: 2022,
     liveUrl: 'https://monto-rent.com',
     contribution: 'I implemented large and small parts of the Flutter frontend and later led work on its web version.',
@@ -151,7 +250,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     thumbnail: { src: '/assets/images/und/und_phones.png', alt: "Up N' Down application screens" },
     logo: { src: '/assets/images/und/und_logo.jpg', alt: "Up N' Down logo" },
     technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL'],
-    category: 'Client work',
+    category: 'Professional work',
     year: 2022,
     liveUrl: 'https://upndown.dk',
     contribution: 'I implemented the supplied design against an existing GraphQL backend.',
@@ -192,7 +291,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     thumbnail: { src: '/assets/images/myepi/epi_home.jpg', alt: 'MyEpi mobile application home screen' },
     logo: { src: '/assets/images/myepi/epi_logo.jpg', alt: 'MyEpi logo' },
     technologies: ['Flutter', 'Dart', 'Riverpod', 'Firebase'],
-    category: 'Client work',
+    category: 'Professional work',
     year: 2023,
     liveUrl: 'https://www.myepi.dk/',
     contribution: 'I refined the interface, implemented periodic PDF generation and restructured state management.',
@@ -240,7 +339,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     thumbnail: { src: '/assets/images/selvhent/selvhent_customer.jpg', alt: 'Selvhent customer kiosk' },
     logo: { src: '/assets/images/selvhent/selvhent_logo.jpg', alt: 'Selvhent logo' },
     technologies: ['Flutter', 'Dart', 'Riverpod', 'MongoDB', 'GraphQL'],
-    category: 'Client work',
+    category: 'Professional work',
     year: 2022,
     liveUrl: 'https://selvhent.com/',
     contribution: 'I implemented the web administration application and pickup-request handling in the warehouse unit.',
@@ -280,7 +379,7 @@ export const WORK_ITEMS: readonly WorkItem[] = [
     thumbnail: { src: '/assets/images/mealbuilder/mealbuilder_screens.jpg', alt: 'Mealbuilder application screens' },
     logo: { src: '/assets/images/mealbuilder/mealbuilder_logo.jpg', alt: 'Mealbuilder logo' },
     technologies: ['Flutter', 'Dart', 'Swagger', 'Material Design'],
-    category: 'Client work',
+    category: 'Professional work',
     year: 2023,
     story: [
       {

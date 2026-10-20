@@ -1,6 +1,7 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { Location } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/router';
+import { ActivatedRoute, convertToParamMap, provideRouter, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 import { WorkDetailPageComponent } from './work-detail-page.component';
@@ -8,14 +9,20 @@ import { WorkDetailPageComponent } from './work-detail-page.component';
 describe('WorkDetailPageComponent', () => {
   let fixture: ComponentFixture<WorkDetailPageComponent>;
   let paramMap: BehaviorSubject<ReturnType<typeof convertToParamMap>>;
+  let location: Location;
+  let router: Router;
 
   beforeEach(async () => {
+    history.replaceState({}, '');
     paramMap = new BehaviorSubject(convertToParamMap({ slug: 'monto' }));
 
     await TestBed.configureTestingModule({
       imports: [WorkDetailPageComponent],
       providers: [provideRouter([]), { provide: ActivatedRoute, useValue: { paramMap } }],
     }).compileComponents();
+
+    location = TestBed.inject(Location);
+    router = TestBed.inject(Router);
   });
 
   function renderDetail(slug: string): HTMLElement {
@@ -34,6 +41,25 @@ describe('WorkDetailPageComponent', () => {
     expect(backLink?.getAttribute('href')).toBe('/work');
     expect(backLink?.textContent).toContain('Back to all work');
     expect(backLink?.querySelector('fa-icon[aria-hidden="true"] svg[data-icon="arrow-left"]')).toBeTruthy();
+  });
+
+  it('returns through browser history when opened from the work list', () => {
+    history.replaceState({ fromWorkList: true }, '');
+    const element = renderDetail('monto');
+    const back = vi.spyOn(location, 'back').mockImplementation(() => undefined);
+
+    element.querySelector<HTMLAnchorElement>('.back-link')?.click();
+
+    expect(back).toHaveBeenCalledOnce();
+  });
+
+  it('routes to the work list when the detail page was opened directly', () => {
+    const element = renderDetail('monto');
+    const navigate = vi.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+
+    element.querySelector<HTMLAnchorElement>('.back-link')?.click();
+
+    expect(navigate).toHaveBeenCalledWith('/work');
   });
 
   it('uses the same staggered entry animation as the editorial pages', () => {
@@ -101,7 +127,7 @@ describe('WorkDetailPageComponent', () => {
     );
   });
 
-  it('renders Image Bingo with its local-first story and repository link', () => {
+  it('renders Image Bingo with its local-first story and live application link', () => {
     const element = renderDetail('image-bingo');
     const features = Array.from(element.querySelectorAll('.story-features li')).map((item) => item.textContent?.trim());
 
@@ -110,7 +136,24 @@ describe('WorkDetailPageComponent', () => {
     expect(element.querySelector('.story-callout')?.textContent).toContain('Private by design');
     expect(element.querySelectorAll('.story-media img')).toHaveLength(2);
     expect(element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]')?.href).toBe(
-      'https://github.com/MarcKlesiewicz/Image-Bingo',
+      'https://image-bingo.klesiewicz.dev/',
+    );
+  });
+
+  it('presents Autocom as a long-form professional case study', () => {
+    const element = renderDetail('autocom');
+    const sectionHeadings = Array.from(element.querySelectorAll('.work-story h2')).map((heading) =>
+      heading.textContent?.trim(),
+    );
+
+    expect(element.querySelector('.work-detail-meta')?.textContent).toContain('2023–present');
+    expect(element.textContent).toContain('features used across multiple European marketplaces');
+    expect(sectionHeadings).toContain('The buying journey');
+    expect(sectionHeadings).toContain('Marketplace tooling');
+    expect(sectionHeadings).toContain('Engineering foundations');
+    expect(element.querySelectorAll('.story-media img')).toHaveLength(2);
+    expect(element.querySelector<HTMLAnchorElement>('.work-detail-actions a[target="_blank"]')?.href).toBe(
+      'https://m.autocom.dk/',
     );
   });
 

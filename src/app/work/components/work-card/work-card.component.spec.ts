@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { By } from '@angular/platform-browser';
+import { provideRouter, RouterLink } from '@angular/router';
 
 import { WorkCardComponent } from './work-card.component';
 import { WorkItem } from '../../models/work-item.model';
@@ -30,6 +31,9 @@ describe('WorkCardComponent', () => {
     expect(fixture.nativeElement.querySelector('.card-title').textContent.trim()).toBe('Signal input');
     expect(fixture.nativeElement.textContent).toContain('Angular');
     expect(fixture.nativeElement.querySelector('a').getAttribute('href')).toBe('/work/signal-input');
+    expect(fixture.debugElement.query(By.directive(RouterLink)).injector.get(RouterLink).state).toEqual({
+      fromWorkList: true,
+    });
     expect(fixture.nativeElement.querySelector('.technology-list li').textContent.trim()).toBe('Angular');
     expect(
       fixture.nativeElement.querySelector('.technology-list fa-icon[aria-hidden="true"] svg[data-icon="diamond"]'),

@@ -34,6 +34,15 @@ html {
   font-size: 75%;
 }
 
+// Let the rem-based layout breathe on wide desktop displays. Because the page
+// widths, type, spacing, and controls share the same scale, their proportions
+// and readable line lengths stay intact as the viewport grows.
+@media (width >= 1728px) {
+  html {
+    font-size: clamp(81.25%, 0.75vw, 100%);
+  }
+}
+
 :root {
   --primary-color: #050024;
   --on-primary-color: #ece4dc;
