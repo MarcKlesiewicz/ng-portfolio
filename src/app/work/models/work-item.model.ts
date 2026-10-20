@@ -1,4 +1,4 @@
-export type WorkCategory = 'Client work' | 'Professional work' | 'Side quest';
+export type WorkCategory = 'Professional work' | 'Side quest';
 
 export interface WorkMedia {
   readonly src: string;
